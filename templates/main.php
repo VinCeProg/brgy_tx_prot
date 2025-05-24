@@ -12,8 +12,9 @@
 <body>
   <?php require("partials/navbar.php") ?>
   <?php require("partials/header.php") ?>
-
-  <?php require("partials/login-register.php") ?>
+  <main>
+    <?php require("partials/login-register.php") ?>
+  </main>
   <?php require("partials/footer.php") ?>
 </body>
 

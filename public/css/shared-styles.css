@@ -34,13 +34,13 @@ header {
 
 .title img {
   width: 48px;
-  box-shadow: 0 0 0 4px white, 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 0 0 4px white, 0 2px 8px rgba(0, 0, 0, 0.15);
   border-radius: 50rem;
   background: white;
 }
 
 .title {
-  width : clamp(320px, 30%, 90%);
+  width: clamp(320px, 30%, 90%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,6 +99,50 @@ li {
 
 #burger-toggle {
   display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+main {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-cont {
+  width: clamp(400px, 20%, 80%);
+  background-color: var(--background-color);
+  margin: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.form-cont img {
+  width: 80px;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 90%;
+  height: 2rem;
+  padding: 8px;
+  font-size: 1em;
+}
+
+.form-btn {
+  margin: 12px;
+  padding: 4px 8px;
 }
 
 @media screen and (max-width: 600px) {
