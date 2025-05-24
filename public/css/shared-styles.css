@@ -18,9 +18,9 @@
 body {
   height: 100vh;
   background-color: var(--background-color);
-  /* background-image: url('../images/brgy-bg.jpg');
+  background-image: url('../images/brgy-bg.jpg');
   background-size: cover;
-  background-position: bottom; */
+  background-position: bottom;
 }
 
 header {
@@ -43,6 +43,7 @@ header {
   width : clamp(320px, 30%, 90%);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .title-text {
@@ -53,21 +54,38 @@ header {
 
 .login-btn {
   background-color: #D72F2F;
+  margin: 0 24px;
   padding: 8px;
   color: white;
   border-radius: 8px;
   text-decoration: none;
 }
 
+
+nav {
+  height: 6vh;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 ul {
+  width: 70%;
+  margin: 0 24px;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 80px;
+}
+
+li {
+  margin: 0 24px;
 }
 
 .links {
+  color: var(--background-color);
+  font-weight: 600;
   text-decoration: none;
   color: var(--text-color);
 }
@@ -77,4 +95,69 @@ ul {
   background-color: var(--primary-color);
   color: var(--background-color);
   font-weight: bold;
+}
+
+#burger-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    height: auto;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .title {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .title img {
+    width: 40px;
+    margin-right: 8px;
+  }
+
+  .title-text {
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    margin: 16px;
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 12px;
+  }
+
+  ul {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 8px;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  li {
+    margin: 8px 0;
+  }
+
+  .clock {
+    text-align: center;
+    font-size: 1rem;
+    padding: 4px 8px;
+    margin-top: 8px;
+  }
+
+  #burger-toggle {
+    display: block;
+  }
 }

@@ -6,5 +6,18 @@
       <p>Barangay PUP, Sta. Mesa, Manila</p>
     </div>
   </div>
-  <a href="#" class="login-btn">Login/Sign-Up</a>
+  <button id="burger-toggle" aria-label="Toggle menu">&#9776;</button>
 </header>
+
+<script>
+  const menu_toggle = document.getElementById("burger-toggle");
+  const navbar = document.querySelector("nav");
+
+  menu_toggle.addEventListener("click", () => {
+    if (navbar.style.display === "none" || navbar.style.display === "") {
+      navbar.style.display = "block";
+    } else {
+      navbar.style.display = "none";
+    }
+  });
+</script>
