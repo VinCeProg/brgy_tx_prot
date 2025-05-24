@@ -18,11 +18,14 @@
 body {
   height: 100vh;
   background-color: var(--background-color);
+  /* background-image: url('../images/brgy-bg.jpg');
+  background-size: cover;
+  background-position: bottom; */
 }
 
 header {
   background-color: #004080;
-  height: 80px;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,7 +40,7 @@ header {
 }
 
 .title {
-  width : 50%;
+  width : clamp(320px, 30%, 90%);
   display: flex;
   align-items: center;
 }
@@ -70,3 +73,8 @@ ul {
 }
 
 
+.clock {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: bold;
+}
