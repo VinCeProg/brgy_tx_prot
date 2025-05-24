@@ -13,7 +13,6 @@
   <?php require("partials/header.php") ?>
   <?php require("partials/navbar.php") ?>
   <?php require("partials/footer.php") ?>
-  <script src="public/js/clock.js"></script>
 </body>
 
 </html>
