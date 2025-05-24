@@ -90,11 +90,19 @@ li {
   color: var(--text-color);
 }
 
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 
 .clock {
+  width: 100%;
   background-color: var(--primary-color);
   color: var(--background-color);
-  font-weight: bold;
+  font-weight: 600;
+  text-align: center;
 }
 
 #burger-toggle {
