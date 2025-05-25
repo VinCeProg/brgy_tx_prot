@@ -11,11 +11,11 @@ $resident = new Resident($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = [
-    'first_name' => $_POST['firstname'],
-    'last_name' => $_POST['lastname'],
-    'address' => $_POST['address'],
-    'email' => $_POST['email'],
-    'phone_no' => $_POST['phone'],
+    'first_name' => cleanInput($_POST['firstname']),
+    'last_name' => cleanInput($_POST['lastname']),
+    'address' => cleanInput($_POST['address']),
+    'email' => cleanInput($_POST['email']),
+    'phone_no' => cleanInput($_POST['phone']),
     'password' => $_POST['password']
   ];
 
@@ -25,4 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Error in registration";
   }
+}
+
+function cleanInput($value) {
+  return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
 }
