@@ -20,10 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ];
 
   if ($resident->createResident($data)) {
-    header("Location: ../../templates/dashboard.php");
+    echo "<script>alert(`Registration Successful. You may now Login`); window.location.href='../../index.php';</script>";
     exit();
   } else {
-    echo "Error in registration";
+    echo "<script>alert(`Error Occurred during Registration.`);</script>";
   }
 }
 
