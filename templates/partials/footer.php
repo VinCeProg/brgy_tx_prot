@@ -5,4 +5,3 @@
   <span id="ph-time"></span>
   </div>
 </footer>
-<script src="public/js/clock.js"></script>

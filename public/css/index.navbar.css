@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #004080;
+  --secondary-color: #D72F2F;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+}
+
+header {
+  width: 100%;
+  background-color: var(--primary-color);
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.title img {
+  width: 48px;
+  box-shadow: 0 0 0 4px white, 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 50rem;
+  background: white;
+}
+
+.title {
+  width: clamp(320px, 30%, 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-text {
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+.navbar {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  width: 70%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar ul li {
+  margin: 0 24px;
+}
+
+.navbar ul li a {
+  color: var(--background-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-btn {
+  background-color: var(--secondary-color);
+  padding: 8px;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .navbar.show {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .login-btn {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
