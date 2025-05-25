@@ -19,7 +19,7 @@
 
 
 
-<div class="form-cont" id="signup-form" style="display: none;">
+<div class="signup-form" id="signup-form" style="display: none;">
   <form action="src/controllers/residentController.php" method="post" class="sign-form">
     <img src="public/images/barangay.svg" alt="Logo"><br>
     <h2>Create Resident Account</h2> <br>
