@@ -17,6 +17,8 @@
   <p style="text-align: center;">Don't have an account yet? <button class="get-signup get-btn">Click Here!<button></p>
 </div>
 
+
+
 <div class="form-cont" id="signup-form">
   <form action="register.php" method="post" class="sign-form">
     <img src="public/images/barangay.svg" alt="Logo"><br>
