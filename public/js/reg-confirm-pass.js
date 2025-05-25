@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkbox = document.querySelector("#eula");
 
   function validateSubmit() {
-    console.log("Validating submit..."); // Debugging line
     if (password.value === confirmPass.value && checkbox.checked) {
       submitBtn.removeAttribute("disabled");
     } else {
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   confirmPass.addEventListener("input", function () {
-    console.log("Confirm Password Input Detected"); // Debugging line
     if (password.value === confirmPass.value) {
       confirmPass.style.borderColor = "green";
     } else {
@@ -26,7 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   checkbox.addEventListener("change", function () {
-    console.log("Checkbox Changed"); // Debugging line
     validateSubmit();
   });
+
+  // toggle login and signup
+  const signupBtn = document.querySelector(".get-signup");
+  const loginBtn = document.querySelector(".get-login");
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("signup-form");
+  
+  signupBtn.addEventListener("click", () => {
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
+  });
+  loginBtn.addEventListener("click", () => {
+    loginForm.style.display = "block";
+    signupForm.style.display = "none";
+  });
+
 });

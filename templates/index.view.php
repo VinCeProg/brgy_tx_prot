@@ -15,7 +15,15 @@
   <?php require("partials/navbar.php") ?>
 
   <main>
-    <?php require("partials/login-register.php") ?>
+    <?php
+    $isLoggedIn = false;
+    
+    if ($isLoggedIn) {
+      echo "";
+    } else {
+      require("partials/login-register.php");
+    }
+    ?>
   </main>
   <?php require("partials/footer.php") ?>
 </body>

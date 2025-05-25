@@ -1,7 +1,7 @@
 <div class="form-cont" id="login-form">
   <form action="login.php" method="post">
     <img src="public/images/barangay.svg" alt="Logo"><br>
-    <h2>Login</h2> <br>
+    <h2>Barangay Resident Login</h2> <br>
     <div class="input-container">
       <label for="email" class="test">Email</label>
       <input type="email" required>
@@ -19,10 +19,10 @@
 
 
 
-<div class="form-cont" id="signup-form">
+<div class="form-cont" id="signup-form" style="display: none;">
   <form action="src/controllers/residentController.php" method="post" class="sign-form">
     <img src="public/images/barangay.svg" alt="Logo"><br>
-    <h2>Sign-Up</h2> <br>
+    <h2>Create Resident Account</h2> <br>
 
     <fieldset>
       <legend>Personal Information</legend>
@@ -55,7 +55,7 @@
       <input type="password" class="pw" id="confirm_password" name="confirm_password" required minlength="8"><br>
     </fieldset>
     <br>
-    <label for="eula"><input type="checkbox" id="eula" required> I have read the <a href="#">Terms and Conditions</a></label>
+    <label for="eula"><input type="checkbox" id="eula" required> I have read the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></label>
     <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
     <br>
   </form>

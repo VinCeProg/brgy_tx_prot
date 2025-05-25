@@ -12,16 +12,22 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid magenta;
+  /* border: 1px solid magenta; */
 }
 
 body {
   height: 100%;
   background-color: var(--background-color);
+}
+
+main {
   background-image: linear-gradient(rgba(127, 127, 255, .1), rgba(127, 127, 255, 0.4)), url('../images/brgy-bg.jpg');
   background-size: cover;
-  background-attachment: fixed;
   background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* footer */
@@ -41,12 +47,7 @@ footer {
   text-align: center;
 }
 
-main {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* login */
 
 .form-cont {
   width: clamp(400px, 20%, 80%);
@@ -118,10 +119,6 @@ fieldset {
 fieldset>label {
   margin: 8px 12px;
   font-size: 0.9em;
-}
-
-#login-form {
-  display: none;
 }
 
 form a {
