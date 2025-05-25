@@ -149,7 +149,7 @@ input:not([type="checkbox"]):not([type="submit"]) {
   height: 2.5rem;
   padding: 12px;
   font-size: 1em;
-  border: none;
+  border: 2px solid var(--background-color);
   border-radius: 8px;
   background-color: #ececec;
 }
@@ -178,7 +178,7 @@ input:not([type="checkbox"]):not([type="submit"]) {
   width: 100%;
 }
 
-.input-container > label {
+.input-container>label {
   margin-left: 12px;
   font-size: 1em;
 }
@@ -190,7 +190,7 @@ fieldset {
   border-radius: 12px;
 }
 
-fieldset > label {
+fieldset>label {
   margin: 8px 12px;
   font-size: 0.9em;
 }
@@ -210,6 +210,12 @@ form a {
   cursor: pointer;
   color: var(--secondary-color);
   font-size: 1em;
+}
+
+input[type="submit"]:disabled {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  cursor: not-allowed;
 }
 
 @media screen and (max-width: 600px) {

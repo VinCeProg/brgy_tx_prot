@@ -20,7 +20,7 @@
 
 
 <div class="form-cont" id="signup-form">
-  <form action="register.php" method="post" class="sign-form">
+  <form action="src/controllers/residentController.php" method="post" class="sign-form">
     <img src="public/images/barangay.svg" alt="Logo"><br>
     <h2>Sign-Up</h2> <br>
 
@@ -47,17 +47,18 @@
     </fieldset>
     <br>
 
-    <fieldset>
+    <fieldset id="pw">
       <legend>Create a Password</legend>
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" required minlength="8"><br>
+      <input type="password" class="pw" id="password" name="password" required minlength="8"><br>
       <label for="confirm_password">Confirm Password</label>
-      <input type="password" id="confirm_password" name="confirm_password" required minlength="8"><br>
+      <input type="password" class="pw" id="confirm_password" name="confirm_password" required minlength="8"><br>
     </fieldset>
     <br>
     <label for="eula"><input type="checkbox" required> I have read the <a href="#">Terms and Conditions</a></label>
-    <input type="submit" name="register" value="Create Account" class="form-btn" disabled>
+    <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
     <br>
   </form>
   <p style="text-align: center;">Already have an account? <button class="get-login get-btn">Login!</button></p>
 </div>
+<script src="public/js/reg-confirm-pass.js"></script>
