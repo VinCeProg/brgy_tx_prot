@@ -20,7 +20,8 @@ body {
   background-color: var(--background-color);
   background-image: url('../images/brgy-bg.jpg');
   background-size: cover;
-  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 header {

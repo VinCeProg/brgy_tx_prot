@@ -1,6 +1,4 @@
 <?php
-require_once('config/database.php');
-
 class Resident {
   private $conn;
 
@@ -12,7 +10,7 @@ class Resident {
     //hash password
     $data['password'] = password_hash($data["password"], PASSWORD_BCRYPT);
 
-    $query = "INSERT INTO residents (FirstName, LastName, Address, Email, PhoneNo, Password) VALUES (?, ?, ?, ?, ?, ?);";
+    $query = "INSERT INTO `residents` (FirstName, LastName, Address, Email, PhoneNo, Password) VALUES (?, ?, ?, ?, ?, ?);";
     $stmt = $this->conn->prepare($query);
 
     $stmt->bind_param("ssssss", 
