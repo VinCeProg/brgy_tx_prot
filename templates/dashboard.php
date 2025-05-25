@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Brgy | Home</title>
-  <link rel="icon" type="image/svg" href="public/images/barangay.svg">
-  <link rel="stylesheet" href="public/css/shared-styles.css">
+  <link rel="icon" type="image/svg" href="../public/images/barangay.svg">
+  <link rel="stylesheet" href="../public/css/shared-styles.css">
 </head>
 
 <body>

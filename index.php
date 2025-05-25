@@ -1,3 +1,3 @@
 <?php 
-  require("templates/main.php");
+  require("templates/index.view.php");
 ?>
