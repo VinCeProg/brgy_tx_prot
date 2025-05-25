@@ -7,6 +7,10 @@ define('BASE_PATH', realpath(__DIR__ . '/../../'));
 require BASE_PATH . '/config/database.php';
 require BASE_PATH . '/src/models/Resident.php';
 
+function cleanInput($value) {
+  return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
+}
+
 $resident = new Resident($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,6 +31,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
-function cleanInput($value) {
-  return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
-}

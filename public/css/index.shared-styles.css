@@ -34,9 +34,6 @@ main {
 
 footer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
 }
 
 .clock {
@@ -82,7 +79,7 @@ footer {
 /* signup form */
 .signup-form {
   height: auto;
-  width: 70%;
+  width: clamp(320px, 60vw, 700px);
   margin: 24px;
   padding: 24px;
   background-color: white;

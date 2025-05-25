@@ -24,6 +24,7 @@
       require("partials/login-register.php");
     }
     ?>
+
   </main>
   <?php require("partials/footer.php") ?>
 </body>

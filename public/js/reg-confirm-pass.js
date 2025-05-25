@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // validates password and confirm password field
   confirmPass.addEventListener("input", function () {
     if (password.value === confirmPass.value) {
       confirmPass.style.borderColor = "green";

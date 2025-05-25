@@ -1,26 +1,28 @@
 <div class="form-cont" id="login-form">
-  <form action="login.php" method="post">
-    <img src="public/images/barangay.svg" alt="Logo"><br>
-    <h2>Barangay Resident Login</h2> <br>
-    <div class="input-container">
-      <label for="email" class="test">Email</label>
-      <input type="email" required>
-    </div> <br>
-    <div class="input-container">
-      <label for="password" class="test">Password</label>
-      <input type="password" required min="8">
-    </div> <br>
-    <input type="submit" name="login" value="Login" class="form-btn">
-    <a href="#">Forgot Password?</a>
-    <br>
-  </form>
+  <form action="src/controllers/residentLoginController.php" method="post">
+  <img src="public/images/barangay.svg" alt="Logo"><br>
+  <h2>Barangay Resident Login</h2><br>
+
+  <div class="input-container">
+    <label for="email" class="test">Email</label>
+    <input type="email" id="email" name="email" required>
+  </div><br>
+
+  <div class="input-container">
+    <label for="password" class="test">Password</label>
+    <input type="password" id="password" name="password" required minlength="8">
+  </div><br>
+
+  <input type="submit" name="login" value="Login" class="form-btn">
+  <a href="#">Forgot Password?</a>
+</form>
   <p style="text-align: center;">Don't have an account yet? <button class="get-signup get-btn">Click Here!<button></p>
 </div>
 
 
 
 <div class="signup-form" id="signup-form" style="display: none;">
-  <form action="src/controllers/residentController.php" method="post" class="sign-form">
+  <form action="src/controllers/residentSignupController.php" method="post" class="sign-form">
     <img src="public/images/barangay.svg" alt="Logo"><br>
     <h2>Create Resident Account</h2> <br>
 
