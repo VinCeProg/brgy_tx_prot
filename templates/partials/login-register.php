@@ -55,10 +55,10 @@
       <input type="password" class="pw" id="confirm_password" name="confirm_password" required minlength="8"><br>
     </fieldset>
     <br>
-    <label for="eula"><input type="checkbox" required> I have read the <a href="#">Terms and Conditions</a></label>
+    <label for="eula"><input type="checkbox" id="eula" required> I have read the <a href="#">Terms and Conditions</a></label>
     <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
     <br>
   </form>
   <p style="text-align: center;">Already have an account? <button class="get-login get-btn">Login!</button></p>
 </div>
-<script src="public/js/reg-confirm-pass.js"></script>
+<script src="public/js/reg-confirm-pass.js" defer></script>
