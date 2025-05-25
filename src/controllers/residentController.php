@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ];
 
   if ($resident->createResident($data)) {
-    header("Location: ../../public/dashboard.php");
+    header("Location: ../../templates/dashboard.php");
     exit();
   } else {
     echo "Error in registration";
