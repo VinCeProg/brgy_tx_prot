@@ -1,4 +1,5 @@
 <?php
+$pagetitle = 'Home';
   session_start();
   require("partials/html.head.php"); 
   error_reporting(E_ALL);

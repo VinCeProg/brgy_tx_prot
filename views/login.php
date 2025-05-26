@@ -1,4 +1,5 @@
 <?php
+  $pagetitle = 'Login/Signup';
   session_start();
   require("../functions.php");
   require("partials/html.head.php"); 

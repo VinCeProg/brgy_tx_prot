@@ -7,12 +7,12 @@
 
       <div class="input-container">
         <label for="email" class="test">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email-login" name="email-login" required>
       </div><br>
 
       <div class="input-container">
         <label for="password" class="test">Password</label>
-        <input type="password" id="password" name="password" required minlength="8">
+        <input type="password" id="password-login" name="password-login" required minlength="8">
       </div><br>
 
       <input type="submit" name="login" value="Login" class="form-btn">
@@ -22,14 +22,14 @@
   </div>
 
 
-
   <div class="signup-form" id="signup-form" style="display: none;">
-    <form action="/brgy_tx_prot/src/controllers/residentSignupController.php" method="post" class="sign-form">
-      <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Logo"><br>
-      <h2>Create Resident Account</h2> <br>
+    <form action="/brgy_tx_prot/src/controllers/residentSignupController.php" method="post" class="sign-form" novalidate>
+      <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Barangay Logo"><br>
+      <h2>Create Resident Account</h2><br>
 
       <fieldset>
         <legend>Personal Information</legend>
+
         <label for="firstname">First Name</label>
         <input type="text" id="firstname" name="firstname" required><br>
 
@@ -43,27 +43,44 @@
 
       <fieldset>
         <legend>Contact Information</legend>
+
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" id="email" name="email" required autocomplete="email"><br>
 
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required pattern="[0-9]{11}" maxlength="11">
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{11}" maxlength="11" inputmode="numeric">
       </fieldset>
       <br>
 
-      <fieldset id="pw">
+      <fieldset>
         <legend>Create a Password</legend>
+
         <label for="password">Password</label>
-        <input type="password" class="pw" id="password" name="password" required minlength="8"><br>
+        <input type="password" id="password" name="password" minlength="8" required><br>
+
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" class="pw" id="confirm_password" name="confirm_password" required minlength="8"><br>
+        <input type="password" id="confirm_password" name="confirm_password" required minlength="8"><br>
       </fieldset>
       <br>
-      <label for="eula"><input type="checkbox" id="eula" required> I have read the <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Terms and Conditions</a></label>
+
+      <label>
+        <input type="checkbox" id="eula" required>
+        I have read the
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+          Terms and Conditions
+        </a>
+      </label>
+      <br><br>
+
       <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
       <br>
     </form>
-    <p style="text-align: center;">Already have an account? <button class="get-login get-btn">Login!</button></p>
+
+    <p style="text-align: center;">
+      Already have an account?
+      <button type="button" class="get-login get-btn">Login!</button>
+    </p>
   </div>
-</div>
-<script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>
+
+  <script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>
+  <script src="/brgy_tx_prot/public/js/login-signupToggle.js" defer></script>
