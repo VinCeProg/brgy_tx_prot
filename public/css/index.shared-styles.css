@@ -157,11 +157,11 @@ input[type="submit"]:disabled {
 }
 
 @media screen and (max-width: 768px) {
-  header {
+  /* header {
     height: auto;
     padding: 10px;
     align-items: center;
-  }
+  } */
 
   .title {
     width: 100%;

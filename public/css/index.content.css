@@ -125,9 +125,10 @@
   font-size: 15px;
   font-weight: 200;
 }
+
 .carousel-wrapper {
   width: 100vw;
-  padding: 40px 20px;
+  padding: 40px 0;
   background-color: #f4f4f4;
   box-sizing: border-box;
   display: flex;
@@ -140,7 +141,7 @@
 
 .carousel-container {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .carousel {
@@ -155,19 +156,20 @@
 
 /* Keyframes for infinite scrolling */
 @keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .card {
   scroll-snap-align: center;
   flex: 0 0 auto;
-  width: auto;
-  height: auto;
-  max-width: 800px;
-  max-height: 600px;
-  width: 800px;
-  height: 25%;
+  aspect-ratio: 5/3;
+  height: 600px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
@@ -218,4 +220,91 @@
   color: var(--text-color);
   font-weight: 500;
   max-width: 800px;
+}
+
+@media (max-width: 768px) {
+
+  /* head-text */
+  .img-container {
+    height: 50vh;
+    background-size: contain;
+  }
+
+  .img-container h1 {
+    font-size: 3rem;
+  }
+
+
+  /* headline */
+  .headline {
+    padding: 2rem;
+  }
+
+  .headline-title h2 {
+    font-size: 12px;
+  }
+
+  .headline-title p {
+    font-size: 40px;
+    /* Reduce large text for small screens */
+  }
+
+  .headline-container {
+    flex-direction: column;
+    /* Stack images vertically */
+    gap: 1rem;
+  }
+
+  /* title container */
+  .title-container {
+    padding: 20px; /* Reduce padding for better fit */
+    text-align: center; /* Center-align text */
+  }
+
+  .title-container p {
+    font-size: 1rem; /* Adjust text size */
+  }
+
+  .title-container h3 {
+    font-size: 1.8rem; /* Resize heading for mobile */
+    line-height: 1.4; /* Maintain spacing */
+  }
+
+  .title-container h2 {
+    font-size: 1.2rem; /* Scale down subheading */
+  }
+
+  /* marquee cards */
+
+  .carousel-container {
+    overflow-x: auto; /* Allow controlled horizontal scrolling */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel {
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .card {
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 5 / 3;
+  }
+
+
+  /* mission vision */
+
+  .statement-container {
+    padding: 30px; /* Reduce padding for smaller screens */
+    flex-direction: column; /* Ensure stacked layout */
+    align-items: center; /* Center-align content */
+    text-align: center;
+  }
+
+  .statement-container p {
+    font-size: 1rem; /* Adjust font size for readability */
+    line-height: 1.6; /* Maintain good spacing */
+    max-width: 90%; /* Prevent text from stretching too wide */
+  }
 }

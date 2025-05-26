@@ -1,10 +1,6 @@
 <header>
   <div class="title">
     <a href="#"><img src="/brgy_tx_prot/public/images/barangay.svg" alt="Baranggay Logo" /></a>
-    <!-- <div class="title-text">
-          <h1>Barangay PUP</h1>
-          <p>Barangay PUP, Sta. Mesa, Manila</p>
-        </div> -->
   </div>
   <nav class="navbar">
     <ul>

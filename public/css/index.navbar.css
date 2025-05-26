@@ -93,7 +93,6 @@ header {
 
 .navbar ul li:hover {
   transform: scale(1.1);
-  margin: 0 24px;
 }
 
 .navbar ul li a {
@@ -134,7 +133,7 @@ header {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 0;
+    top: 10vh;
     left: 0;
     width: 100%;
     background-color: var(--primary-color);
@@ -144,7 +143,6 @@ header {
 
   .menu-btn {
     display: block;
-    color: var(--primary-color);
   }
 
   .navbar.show {
