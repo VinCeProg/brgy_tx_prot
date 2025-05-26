@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <?php dd($_SERVER) ?>
   <?php require("partials/navbar.php") ?>
 
   <main>
