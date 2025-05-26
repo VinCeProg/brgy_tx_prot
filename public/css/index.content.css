@@ -246,44 +246,42 @@
 
   .headline-title p {
     font-size: 40px;
-    /* Reduce large text for small screens */
   }
 
   .headline-container {
     flex-direction: column;
-    /* Stack images vertically */
     gap: 1rem;
   }
 
   /* title container */
   .title-container {
-    padding: 20px; /* Reduce padding for better fit */
-    text-align: center; /* Center-align text */
+    padding: 20px; 
+    text-align: center; 
   }
 
   .title-container p {
-    font-size: 1rem; /* Adjust text size */
+    font-size: 1rem;
   }
 
   .title-container h3 {
-    font-size: 1.8rem; /* Resize heading for mobile */
-    line-height: 1.4; /* Maintain spacing */
+    font-size: 1.8rem; 
+    line-height: 1.4; 
   }
 
   .title-container h2 {
-    font-size: 1.2rem; /* Scale down subheading */
+    font-size: 1.2rem; 
   }
 
   /* marquee cards */
 
   .carousel-container {
-    overflow-x: auto; /* Allow controlled horizontal scrolling */
+    overflow-x: auto; 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
   .carousel {
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-wrap: nowrap; 
   }
 
   .card {
@@ -296,15 +294,15 @@
   /* mission vision */
 
   .statement-container {
-    padding: 30px; /* Reduce padding for smaller screens */
-    flex-direction: column; /* Ensure stacked layout */
-    align-items: center; /* Center-align content */
+    padding: 30px; 
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
   }
 
   .statement-container p {
-    font-size: 1rem; /* Adjust font size for readability */
-    line-height: 1.6; /* Maintain good spacing */
-    max-width: 90%; /* Prevent text from stretching too wide */
+    font-size: 1rem; 
+    line-height: 1.6; 
+    max-width: 90%; 
   }
 }
