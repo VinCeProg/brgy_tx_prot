@@ -13,7 +13,7 @@
       <li><a href="#">CONTACTS</a></li>
       <li><a href="#">ABOUT</a></li>
     </ul>
-    <a href="/brgy_tx_prot/views/login.view.php" class="login-btn">Login/Sign-Up</a>
+    <a href="/brgy_tx_prot/views/login.php" class="login-btn">Login/Sign-Up</a>
   </nav>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
