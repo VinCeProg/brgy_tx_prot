@@ -9,9 +9,9 @@
   <nav class="navbar">
     <ul>
       <li><a href="/brgy_tx_prot/index.php">HOME</a></li>
-      <li><a href="#">ABOUT</a></li>
-      <li><a href="#">GALLERY</a></li>
-      <li><a href="#">CONTACTS</a></li>
+      <li><a href="#transparency-service">GALLERY</a></li>
+      <li><a href="#headline">CONTACTS</a></li>
+      <li><a href="#about-us">ABOUT</a></li>
     </ul>
     <div class="login-wrapper">
       <a href="/brgy_tx_prot/views/login.php" class="login-btn">LOG IN</a>
@@ -19,4 +19,4 @@
   </nav>
   <button class="menu-btn" onclick="toggleMenu()">☰</button>
 </header>
-<script src="public/js/mobile-menu.js"></script>
+<script src="/brgy_tx_prot/public/js/mobile-menu.js"></script>

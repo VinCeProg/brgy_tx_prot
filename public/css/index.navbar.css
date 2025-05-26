@@ -11,7 +11,7 @@
 header {
   width: 100vw;
   background-color: var(--background-color);
-  height: 15vh;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,6 +23,7 @@ header {
   right: 0;
   z-index: 1000;
   box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .title img {
@@ -33,7 +34,7 @@ header {
 }
 
 .title {
-  width: clamp(320px, 30%, 90%);
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,14 +86,26 @@ header {
 }
 
 .navbar ul li {
+  margin: 0 12px;
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+
+.navbar ul li:hover {
+  transform: scale(1.1);
   margin: 0 24px;
 }
 
 .navbar ul li a {
   color: var(--primary-color);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1.2rem;
   text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+  color: var(--secondary-color);
 }
 
 .login-wrapper {
@@ -113,11 +126,15 @@ header {
 
 /* Responsive Navbar for Mobile */
 @media (max-width: 768px) {
+  header {
+    background-color: var(--primary-color);
+  }
+
   .navbar {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 10vh;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: var(--primary-color);
@@ -127,6 +144,7 @@ header {
 
   .menu-btn {
     display: block;
+    color: var(--primary-color);
   }
 
   .navbar.show {
@@ -140,6 +158,10 @@ header {
   .navbar ul li {
     margin: 0.5rem 0;
     text-align: center;
+  }
+
+  .navbar ul li a {
+    color: var(--background-color);
   }
 
   .login-btn {

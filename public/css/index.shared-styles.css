@@ -15,6 +15,10 @@
   /* border: 1px solid magenta; */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -22,21 +26,7 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
-main {
-  background-image: linear-gradient(rgba(127, 127, 255, .1), rgba(127, 127, 255, 0.4)), url('../images/brgy-bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* footer */
-
-footer {
-  width: 100%;
-}
+/* clock */
 
 .clock {
   width: 100%;
@@ -57,7 +47,8 @@ footer {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.form-cont img, .signup-form img {
+.form-cont img,
+.signup-form img {
   width: 80px;
 }
 
@@ -122,16 +113,16 @@ input:not([type="checkbox"]):not([type="submit"]) {
   transform: scale(1.05);
 }
 
-.form-cont fieldset {
+ fieldset {
   width: 100%;
   padding: 12px;
   border: 2px solid var(--text-color);
   border-radius: 12px;
 }
 
-.form-cont fieldset label {
-  margin: 8px 12px;
-  font-size: 0.9em;
+fieldset label {
+  margin: 12px 12px;
+  font-size: 1rem;
 }
 
 .form-cont form a {
@@ -151,6 +142,18 @@ input[type="submit"]:disabled {
   background-color: var(--background-color);
   color: var(--secondary-color);
   cursor: not-allowed;
+}
+
+.logreg-container {
+  width: 100%;
+  height: 100vh;
+  height: auto;
+  background-image: linear-gradient(rgba(127, 127, 255, .1), rgba(127, 127, 255, 0.4)), url('../images/brgy-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 768px) {

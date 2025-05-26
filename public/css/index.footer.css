@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 footer {
+  width: 100%;
   background-color: rgb(232, 232, 232);
   padding: 40px;
   font-family: "Outfit", sans-serif;
