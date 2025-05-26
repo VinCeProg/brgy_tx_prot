@@ -7,17 +7,22 @@
   --background-color: #f4f4f4;
 }
 
+
 header {
-  width: 100%;
-  background-color: var(--primary-color);
-  height: 10vh;
+  width: 100vw;
+  background-color: var(--background-color);
+  height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 3em;
   padding: 20px;
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .title img {
@@ -63,6 +68,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .navbar ul {
@@ -71,6 +77,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul li {
@@ -78,17 +89,26 @@ header {
 }
 
 .navbar ul li a {
-  color: var(--background-color);
+  color: var(--primary-color);
   font-weight: 600;
+  font-size: 15px;
   text-decoration: none;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-btn {
   background-color: var(--secondary-color);
-  padding: 8px;
   color: white;
-  border-radius: 8px;
   text-decoration: none;
+  border-radius: 30px;
+  padding: 8px 40px;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 /* Responsive Navbar for Mobile */
