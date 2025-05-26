@@ -6,3 +6,5 @@ function dd($value) {
   echo "</pre>";
   die();
 }
+
+$HOMEDIR = '/brgy_tx_prot/';

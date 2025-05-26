@@ -1,6 +1,6 @@
 <div class="form-cont" id="login-form">
-  <form action="src/controllers/residentLoginController.php" method="post">
-  <img src="public/images/barangay.svg" alt="Logo"><br>
+  <form action="/brgy_tx_prot/src/controllers/residentLoginController.php" method="post">
+  <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Logo"><br>
   <h2>Barangay Resident Login</h2><br>
 
   <div class="input-container">
@@ -22,8 +22,8 @@
 
 
 <div class="signup-form" id="signup-form" style="display: none;">
-  <form action="src/controllers/residentSignupController.php" method="post" class="sign-form">
-    <img src="public/images/barangay.svg" alt="Logo"><br>
+  <form action="/brgy_tx_prot/src/controllers/residentSignupController.php" method="post" class="sign-form">
+    <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Logo"><br>
     <h2>Create Resident Account</h2> <br>
 
     <fieldset>
@@ -63,4 +63,4 @@
   </form>
   <p style="text-align: center;">Already have an account? <button class="get-login get-btn">Login!</button></p>
 </div>
-<script src="public/js/reg-confirm-pass.js" defer></script>
+<script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>

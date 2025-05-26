@@ -4,16 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brgy | Home</title>
-  <link rel="icon" type="image/svg" href="public/images/barangay.svg">
-  <link rel="stylesheet" href="public/css/index.shared-styles.css">
-  <link rel="stylesheet" href="public/css/index.header.css"> <!-- Header -->
-  <link rel="stylesheet" href="public/css/index.navbar.css"> <!-- Navbar -->
+  <title>Brgy | Login</title>
+  <link rel="icon" type="image/svg" href="/brgy_tx_prot/public/images/barangay.svg">
+  <link rel="stylesheet" href="/brgy_tx_prot/public/css/index.shared-styles.css">
+  <link rel="stylesheet" href="/brgy_tx_prot/public/css/index.header.css"> <!-- Header -->
+  <link rel="stylesheet" href="/brgy_tx_prot/public/css/index.navbar.css"> <!-- Navbar -->
 </head>
 
 <body>
-  <?php dd($_SERVER) ?>
-  <?php require("partials/navbar.php") ?>
+  <?php require($HOMEDIR . "partials/navbar.php") ?>
 
   <main>
     <?php
@@ -22,12 +21,12 @@
     if ($isLoggedIn) {
       echo "";
     } else {
-      require("partials/login-register.php");
+      require( $HOMEDIR . "partials/login-register.php");
     }
     ?>
 
   </main>
-  <?php require("partials/footer.php") ?>
+  <?php require($HOMEDIR . "partials/footer.php") ?>
 </body>
 
 </html>
