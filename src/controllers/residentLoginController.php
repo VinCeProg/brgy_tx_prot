@@ -13,11 +13,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = trim($_POST['email']);
   $password = $_POST['password'];
 
+  // Validate user input
+  if (empty($email) || empty($password)) {
+    $_SESSION['error'] = "All fields are required.";
+    header("Location: /brgy_tx_prot/views/login.php");
+    exit();
+  }
+
   $resident = new Resident($conn);
   $residentData = $resident->getByEmail($email);
   if ($residentData && password_verify($password, $residentData['Password'])) {
     unset($residentData['Password']);
+    $_SESSION['resident'] = $residentData;
+    $_SESSION['is_logged_in'] = true;
     echo "Welcome {$residentData['FirstName']}!";
+    print_r($_SESSION);
   } else {
     echo "<script>
         alert('Invalid email or password.');
