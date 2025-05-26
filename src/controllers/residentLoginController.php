@@ -26,8 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     unset($residentData['Password']);
     $_SESSION['resident'] = $residentData;
     $_SESSION['is_logged_in'] = true;
-    echo "Welcome {$residentData['FirstName']}!";
-    print_r($_SESSION);
+
+    header("Location: /brgy_tx_prot/views/login.php");
+    exit();
   } else {
     echo "<script>
         alert('Invalid email or password.');
