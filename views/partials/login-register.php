@@ -60,6 +60,7 @@
 
         <label for="confirm_password">Confirm Password</label>
         <input type="password" id="confirm_password" name="confirm_password" required minlength="8"><br>
+        <div class="no"><strong>Note:</strong> <em>Password must be at least 8 characters</em></div>
       </fieldset>
       <br>
 
