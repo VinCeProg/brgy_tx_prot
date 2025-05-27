@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   confirmPass.addEventListener("input", function () {
     if (password.value === confirmPass.value) {
       confirmPass.style.borderColor = "green";
-      validateSubmit();
     } else {
       confirmPass.style.borderColor = "red";
     }

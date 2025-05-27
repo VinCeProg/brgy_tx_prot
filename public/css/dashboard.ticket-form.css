@@ -13,7 +13,8 @@
   background-color: white;
   color: var(--text-color);
   border-radius: 12px;
-  box-shadow: 0 10px 12px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
 .tx-sub label {
@@ -24,6 +25,15 @@
 
 .tx-sub input[type="text"] {
   border: 2px solid #ccc;
+}
+
+.tx-sub select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  border-radius: 8px;
 }
 
 .tx-sub textarea {
@@ -41,7 +51,6 @@
 
 .tx-sub input[type="file"] {
   padding: 8px;
-  display: block;
   font-size: 1rem;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -64,6 +73,11 @@
 .tx-sub input[type="submit"]:hover {
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.note {
+  font-size: 0.9rem;
+  margin: 8px;
 }
 
 /* popup modal */
@@ -92,4 +106,45 @@
   font-size: 30px;
   color: white;
   cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .tx-sub {
+    padding: 16px;
+    box-shadow: none;
+    width: 100%;
+    margin: auto;
+  }
+
+  .tx-sub label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 1rem;
+  }
+
+  .tx-sub input[type="text"],
+  .tx-sub textarea,
+  .tx-sub input[type="file"] {
+    width: 100%;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .tx-sub input[type="file"] {
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  #file-preview {
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  .tx-sub input[type="submit"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 14px;
+  }
 }

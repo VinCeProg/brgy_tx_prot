@@ -7,12 +7,12 @@
 
       <div class="input-container">
         <label for="email" class="test">Email</label>
-        <input type="email" id="email-login" name="email-login" required>
+        <input type="email" id="email-login" name="email-login" placeholder="example@email.com" required>
       </div><br>
 
       <div class="input-container">
         <label for="password" class="test">Password</label>
-        <input type="password" id="password-login" name="password-login" required minlength="8">
+        <input type="password" id="password-login" name="password-login" placeholder="••••••••••••" minlength="8">
       </div><br>
 
       <input type="submit" name="login" value="Login" class="form-btn">
@@ -23,7 +23,7 @@
 
 
   <div class="signup-form" id="signup-form" style="display: none;">
-    <form action="/brgy_tx_prot/src/controllers/residentSignupController.php" method="post" class="sign-form" novalidate>
+    <form action="/brgy_tx_prot/src/controllers/residentSignupController.php" method="post" class="sign-form">
       <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Barangay Logo"><br>
       <h2>Create Resident Account</h2><br>
 
@@ -31,13 +31,13 @@
         <legend>Personal Information</legend>
 
         <label for="firstname">First Name</label>
-        <input type="text" id="firstname" name="firstname" required><br>
+        <input type="text" id="firstname" name="firstname" placeholder="Juan" required><br>
 
         <label for="lastname">Last Name</label>
-        <input type="text" id="lastname" name="lastname" required><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Dela Cruz" required><br>
 
         <label for="address">Address</label>
-        <input type="text" id="address" name="address" required><br>
+        <input type="text" id="address" name="address" placeholder="1904 Pureza St. Sta. Mesa, Manila City, NCR" required><br>
       </fieldset>
       <br>
 
@@ -45,10 +45,10 @@
         <legend>Contact Information</legend>
 
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required autocomplete="email"><br>
+        <input type="email" id="email" name="email" placeholder="example@email.com" required autocomplete="email"><br>
 
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required pattern="[0-9]{11}" maxlength="11" inputmode="numeric">
+        <input type="tel" id="phone" name="phone" placeholder="09123456789" required pattern="[0-9]{11}" maxlength="11" inputmode="numeric">
       </fieldset>
       <br>
 
@@ -70,7 +70,7 @@
           Terms and Conditions
         </a>
       </label>
-      <br><br>
+      <br>
 
       <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
       <br>

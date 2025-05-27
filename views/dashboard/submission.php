@@ -16,7 +16,7 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
 
 <body>
   <?php require("../partials/newnav.php") ?>
-  <main style="padding: 40px;">
+  <main style="padding: 24px;">
 
     <?php
     require("./partials/ticket-submission-form.php");
