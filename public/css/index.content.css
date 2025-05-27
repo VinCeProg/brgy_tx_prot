@@ -49,6 +49,7 @@
   padding: 40px;
   width: 100%;
 }
+
 .tickethero-banner {
   height: auto;
   display: flex;
@@ -134,7 +135,7 @@
   color: var(--secondary-color);
 }
 
-.tickethero-actions a + a {
+.tickethero-actions a+a {
   margin-left: 12px;
 }
 
@@ -338,6 +339,12 @@
     font-size: 3rem;
   }
 
+  .tickethero-text {
+    color: var(--text-color);
+    flex: 1;
+    max-width: 100%;
+  }
+
 
   /* headline */
   .headline {
@@ -359,8 +366,8 @@
 
   /* title container */
   .title-container {
-    padding: 20px; 
-    text-align: center; 
+    padding: 20px;
+    text-align: center;
   }
 
   .title-container p {
@@ -368,24 +375,24 @@
   }
 
   .title-container h3 {
-    font-size: 1.8rem; 
-    line-height: 1.4; 
+    font-size: 1.8rem;
+    line-height: 1.4;
   }
 
   .title-container h2 {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 
   /* marquee cards */
 
   .carousel-container {
-    overflow-x: auto; 
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
   .carousel {
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
   }
 
   .card {
@@ -398,15 +405,15 @@
   /* mission vision */
 
   .statement-container {
-    padding: 30px; 
-    flex-direction: column; 
-    align-items: center; 
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
   .statement-container p {
-    font-size: 1rem; 
-    line-height: 1.6; 
-    max-width: 90%; 
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 90%;
   }
 }

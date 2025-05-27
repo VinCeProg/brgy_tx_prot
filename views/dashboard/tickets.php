@@ -21,7 +21,6 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
     <?php 
       echo "Ticket goes here <br>";
       echo  __DIR__ ."<br>";
-      echo "<pre>". print_r($_SESSION) . "</pre>";
     ?>
 
   </main>
