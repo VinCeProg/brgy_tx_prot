@@ -19,7 +19,7 @@ $home_url = $isDashboard ? "/brgy_tx_prot/views/dashboard/index.php" : "/brgy_tx
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#about-us">ABOUT</a></li>
     </ul>
 
-    <div class="login-wrapper">
+    <div class="login-wrapper" title="Logout">
       <a href="/brgy_tx_prot/src/controllers/residentLogoutController.php" class="login-btn">LOG OUT</a>
     </div>
   </nav>

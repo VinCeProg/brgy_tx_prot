@@ -1,7 +1,7 @@
-<form class="tx-sub" action="src/controllers/ticketController.php" method="POST" enctype="multipart/form-data">
+<form class="tx-sub" action="/brgy_tx_prot/src/controllers/ticketController.php" method="POST" enctype="multipart/form-data">
   <label for="issue-type">Select Issue Type</label> <br>
   <select name="issue-type" id="issue-type" required>
-    <option value="" disabled selected>--Choose the type of issue you're reporting--</option>
+    <option value="" disabled selected>-- Choose the type of issue you're reporting --</option>
     <option value="streetlight-repair">Streetlight Repair</option>
     <option value="flooding">Flooding</option>
     <option value="garbage-collection">Garbage Collection</option>

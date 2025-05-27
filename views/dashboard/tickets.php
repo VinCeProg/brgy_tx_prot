@@ -1,5 +1,5 @@
 <?php
-$pagetitle = 'Tickets';
+$pagetitle = 'Issue Tracker';
 session_start();
 require_once("../../config/auth.php");
 require("../../functions.php");

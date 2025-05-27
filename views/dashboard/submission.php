@@ -1,5 +1,5 @@
 <?php
-$pagetitle = 'Submit a Ticket';
+$pagetitle = 'Helpdesk';
 session_start();
 require_once("../../config/auth.php");
 require("../../functions.php");
