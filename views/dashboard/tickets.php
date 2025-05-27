@@ -30,7 +30,8 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
       echo "<br> <h1>{$ticket['subject']} </h1>";
       echo "<br> <h2>{$ticket['issue_type']} </h2>";
       echo "<br> <p>{$ticket['description']} </p>";
-      echo "<br> <p>{$ticket['created_at']} </p> <br> <br>";
+      $ticket['status'] = strtoupper($ticket['status']);
+      echo "<br> <p><strong>{$ticket['status']}</strong>, {$ticket['created_at']} </p> <br> <br>";
     }
     ?>
 
