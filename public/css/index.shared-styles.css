@@ -12,7 +12,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 1px solid magenta;
+  /* border: 1px solid magenta; */
 }
 
 html {
@@ -89,14 +89,15 @@ body {
   align-items: center;
 }
 
-input:not([type="checkbox"]):not([type="submit"]) {
+input:not([type="checkbox"]):not([type="submit"]):not([type="file"]) {
   width: 100%;
   height: 2.5rem;
   padding: 12px;
   font-size: 1em;
-  border: 2px solid var(--background-color);
+  font-family: 'Outfit', sans-serif;
+  border: 2px solid #ccc;
   border-radius: 8px;
-  background-color: #ececec;
+  background-color: var(--background-color);
 }
 
 .form-btn {

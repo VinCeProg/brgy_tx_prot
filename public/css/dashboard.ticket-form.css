@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --primary-color: #004080;
+  --secondary-color: #D72F2F;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+}
+
+.tx-sub {
+  padding: 24px;
+  background-color: white;
+  color: var(--text-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 12px rgba(0,0,0,0.4);
+}
+
+.tx-sub label {
+  margin-left: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tx-sub input[type="text"] {
+  border: 2px solid #ccc;
+}
+
+.tx-sub textarea {
+  border: 2px solid #ccc;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  border-radius: 8px;
+  resize: vertical;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.tx-sub input[type="file"] {
+  padding: 8px;
+  display: block;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.tx-sub input[type="submit"] {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50rem;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+
+.tx-sub input[type="submit"]:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* popup modal */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content img,
+.popup-content video {
+  max-width: 80%;
+  max-height: 80vh;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}

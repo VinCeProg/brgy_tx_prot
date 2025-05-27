@@ -9,18 +9,17 @@ ini_set('display_errors', 1);
 // dd($_SERVER);
 
 if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
-    header("Location: /brgy_tx_prot/views/login.php"); 
-    exit(); // Stop execution after redirect
+  header("Location: /brgy_tx_prot/views/login.php");
+  exit(); // Stop execution after redirect
 }
 ?>
 
 <body>
   <?php require("../partials/newnav.php") ?>
-  <main style="color: white; padding: 40px;">
-    
-    <?php 
-      echo "Ticket goes here <br>";
-      echo  __DIR__ ."<br>";
+  <main style="padding: 40px;">
+
+    <?php
+    require("./partials/ticket-submission-form.php");
     ?>
 
   </main>
