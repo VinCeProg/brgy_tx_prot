@@ -10,7 +10,7 @@ $isDashboard = strpos($current_uri, "/brgy_tx_prot/views/dashboard.php") !== fal
   <nav class="navbar">
     <ul>
       <li>
-        <a href="<?php echo $isDashboard ? '/brgy_tx_prot/views/dashboard.php' : '/brgy_tx_prot/index.php'; ?>">
+        <a href="<?php echo $isDashboard ? '/brgy_tx_prot/views/dashboard' : '/brgy_tx_prot/index.php'; ?>">
           HOME
         </a>
       </li>

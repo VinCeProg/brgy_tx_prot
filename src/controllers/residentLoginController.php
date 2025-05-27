@@ -27,12 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['resident'] = $residentData;
     $_SESSION['is_logged_in'] = true;
 
-    header("Location: /brgy_tx_prot/views/login.php");
+    header("Location: /brgy_tx_prot/views/dashboard/index.php");
     exit();
   } else {
     echo "<script>
         alert('Invalid email or password.');
-        window.location.href='/brgy_tx_prot/views/dashboard.php';</script>
+        window.location.href='/brgy_tx_prot/views/login.php';</script>
         </script>";
   }
 }

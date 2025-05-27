@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #004080;
+  --secondary-color: #D72F2F;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+}
+
 /* Head Title */
 
 .img-container {
@@ -32,6 +39,103 @@
   margin: 0;
   font-size: 5rem;
   text-align: center;
+}
+
+.tickethero-container {
+  background-color: var(--background-color);
+  background: linear-gradient(to right, #eaf2fc, #dce7f7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 40px;
+  width: 100%;
+}
+.tickethero-banner {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.tickethero-text {
+  color: var(--text-color);
+  flex: 1;
+  max-width: 40%;
+}
+
+.tickethero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.tickethero-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.tickethero-container {
+  background: linear-gradient(to right, #eaf2fc, #dce7f7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 40px;
+  width: 100%;
+}
+
+.tickethero-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.tickethero-text {
+  color: var(--text-color);
+  flex: 1;
+  max-width: 40%;
+}
+
+.tickethero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.tickethero-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.tickethero-actions .btn {
+  display: inline-block;
+  padding: 10px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+  transform: scale(1.05);
+  color: var(--secondary-color);
+}
+
+.tickethero-actions a + a {
+  margin-left: 12px;
 }
 
 
@@ -169,7 +273,7 @@
   scroll-snap-align: center;
   flex: 0 0 auto;
   aspect-ratio: 5/3;
-  height: 600px;
+  width: clamp(600px, 60vw, 90%);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);

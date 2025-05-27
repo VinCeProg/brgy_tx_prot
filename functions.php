@@ -1,11 +1,11 @@
 <?php
 
-function dd($value) {
+function dd($value)
+{
     echo "<pre>";
     print_r($value);
     echo "</pre>";
     die();
 }
-
-
-$HOMEDIR = "/brgy_tx_prot/";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
