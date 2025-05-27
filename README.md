@@ -38,32 +38,79 @@ Pull requests are welcome. For major changes, please open an issue first.
 This project is licensed under the MIT License.
 
 ## Project Structure
+## Project Structure
+
 ```
 brgy_tx_prot/
 │
 ├── index.php
 ├── README.md
+├── functions.php
 │
 ├── config/
-│   └── (configuration files)
+│   ├── auth.php
+│   └── database.php
 │
 ├── public/
 │   ├── css/
-│   │   └── shared-styles.css
+│   │   ├── dashboard.ticket-form.css
+│   │   ├── index.content.css
+│   │   ├── index.footer.css
+│   │   ├── index.navbar.css
+│   │   ├── index.shared-styles.css
 │   ├── images/
 │   │   ├── barangay.svg
-│   │   └── brgy-bg.jpg
-│   └── js/
-│       └── clock.js
+│   │   ├── brgy-bg.jpg
+│   │   ├── card1.png
+│   │   ├── card2.png
+│   │   ├── card3.png
+│   │   ├── card4.png
+│   │   ├── headline-contacts.png
+│   │   ├── headline-first.png
+│   │   ├── headline-fourth.png
+│   │   ├── headline-second.png
+│   │   ├── headline-third.png
+│   ├── js/
+│   │   ├── clock.js
+│   │   ├── login-signupToggle.js
+│   │   ├── mobile-menu.js
+│   │   └── reg-confirm-pass.js
+│
+├── router/
+│   └── router.php
 │
 ├── src/
 │   ├── controllers/
-│   └── models/
+│   │   ├── residentLoginController.php
+│   │   ├── residentLogoutController.php
+│   │   ├── residentSignupController.php
+│   │   └── ticketController.php
+│   ├── models/
+│   │   ├── Resident.php
+│   │   └── Ticket.php
 │
-└── templates/
-    ├── main.php
-    └── partials/
-        ├── footer.php
-        ├── header.php
-        └── navbar.php
+├── uploads/
+│   └── default.png
+│
+├── views/
+│   ├── index.view.php
+│   ├── login.php
+│   ├── dashboard/
+│   │   ├── index.php
+│   │   ├── submission.php
+│   │   ├── tickets.php
+│   │   └── partials/
+│   │       └── ticket-submission-form.php
+│
+├── partials/
+│   ├── brgy-transparency.php
+│   ├── footer.php
+│   ├── head-ticket.php
+│   ├── head-title.php
+│   ├── headline.php
+│   ├── html.head.php
+│   ├── login-register.php
+│   ├── mission-vision.php
+│   ├── navbar.php
+│   └── newnav.php
 ```
