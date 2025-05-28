@@ -8,35 +8,34 @@
   <?php if (empty($tickets)): ?>
     <p>No tickets found.</p>
   <?php else: ?>
-    <table style="border-collapse:collapse; border-spacing: 10px; width: 100%;">
-      <caption>
-        <h2>Submitted Tickets</h2>
-      </caption>
-      <thead>
-        <tr>
-          <th>Ticket ID</th>
-          <th>Priority Level</th>
-          <th>Issue Type</th>
-          <th>Submitted by</th>
-          <th>Subject</th>
-          <th>Address</th>
-          <th>Status</th>
-          <th>Created At</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($tickets as $ticket): ?>
+    <div class="ticket-container">
+      <table>
+        <thead>
           <tr>
-            <td><?= htmlspecialchars($ticket['ticket_id']) ?></td>
-            <td><?= htmlspecialchars($ticket['priority_level']) ?></td>
-            <td><?= htmlspecialchars($ticket['issue_type']) ?></td>
-            <td><?= htmlspecialchars($ticket['FullName']) ?></td>
-            <td><?= htmlspecialchars($ticket['subject']) ?></td>
-            <td><?= htmlspecialchars($ticket['issue_address']) ?></td>
-            <td><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
-            <td><?= htmlspecialchars($ticket['created_at']) ?></td>
+            <th>Ticket ID</th>
+            <th>Priority Level</th>
+            <th>Issue Type</th>
+            <th>Submitted by</th>
+            <th>Subject</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Created At</th>
           </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php foreach ($tickets as $ticket): ?>
+            <tr>
+              <td><?= htmlspecialchars($ticket['ticket_id']) ?></td>
+              <td><?= htmlspecialchars($ticket['priority_level']) ?></td>
+              <td><?= htmlspecialchars($ticket['issue_type']) ?></td>
+              <td><?= htmlspecialchars($ticket['FullName']) ?></td>
+              <td><?= htmlspecialchars($ticket['subject']) ?></td>
+              <td><?= htmlspecialchars($ticket['issue_address']) ?></td>
+              <td><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
+              <td><?= htmlspecialchars($ticket['created_at']) ?></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
   <?php endif; ?>

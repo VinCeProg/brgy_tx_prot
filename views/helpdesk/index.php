@@ -1,6 +1,6 @@
 <?php
 $pagetitle = 'Home';
-// require("../../config/staff-auth.php");
+// require("../../config/staff-auth.php"); //for login auth
 require("../../functions.php");
 require("partials/html.head.php");
 // dd($_SERVER);
@@ -8,7 +8,15 @@ require("partials/html.head.php");
 
 <body>
 
-<?php require("partials/ticket-table.php"); ?>
+  <?php require("partials/navbar.php"); ?>
+
+  <main>
+    <?php
+    require("partials/dashboard.php");
+
+    require("partials/ticket-table.php");
+    ?>
+  </main>
 
 </body>
 

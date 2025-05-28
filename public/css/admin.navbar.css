@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #004080;
+  --secondary-color: #D72F2F;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem;
+  border-bottom: 2px solid #ddd;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  margin: 0 24px;
+  padding-bottom: 16px;
+}
+
+header nav a.active {
+  border-bottom: 3px solid red;
+  color: red;
+}
+
+header nav a:hover {
+  color: red;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-logo {
+  width: 45px;
+  aspect-ratio: 1/1;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background-color);
+  border-radius: 50rem;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.profile-admin {
+  background-color: var(--secondary-color);
+}
