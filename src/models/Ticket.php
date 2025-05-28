@@ -25,13 +25,50 @@ class Ticket
   }
 
 
-  public function getTicketsByResidentID($residentID) {
+  public function getTicketsByResidentID($residentID)
+  {
     $sql = "SELECT * FROM tickets WHERE requested_by = ? ORDER BY ticket_id DESC";
     $stmt = $this->conn->prepare($sql);
     $stmt->bind_param("i", $residentID);
     $stmt->execute();
     $result = $stmt->get_result();
     return $result->fetch_all(MYSQLI_ASSOC);
-}
+  }
 
+  function getAllTicketsWithFullName()
+  {
+    $sql = "
+        SELECT 
+          t.ticket_id,
+          t.subject,
+          t.description,
+          t.issue_type,
+          t.file_path,
+          t.created_at,
+          t.issue_address,
+          t.status,
+          t.priority_level,
+          t.updated_at,
+          CONCAT(r.FirstName, ' ', r.LastName) AS FullName
+        FROM tickets t
+        JOIN residents r ON t.requested_by = r.UserID
+        ORDER BY t.created_at DESC
+    ";
+
+    $result = $this->conn->query($sql);
+
+    if (!$result) {
+      // Log error or throw exception if needed
+      error_log("Query failed: " . $this->conn->error);
+      return [];
+    }
+
+    $tickets = [];
+
+    while ($row = $result->fetch_assoc()) {
+      $tickets[] = $row;
+    }
+
+    return $tickets;
+  }
 }

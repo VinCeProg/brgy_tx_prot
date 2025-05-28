@@ -58,7 +58,7 @@
         <li><a href="http://sc.judiciary.gov.ph/">Supreme Court</a></li>
         <li><a href="http://ca.judiciary.gov.ph/">Court of Appeals</a></li>
         <li><a href="http://sb.judiciary.gov.ph/">Sandiganbayan</a></li>
-        <li><a href="#">Brgy Employee Portal</a></li>
+        <li><a href="/brgy_tx_prot/views/helpdesk/index.php">Brgy Employee Portal</a></li>
       </ul>
     </div>
   </div>
