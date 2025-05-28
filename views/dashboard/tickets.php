@@ -16,24 +16,23 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
 
 <body>
   <?php require("../partials/newnav.php") ?>
-  <main style="color: white; padding: 40px;">
-
+  <main style="background-color: var(--background-color); padding: 20px;">
+    <div class="title-container" id="transparency-service">
+      <h3>MY REQUESTS</h3>
+      <p>Here, you can view the status of your submitted tickets, track updates, and create new requests for assistance.</p>
+      <a href="submission.php" class="btn-add-tx">OPEN NEW TICKET</a>
+    </div>
+    <br>
     <?php
     require("../../config/database.php");
     require("../../src/models/Ticket.php");
     $ticket = new Ticket($conn);
     $residentID = $_SESSION['resident']['UserID'];
     $tickets = $ticket->getTicketsByResidentID($residentID);
-
-    foreach($tickets as $ticket) {
-      echo "<br> <img src=\"{$ticket['file_path']}\" width=\"100px\">";
-      echo "<br> <h1>{$ticket['subject']} </h1>";
-      echo "<br> <h2>{$ticket['issue_type']} </h2>";
-      echo "<br> <p>{$ticket['description']} </p>";
-      $ticket['status'] = strtoupper($ticket['status']);
-      echo "<br> <p><strong>{$ticket['status']}</strong>, {$ticket['created_at']} </p> <br> <br>";
-    }
     ?>
+    <div class="ticket-wrapper">
+      <?php require("partials/ticket-card.php"); ?>
+    </div>
 
   </main>
   <?php require("../partials/footer.php") ?>

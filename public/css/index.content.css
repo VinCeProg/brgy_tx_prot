@@ -300,9 +300,6 @@
   object-fit: cover;
 }
 
-
-
-
 /* MISSION AND VISION */
 
 .statement-container {
@@ -326,6 +323,68 @@
   font-weight: 500;
   max-width: 800px;
 }
+
+
+/* TICKET TRACKER */
+
+.btn-add-tx {
+  margin: 8px;
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border-radius: 50rem;
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+
+.btn-add-tx:hover {
+  transform: scale(1.05);
+}
+
+.ticket-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items:flex-start;
+  gap: 24px;
+}
+
+.ticket-container {
+  width: calc(25% - 20px);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ticket-container img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.ticket-container h1 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.ticket-container h2 {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.ticket-container p {
+  font-size: 1rem;
+  color: #777;
+}
+
+
 
 @media (max-width: 768px) {
 
@@ -415,5 +474,16 @@
     font-size: 1rem;
     line-height: 1.6;
     max-width: 90%;
+  }
+
+  .ticket-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ticket-container {
+    width: 100%;
+    height: auto;
   }
 }

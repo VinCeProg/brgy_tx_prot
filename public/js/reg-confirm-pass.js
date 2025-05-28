@@ -7,16 +7,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkbox = document.querySelector("#eula");
 
   function validateSubmit() {
-    if (password.value === confirmPass.value && checkbox.checked) {
+    if (
+      password.value.trim() !== "" && 
+      confirmPass.value.trim() !== "" && 
+      password.value === confirmPass.value && 
+      checkbox.checked
+    ) {
       submitBtn.removeAttribute("disabled");
     } else {
       submitBtn.setAttribute("disabled", "true");
     }
   }
 
-  // validates password and confirm password field
+  // Validates password and confirm password fields
   confirmPass.addEventListener("input", function () {
-    if (password.value === confirmPass.value) {
+    if (password.value.trim() === "" || confirmPass.value.trim() === "") {
+      confirmPass.style.borderColor = "gray"; // Neutral color when empty
+    } else if (password.value === confirmPass.value) {
       confirmPass.style.borderColor = "green";
     } else {
       confirmPass.style.borderColor = "red";
@@ -24,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
     validateSubmit();
   });
 
-  checkbox.addEventListener("change", function () {
-    validateSubmit();
-  });
+  password.addEventListener("input", validateSubmit);
+  checkbox.addEventListener("change", validateSubmit);
 });

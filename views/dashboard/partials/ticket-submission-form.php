@@ -11,7 +11,7 @@
   </select><br> <br>
 
   <label for="subject">Subject</label>
-  <input type="text" name="subject" id="subject" minlength="5" maxlength="100" required placeholder="A short title or summary of your concern"><br> <br>
+  <input type="text" name="subject" id="subject" minlength="5" maxlength="32" required placeholder="A short title or summary of your concern"><br> <br>
 
   <label for="issue_address">Issue Address</label><br>
   <input type="text" name="issue_address" id="issue_address" rows="3" placeholder="Enter the exact location of the issue..." required></textarea><br><br>
