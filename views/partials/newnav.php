@@ -14,6 +14,7 @@ $home_url = $isDashboard ? "/brgy_tx_prot/views/dashboard/index.php" : "/brgy_tx
   <nav class="navbar">
     <ul>
       <li><a href="<?php echo $home_url; ?>">HOME</a></li>
+      <li><a href="tickets.php">MY TICKETS</a></li>
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#transparency-service">GALLERY</a></li>
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#headline">CONTACTS</a></li>
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#about-us">ABOUT</a></li>
