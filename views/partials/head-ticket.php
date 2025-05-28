@@ -1,6 +1,7 @@
 <div class="tickethero-container">
   <div class="tickethero-banner">
     <div class="tickethero-text">
+      <h3>Welcome <?= $_SESSION['resident']['FirstName'] ?>!</h3>
       <h2>Got complaint or request?</h2>
       <p>Your voice matters. Submit a request or complaint and let us take cake of the rest. </p>
       <p>Quick. Transparent. Hassle-Free.</p>
