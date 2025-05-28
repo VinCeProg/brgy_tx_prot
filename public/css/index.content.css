@@ -28,6 +28,8 @@
 }
 
 .img-container h2 {
+  font-size: 3rem;
+  font-weight: 400;
   color: white;
   z-index: 2;
   text-align: center;
@@ -269,7 +271,7 @@
   scroll-snap-align: center;
   flex: 0 0 auto;
   aspect-ratio: 5/3;
-  width: clamp(600px, 60vw, 90%);
+  width: clamp(600px, 40vw, 90%);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
