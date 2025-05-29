@@ -16,9 +16,7 @@
   /* border: 1px solid magenta; */
 }
 
-body {
-
-}
+body {}
 
 main {
   /* padding: 1rem; */
@@ -43,7 +41,7 @@ table {
   border-collapse: collapse;
   border: 1px solid var(--text-color);
   border-radius: 8px 8px 0 0;
-  width: 90%;
+  width: 80%;
   margin: 12px;
   font-size: 0.9rem;
   overflow: hidden;
@@ -69,7 +67,12 @@ td {
 
 td {
   color: var(--text-color);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 tbody tr {
   border-bottom: 1px solid #a8a8a8;

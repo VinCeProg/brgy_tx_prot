@@ -53,7 +53,7 @@
         </a>
       </div>
 
-      <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form hidden" id="edit-form">
+      <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form" id="edit-form">
         <input type="hidden" name="ticket_id" value="<?= $ticket['ticket_id'] ?>">
         <label>Status: <br>
           <select name="status">
