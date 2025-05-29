@@ -16,16 +16,19 @@
   /* border: 1px solid magenta; */
 }
 
-body {
-  background-color: var(--background-color);
-}
+body {}
 
 main {
   /* padding: 1rem; */
 }
 
+/* || SHADOW */
+.box-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
 
-/* TABLE */
+
+/* || TABLE */
 .table-container {
   width: 100%;
   padding: 24px;

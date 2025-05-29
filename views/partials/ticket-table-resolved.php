@@ -1,5 +1,5 @@
   <?php
-  require("../src/controllers/ticketController.php");
+  require("../src/models/Ticket.php");
   require("../config/database.php");
   $ticketModel = new Ticket($conn);
   $tickets = $ticketModel->getResolvedTickets();
@@ -10,6 +10,9 @@
   <?php else: ?>
     <div class="table-container">
       <table>
+        <caption style="font-size: 2rem; font-weight: bold; color: white; margin: 0 0 1rem 0">
+          RESOLVED BARANGAY TICKETS
+        </caption>
         <thead>
           <tr>
             <th>Issue Type</th>

@@ -72,7 +72,7 @@ class Ticket
   }
 
   function getResolvedTickets() {
-    $query = "SELECT * FROM tickets WHERE status = 'Pending'";
+    $query = "SELECT * FROM tickets WHERE status = 'resolved'";
     $result = $this->conn->query($query);
 
     if (!$result) {

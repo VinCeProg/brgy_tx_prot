@@ -9,7 +9,7 @@
     <p>No tickets found.</p>
   <?php else: ?>
     <div class="table-container">
-      <table>
+      <table class="box-shadow">
         <thead>
           <tr>
             <th>Ticket ID</th>

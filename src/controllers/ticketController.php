@@ -1,5 +1,5 @@
-<?php
-// session_start();
+<?php 
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -16,7 +16,7 @@ function cleanInput($value)
 $ticket = new Ticket($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  
+
 
   $web_path = "/brgy_tx_prot/uploads/default.png"; // Default image path
   $upload_dir = __DIR__ . '/../../uploads/';       // Physical folder path
@@ -58,4 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   header("Location: /brgy_tx_prot/views/dashboard/tickets.php");
   exit();
 }
-?>

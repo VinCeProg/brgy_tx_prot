@@ -1,5 +1,5 @@
 <div class="dashboard">
-  <div class="dashboard-top">
+  <div class="dashboard-top box-shadow">
     <h3>DASHBOARD</h3>
     <div class="filters">
       <label>

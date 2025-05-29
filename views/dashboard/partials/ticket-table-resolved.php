@@ -1,5 +1,5 @@
   <?php
-  require("../../src/controllers/ticketController.php");
+  require("../../src/models/Ticket.php");
   require("../../config/database.php");
   $ticketModel = new Ticket($conn);
   $tickets = $ticketModel->getResolvedTickets();
