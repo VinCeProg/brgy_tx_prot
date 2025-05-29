@@ -20,7 +20,7 @@
         <?php foreach ($tickets as $ticket): ?>
           <tr>
             <td><?= htmlspecialchars($ticket['ticket_id']) ?></td>
-            <td><?= htmlspecialchars($ticket['priority_level']) ?></td>
+            <td class="priority-display"><?= htmlspecialchars($ticket['priority_level']) ?></td>
             <td><?= htmlspecialchars($ticket['issue_type']) ?></td>
             <td><?= htmlspecialchars($ticket['FullName']) ?></td>
             <td><?= htmlspecialchars($ticket['subject']) ?></td>

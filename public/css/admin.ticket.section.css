@@ -82,6 +82,7 @@
 
 .edit-form input[type="submit"] {
   padding: 8px 16px;
+  border: none;
   background-color: var(--primary-color);
   color: white;
   font-weight: 500;

@@ -8,12 +8,12 @@
       <div>
         <h2><?= $ticket['subject'] ?></h2>
         <p>
-          <strong>Ticket No.</strong>
-          <?= $ticket['ticket_id'] ?>
+          <strong>Priority:</strong>
+          <span class="priority-display"><?= $ticket['priority_level'] ?></span>
         </p>
         <p>
-          <strong>Priority:</strong>
-          <span id="priority-display"><?= $ticket['priority_level'] ?></span>
+          <strong>Ticket No.</strong>
+          <?= $ticket['ticket_id'] ?>
         </p>
         <p>
           <strong>Address:</strong>
@@ -43,11 +43,11 @@
           <br>
           <span id="status-display" class="<?= $ticket['status'] ?> status-text" style="font-weight: bold;"><?= strtoupper($ticket['status']) ?></span>
         </p>
-        <button onclick="toggleEdit()" class="edit-btn">Edit</button>
+        <button onclick="toggleEdit()" class="edit-btn" title="Edit Ticket">Edit</button>
       </div>
     </div>
 
-    <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form" id="edit-form">
+    <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form hidden" id="edit-form">
       <input type="hidden" name="ticket_id" value="<?= $ticket['ticket_id'] ?>">
       <label>Status: <br>
         <select name="status">
@@ -64,7 +64,7 @@
           <option <?= strtolower($ticket['priority_level']) == 'urgent' ? 'selected' : '' ?>>Urgent</option>
         </select>
       </label>
-      <input type="submit" name="update_ticket"></input>
+      <input type="submit" name="update_ticket" title="Submit Edit"></input>
     </form>
 
     <br><br>

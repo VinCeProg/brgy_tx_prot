@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("Status coloring script loaded");
 
   const statusColors = {
     "PENDING": "orange",
@@ -11,5 +10,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".status-text").forEach(function (statusEl) {
     const statusValue = statusEl.textContent.trim().toUpperCase();
     statusEl.style.color = statusColors[statusValue] || "black";
+  });
+
+  const priolvlColors = {
+    "LOW": "#2e7d32",       // Green
+    "MEDIUM": "#f9a825",    // Amber
+    "HIGH": "#ef6c00",      // Deep Orange
+    "URGENT": "#c62828"     // Red
+  }
+
+  document.querySelectorAll('.priority-display').forEach(function (priolvlEl) {
+    const priolvlValue = priolvlEl.textContent.trim().toUpperCase();
+    priolvlEl.style.color = priolvlColors[priolvlValue] || "black";
   });
 });
