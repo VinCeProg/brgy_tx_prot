@@ -4,48 +4,46 @@
 
 <section class="ticket-summary">
   <div class="ticket-view box-shadow">
-    <div class="header">
-      <div>
-        <h2><?= $ticket['subject'] ?></h2>
-        <p>
-          <strong>Priority:</strong>
-          <span class="priority-display"><?= $ticket['priority_level'] ?></span>
-        </p>
-        <p>
-          <strong>Ticket No.</strong>
-          <?= $ticket['ticket_id'] ?>
-        </p>
-        <p>
-          <strong>Address:</strong>
-          <span class="faded"><?= $ticket['issue_address'] ?></span>
-        </p>
-        <p>
-          <strong>Description:</strong> <br>
-          <span class="faded"><?= $ticket['description'] ?></span>
-        </p>
-      </div>
+    <h1 class="ticket-subject"><?= $ticket['subject'] ?></h1>
+    <table class="ticket-table">
+      <tbody>
+        <tr>
+          <th>Priority:</th>
+          <td class="priority-display"><?= $ticket['priority_level'] ?></td>
+          <th>Resident’s Name:</th>
+          <td><?= $ticket['FullName'] ?></td>
+        </tr>
+        <tr>
+          <th>Ticket No.:</th>
+          <td><?= $ticket['ticket_id'] ?></td>
+          <th>Phone Number:</th>
+          <td><?= $ticket['PhoneNo'] ?></td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td colspan="1" class="faded"><?= $ticket['issue_address'] ?></td>
+          <th>Email:</th>
+          <td><?= $ticket['Email'] ?></td>
+        </tr>
+        <tr>
+          <th>Created At:</th>
+          <td><?= $ticket['created_at'] ?></td>
+          <th>Status:</th>
+          <td>
+            <span id="status-display" class="<?= $ticket['status'] ?> status-text">
+              <?= strtoupper($ticket['status']) ?>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Description:</th>
+          <td colspan="4" class="faded"><?= $ticket['description'] ?></td>
+        </tr>
+      </tbody>
+    </table>
+    <button onclick="toggleEdit()" class="edit-btn" title="Edit Ticket">Edit</button>
 
-      <div class="right-column">
-        <p>
-          <strong>Resident’s Name:</strong>
-          <?= $ticket['FullName'] ?>
-        </p>
-        <p>
-          <strong>Phone Number:</strong>
-          <?= $ticket['PhoneNo'] ?>
-        </p>
-        <p>
-          <strong>Email:</strong>
-          <?= $ticket['Email'] ?>
-        </p>
-        <p class="status">
-          <?= $ticket['created_at'] ?>
-          <br>
-          <span id="status-display" class="<?= $ticket['status'] ?> status-text" style="font-weight: bold;"><?= strtoupper($ticket['status']) ?></span>
-        </p>
-        <button onclick="toggleEdit()" class="edit-btn" title="Edit Ticket">Edit</button>
-      </div>
-    </div>
+
 
     <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form hidden" id="edit-form">
       <input type="hidden" name="ticket_id" value="<?= $ticket['ticket_id'] ?>">
@@ -77,6 +75,9 @@
       </a>
     </div>
   </div>
+
+
+
 </section>
 
 <script>

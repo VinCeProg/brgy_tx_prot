@@ -9,27 +9,12 @@
       <a href="<?= htmlspecialchars($ticket['file_path']) ?>" target="_blank">
         <img src="<?= htmlspecialchars($ticket['file_path']) ?>">
       </a>
-      <h2><?= htmlspecialchars($ticket['created_at']) ?></h2>
+      <h2>Date Requested : <small><?= htmlspecialchars($ticket['created_at']) ?></small></h2>
       <p><?= htmlspecialchars($ticket['description']) ?></p>
       <p class="note"><strong>Updated Last: </strong><?= htmlspecialchars($ticket['updated_at']) ?></p>
     </div>
   <?php endforeach; ?>
 <?php endif; ?>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("Status coloring script loaded");
-
-    const statusColors = {
-      "PENDING": "orange",
-      "IN PROGRESS": "blue",
-      "RESOLVED": "green",
-      "CLOSED": "gray"
-    };
-
-    document.querySelectorAll(".status-text").forEach(function (statusEl) {
-      const statusValue = statusEl.textContent.trim().toUpperCase();
-      statusEl.style.color = statusColors[statusValue] || "black";
-    });
-  });
+<script src="/brgy_tx_prot/public/js/status-colorcode.js">
 </script>

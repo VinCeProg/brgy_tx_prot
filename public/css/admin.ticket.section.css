@@ -94,6 +94,48 @@
   display: none;
 }
 
+.ticket-subject {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.ticket-meta {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.ticket-description {
+  margin-top: 12px;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+  display: inline-block;
+  min-width: 110px;
+}
+
+.priority-display {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-text {
+  font-weight: bold;
+}
+
+.right-column {
+  width: 50%;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.right-column p {
+  margin-bottom: 10px;
+}
+
+
 @media (max-width: 960px) {
   .ticket-view {
     max-width: 100%;

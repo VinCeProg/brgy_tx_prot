@@ -1,5 +1,5 @@
 <?php
-$pagetitle = 'View Ticket';
+$pagetitle = 'Complaints';
 // require("../../config/staff-auth.php"); //for login auth
 require("../../functions.php");
 require("partials/html.head.php");
