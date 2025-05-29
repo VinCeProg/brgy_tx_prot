@@ -13,6 +13,7 @@
           <th>Address</th>
           <th>Status</th>
           <th>Created At</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -24,8 +25,11 @@
             <td><?= htmlspecialchars($ticket['FullName']) ?></td>
             <td><?= htmlspecialchars($ticket['subject']) ?></td>
             <td><?= htmlspecialchars($ticket['issue_address']) ?></td>
-            <td><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
+            <td class="status-text"><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
             <td><?= htmlspecialchars($ticket['created_at']) ?></td>
+            <td>
+              <a href="/brgy_tx_prot/views/helpdesk/view-ticket.php?id=<?= htmlspecialchars($ticket['ticket_id']) ?>" class="view-btn">View Ticket</a>
+            </td>
           </tr>
         <?php endforeach; ?>
       </tbody>

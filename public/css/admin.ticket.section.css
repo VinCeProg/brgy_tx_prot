@@ -1,0 +1,100 @@
+.ticket-summary {
+  height: 88vh;
+  padding: 12px;
+}
+
+.ticket-view {
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+  padding: 16px;
+  max-width: 50%;
+  height: 100%;
+  background: #fff;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h2 {
+  margin-top: 0;
+}
+
+.faded {
+  color: var(--text-color);
+}
+
+.right-column {
+  width: 50%;
+}
+
+.right-column p{
+  display: flex;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+.status {
+  margin-top: 20px;
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+
+.photo-section {
+  margin-top: 16px;
+}
+
+.photo-section img {
+  width: 300px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.edit-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 50rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-form {
+  margin-top: 20px;
+  width: 50%;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.edit-form select {
+  border-radius: 4px;
+  padding: 4px 8px;
+  width: 50%;
+}
+
+.edit-form input[type="submit"] {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .ticket-view {
+    max-width: 100%;
+  }
+}

@@ -8,6 +8,8 @@ class Ticket
     $this->conn = $db;
   }
 
+
+  // || CREATE
   public function createTicket($data)
   {
     $query = "INSERT INTO tickets (subject, description, issue_type, requested_by, file_path, issue_address) VALUES (?,?,?,?,?,?);";
@@ -25,6 +27,7 @@ class Ticket
   }
 
 
+  // || READ
   public function getTicketsByResidentID($residentID)
   {
     $sql = "SELECT * FROM tickets WHERE requested_by = ? ORDER BY ticket_id DESC";
@@ -70,6 +73,38 @@ class Ticket
     }
 
     return $tickets;
+  }
+
+  function getTicketByTicketID($ticketID)
+  {
+    $query = "SELECT 
+          t.ticket_id,
+          t.subject,
+          t.description,
+          t.issue_type,
+          t.file_path,
+          t.created_at,
+          t.issue_address,
+          t.status,
+          t.priority_level,
+          t.updated_at,
+          CONCAT(r.FirstName, ' ', r.LastName) AS FullName,
+          r.Email,
+          r.PhoneNo
+        FROM tickets t
+        JOIN residents r ON t.requested_by = r.UserID
+        WHERE t.ticket_id = ?
+        ORDER BY t.created_at DESC";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("i", $ticketID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+      return $result->fetch_assoc();
+    } else {
+      return null;
+    }
   }
 
   function getResolvedTickets()
@@ -137,4 +172,15 @@ class Ticket
 
     return $priority_counts;
   }
+
+  // || UPDATE
+    public function updateTicket($id, $status, $priority)
+  {
+    $query = "UPDATE tickets SET status = ?, priority_level = ?, updated_at = NOW() WHERE ticket_id = ?";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bind_param("ssi", $status, $priority, $id);
+    return $stmt->execute();
+  }
+
+  
 }
