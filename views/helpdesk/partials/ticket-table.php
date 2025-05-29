@@ -1,8 +1,9 @@
 <?php if (empty($tickets)): ?>
   <p>No tickets found.</p>
 <?php else: ?>
+  <h2>RECENT TICKETS</h2>
   <div class="table-container">
-    <table class="box-shadow">
+    <table class="box-shadow" style="table-layout: fixed;">
       <thead>
         <tr>
           <th>Ticket ID</th>

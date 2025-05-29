@@ -350,6 +350,7 @@
 }
 
 .ticket-container {
+  margin-bottom: 24px;
   width: calc(25% - 20px);
   background-color: #fff;
   border-radius: 8px;
