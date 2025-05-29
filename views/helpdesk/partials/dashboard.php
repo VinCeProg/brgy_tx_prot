@@ -46,19 +46,19 @@ $priorityLvl_count = $ticketModel->getTicketPriorityCount();
       </div>
       <div class="request-item">
         <span class="label">URGENT</span>
-        <div class="number-box"><?= $priorityLvl_count['Urgent'] ?></div>
+        <div class="number-box urgent-box"><?= $priorityLvl_count['Urgent'] ?></div>
       </div>
       <div class="request-item">
         <span class="label">HIGH PRIORITY</span>
-        <div class="number-box"><?= $priorityLvl_count['High'] ?></div>
+        <div class="number-box high-box"><?= $priorityLvl_count['High'] ?></div>
       </div>
       <div class="request-item">
         <span class="label">MEDIUM PRIORITY</span>
-        <div class="number-box"><?= $priorityLvl_count['Medium'] ?></div>
+        <div class="number-box med-box"><?= $priorityLvl_count['Medium'] ?></div>
       </div>
       <div class="request-item">
         <span class="label">LOW PRIORITY</span>
-        <div class="number-box"><?= $priorityLvl_count['Low'] ?></div>
+        <div class="number-box low-box"><?= $priorityLvl_count['Low'] ?></div>
       </div>
     </div>
 

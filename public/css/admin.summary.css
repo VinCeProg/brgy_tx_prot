@@ -96,8 +96,8 @@
   padding: 0.5rem 1rem;
   border-radius: 5px;
   text-align: center;
-  font-weight: 200;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 1.5rem;
 }
 
 .summary-container {
@@ -135,4 +135,20 @@
   color: var(--primary-color);
   font-size: 30px;
   font-weight: 500;
+}
+
+.urgent-box {
+  background-color: #c62828;
+}
+
+.high-box {
+  background-color: #ef6c00;
+}
+
+.med-box {
+  background-color: #f9a825;
+}
+
+.low-box {
+  background-color: #2e7d32;
 }
