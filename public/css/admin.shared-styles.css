@@ -73,6 +73,12 @@ td {
   text-overflow: ellipsis;
 }
 
+td a {
+  /* text-decoration: none; */
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
 
 tbody tr {
   border-bottom: 1px solid #a8a8a8;

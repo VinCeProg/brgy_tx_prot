@@ -153,3 +153,12 @@
 .low-box {
   background-color: #2e7d32;
 }
+
+.chart-wrapper {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  width: 500px;
+}

@@ -173,14 +173,40 @@ class Ticket
     return $priority_counts;
   }
 
+  function getTicketCountsPerDay()
+  {
+    $query = "SELECT DATE(created_at) as date, COUNT(*) as count 
+              FROM tickets 
+              WHERE created_at >= CURDATE() - INTERVAL 6 DAY
+              GROUP BY DATE(created_at) 
+              ORDER BY DATE(created_at)";
+
+    $result = $this->conn->query($query);
+
+    $dates = [];
+    $counts = [];
+
+    if ($result && $result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $dates[] = $row['date'];
+        $counts[] = $row['count'];
+      }
+    }
+
+    return [
+      'dates' => $dates,
+      'counts' => $counts
+    ];
+  }
+
+
+
   // || UPDATE
-    public function updateTicket($id, $status, $priority)
+  public function updateTicket($id, $status, $priority)
   {
     $query = "UPDATE tickets SET status = ?, priority_level = ?, updated_at = NOW() WHERE ticket_id = ?";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param("ssi", $status, $priority, $id);
     return $stmt->execute();
   }
-
-  
 }

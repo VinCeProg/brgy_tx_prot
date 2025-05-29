@@ -3,6 +3,7 @@ $ticketModel = new Ticket($conn);
 $tickets = $ticketModel->getAllTicketsWithFullName();
 $status_count = $ticketModel->getTicketStatusCount();
 $priorityLvl_count = $ticketModel->getTicketPriorityCount();
+$txPerDay_count = $ticketModel->getTicketCountsPerDay();
 ?>
 
 <div class="dashboard">
@@ -61,6 +62,9 @@ $priorityLvl_count = $ticketModel->getTicketPriorityCount();
         <div class="number-box low-box"><?= $priorityLvl_count['Low'] ?></div>
       </div>
     </div>
+    <div class="chart-wrapper box-shadow">
+      <canvas id="status-chart"></canvas>
+    </div>
 
     <div class="summary-container">
       <div class="summary">
@@ -76,5 +80,77 @@ $priorityLvl_count = $ticketModel->getTicketPriorityCount();
         <p><?= $status_count['resolved'] ?></p>
       </div>
     </div>
+    <div class="chart-wrapper box-shadow">
+      <canvas id="tx-per-day-chart"></canvas>
+    </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const xValues = <?php echo json_encode(array_keys($priorityLvl_count)) ?>;
+  const yValues = <?php echo json_encode(array_values($priorityLvl_count)) ?>;
+
+  const ctx = document.getElementById('status-chart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: 'Priority Level',
+        data: yValues,
+        backgroundColor: [
+          '#237d32',
+          '#f9a825',
+          '#ef6c00',
+          '#c62828'
+        ],
+        borderColor: [
+          '#237d32',
+          '#f9a825',
+          '#ef6c00',
+          '#c62828'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: true
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          precision: 0
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  const linechart = new Chart(document.getElementById('tx-per-day-chart'), {
+    type: 'line',
+    data: {
+      labels: <?= json_encode($txPerDay_count['dates']) ?>,
+      datasets: [{
+        label: 'Tickets Submitted Per Day',
+        data: <?= json_encode($txPerDay_count['counts']) ?>,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
