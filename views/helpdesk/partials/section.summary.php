@@ -4,8 +4,14 @@
 
 <section class="ticket-summary">
   <div class="ticket-view box-shadow">
+    <button onclick="history.back()" class="back-btn" title="Go Back">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      back
+    </button>
     <h1 class="ticket-subject"><?= $ticket['subject'] ?></h1>
-    <table class="ticket-table">
+    <table class="ticket-table" style="width: 95%; height: auto; margin: 12px 0;">
       <tbody>
         <tr>
           <th>Priority:</th>
@@ -41,7 +47,6 @@
         </tr>
       </tbody>
     </table>
-    <button onclick="toggleEdit()" class="edit-btn" title="Edit Ticket">Edit</button>
 
     <br><br>
     <hr>
@@ -55,6 +60,7 @@
 
       <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form" id="edit-form">
         <input type="hidden" name="ticket_id" value="<?= $ticket['ticket_id'] ?>">
+        <p><strong>Update Ticket</strong></p>
         <label>Status: <br>
           <select name="status">
             <option <?= strtolower($ticket['status']) == 'pending' ? 'selected' : '' ?>>Pending</option>

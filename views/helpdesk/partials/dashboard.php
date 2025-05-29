@@ -9,32 +9,6 @@ $txPerDay_count = $ticketModel->getTicketCountsPerDay();
 <div class="dashboard">
   <div class="dashboard-top box-shadow">
     <h3>DASHBOARD</h3>
-    <!-- <div class="filters">
-      <label>
-        Filter by Issue Type:
-        <select>
-          <option>All Types</option>
-        </select>
-      </label>
-      <label>
-        Month:
-        <select>
-          <option value="0" selected disabled>Select</option>
-          <option value="1">January</option>
-          <option value="2">February</option>
-          <option value="3">March</option>
-          <option value="4">April</option>
-          <option value="5">May</option>
-          <option value="6">June</option>
-          <option value="7">July</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">October</option>
-          <option value="11">November</option>
-          <option value="12">December</option>
-        </select>
-      </label>
-    </div> -->
   </div>
 
   <div class="cards-container">
@@ -97,7 +71,7 @@ $txPerDay_count = $ticketModel->getTicketCountsPerDay();
     data: {
       labels: xValues,
       datasets: [{
-        label: 'Priority Level',
+        label: 'Ticket Count per Priority Level',
         data: yValues,
         backgroundColor: [
           '#237d32',

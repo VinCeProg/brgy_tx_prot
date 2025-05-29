@@ -22,6 +22,8 @@ $tickets = $ticketModel->getAllTicketsWithFullName();
     ?>
   </main>
   <script src="/brgy_tx_prot/public/js/status-colorcode.js"></script>
+  <script src="/brgy_tx_prot/public/js/searchtable.js"></script>
+  <script src="/brgy_tx_prot/public/js/sorttable.js"></script>
 </body>
 
 </html>
