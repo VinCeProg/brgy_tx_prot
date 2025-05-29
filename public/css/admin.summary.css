@@ -173,12 +173,8 @@
   background-color: var(--primary-color);
 }
 
-.filter-wrapper label {
-  color: white;
-  font-weight: 500;
-  text-align: right;
-  display: inline-block;
-  width: 12ch;
+.filter-wrapper h2 {
+  margin-left: 12px;
 }
 
 #searchInput,
@@ -236,4 +232,12 @@
   width: 50%;
   display: flex;
   justify-content: flex-end;
+}
+
+.input-filter-wrapper label {
+  color: white;
+  font-weight: 500;
+  text-align: right;
+  display: inline-block;
+  width: 12ch;
 }
