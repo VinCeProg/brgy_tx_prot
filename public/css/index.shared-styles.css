@@ -167,6 +167,53 @@ input[type="submit"]:disabled {
   align-items: center;
 }
 
+.table-container {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  background-color: var(--background-color);
+  border-collapse: collapse;
+  border: 1px solid var(--text-color);
+  border-radius: 8px 8px 0 0;
+  width: 90%;
+  margin: 12px;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+thead {
+  background-color: var(--secondary-color);
+}
+
+thead th {
+  color: var(--background-color);
+  padding: 8px 12px;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 12px 16px;
+}
+
+td {
+  color: var(--text-color);
+}
+
+tbody tr {
+  border-bottom: 2px solid var(--color-secondary);
+  transition: 0.3s ease;
+}
+
+tbody tr:nth-child(even) {
+  background-color: white;
+}
+
 @media screen and (max-width: 768px) {
   /* header {
     height: auto;

@@ -35,9 +35,8 @@ class Ticket
     return $result->fetch_all(MYSQLI_ASSOC);
   }
 
-  function getAllTicketsWithFullName()
-  {
-    $sql = "
+  function getAllTicketsWithFullName() {
+    $query = "
         SELECT 
           t.ticket_id,
           t.subject,
@@ -55,7 +54,7 @@ class Ticket
         ORDER BY t.created_at DESC
     ";
 
-    $result = $this->conn->query($sql);
+    $result = $this->conn->query($query);
 
     if (!$result) {
       // Log error or throw exception if needed
@@ -69,6 +68,23 @@ class Ticket
       $tickets[] = $row;
     }
 
+    return $tickets;
+  }
+
+  function getResolvedTickets() {
+    $query = "SELECT * FROM tickets WHERE status = 'Pending'";
+    $result = $this->conn->query($query);
+
+    if (!$result) {
+      error_log("Query failed: " . $this->conn->error);
+      return[];
+    }
+
+    $tickets = [];
+
+    while($row = $result->fetch_assoc()) {
+      $tickets[] = $row;
+    }
     return $tickets;
   }
 }

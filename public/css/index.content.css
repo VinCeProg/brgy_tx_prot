@@ -345,8 +345,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items:flex-start;
-  gap: 24px;
+  align-items: start;
+  gap: 2%;
 }
 
 .ticket-container {

@@ -12,6 +12,7 @@ require("../partials/html.head.php");
     
     <?php 
       require("../partials/head-ticket.php");
+      require("partials/ticket-table-resolved.php");
       require("../partials/headline.php");
       require("../partials/brgy-transparency.php");
       require("../partials/mission-vision.php");
