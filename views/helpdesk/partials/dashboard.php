@@ -1,7 +1,14 @@
+<?php
+$ticketModel = new Ticket($conn);
+$tickets = $ticketModel->getAllTicketsWithFullName();
+$status_count = $ticketModel->getTicketStatusCount();
+$priorityLvl_count = $ticketModel->getTicketPriorityCount();
+?>
+
 <div class="dashboard">
   <div class="dashboard-top box-shadow">
     <h3>DASHBOARD</h3>
-    <div class="filters">
+    <!-- <div class="filters">
       <label>
         Filter by Issue Type:
         <select>
@@ -26,39 +33,47 @@
           <option value="12">December</option>
         </select>
       </label>
-    </div>
+    </div> -->
   </div>
 
   <div class="cards-container">
-    <div class="request-summary">
+    <div class="request-summary box-shadow">
       <div class="request-item">
         <span class="label">
           <h4>TOTAL REQUESTS</h4>
         </span>
-        <div class="number-box">12</div>
+        <div class="number-box"><?= array_sum($status_count) ?></div>
       </div>
       <div class="request-item">
-        <span class="label">⭐⭐⭐ URGENT</span>
-        <div class="number-box">3</div>
+        <span class="label">URGENT</span>
+        <div class="number-box"><?= $priorityLvl_count['Urgent'] ?></div>
       </div>
       <div class="request-item">
-        <span class="label">⭐⭐ HIGH PRIORITY</span>
-        <div class="number-box">5</div>
+        <span class="label">HIGH PRIORITY</span>
+        <div class="number-box"><?= $priorityLvl_count['High'] ?></div>
+      </div>
+      <div class="request-item">
+        <span class="label">MEDIUM PRIORITY</span>
+        <div class="number-box"><?= $priorityLvl_count['Medium'] ?></div>
+      </div>
+      <div class="request-item">
+        <span class="label">LOW PRIORITY</span>
+        <div class="number-box"><?= $priorityLvl_count['Low'] ?></div>
       </div>
     </div>
 
     <div class="summary-container">
       <div class="summary">
         <h4>PENDING</h4>
-        <p>3</p>
+        <p><?= $status_count['pending'] ?></p>
       </div>
       <div class="summary">
         <h4>IN PROGRESS</h4>
-        <p>4</p>
+        <p><?= $status_count['in progress'] ?></p>
       </div>
       <div class="summary">
         <h4>RESOLVED</h4>
-        <p>5</p>
+        <p><?= $status_count['resolved'] ?></p>
       </div>
     </div>
   </div>

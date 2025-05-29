@@ -35,7 +35,8 @@ class Ticket
     return $result->fetch_all(MYSQLI_ASSOC);
   }
 
-  function getAllTicketsWithFullName() {
+  function getAllTicketsWithFullName()
+  {
     $query = "
         SELECT 
           t.ticket_id,
@@ -71,20 +72,69 @@ class Ticket
     return $tickets;
   }
 
-  function getResolvedTickets() {
+  function getResolvedTickets()
+  {
     $query = "SELECT * FROM tickets WHERE status = 'resolved'";
     $result = $this->conn->query($query);
 
     if (!$result) {
       error_log("Query failed: " . $this->conn->error);
-      return[];
+      return [];
     }
 
     $tickets = [];
 
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
       $tickets[] = $row;
     }
     return $tickets;
+  }
+
+  function getTicketStatusCount()
+  {
+    $query = "SELECT status FROM tickets";
+    $result = $this->conn->query($query);
+
+    $status_counts = [];
+
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $status = $row['status'];
+        if (isset($status_counts[$status])) {
+          $status_counts[$status]++;
+        } else {
+          $status_counts[$status] = 1;
+        }
+      }
+    } else {
+      error_log("No Ticket Found: " . $this->conn->error);
+    }
+    return $status_counts;
+  }
+
+  function getTicketPriorityCount()
+  {
+    $query = "SELECT priority_level FROM tickets";
+    $result = $this->conn->query($query);
+
+    $priority_counts = [
+      "Low" => 0,
+      "Medium" => 0,
+      "High" => 0,
+      "Urgent" => 0
+    ];
+
+    if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $priority = $row['priority_level'];
+        if (isset($priority_counts[$priority])) {
+          $priority_counts[$priority]++;
+        }
+      }
+    } else {
+      error_log("No Ticket Found: " . $this->conn->error);
+    }
+
+    return $priority_counts;
   }
 }
