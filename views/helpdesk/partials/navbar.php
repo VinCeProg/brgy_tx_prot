@@ -7,12 +7,13 @@
     <a href="/brgy_tx_prot/views/helpdesk/index.php" class="<?= $pagetitle === 'Configuration' ? 'active' : '' ?>">Configuration</a>
   </nav>
   <div class="user-profile">
-    <div class="profile-logo profile-admin">
-      A
+    <div class="profile-logo <?= $_SESSION['staff']['is_admin'] ? "profile-admin" : "profile-staff" ?>">
+      <?= substr($_SESSION['staff']['fullname'], 0, 1) ?>
     </div>
     <div>
-      <strong>Juan Dela Cruz</strong><br />
-      <small>Admin</small>
+      <strong><?= $_SESSION['staff']['fullname'] ?></strong><br />
+      <small><?= $_SESSION['staff']['is_admin'] ? "Admin" : "Staff" ?></small> <br>
+      <small><a href="/brgy_tx_prot/src/controllers/adminLogoutController.php" style="color: var(--secondary-color);">Logout</a></small>
     </div>
   </div>
 </header>

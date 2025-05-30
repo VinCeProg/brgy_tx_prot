@@ -60,3 +60,7 @@ header nav a:hover {
 .profile-admin {
   background-color: var(--secondary-color);
 }
+
+.profile-staff {
+  background-color: var(--primary-color);
+}
