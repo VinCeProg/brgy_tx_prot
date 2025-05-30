@@ -13,10 +13,10 @@
             <option value="0">Ticket ID</option>
             <option value="1">Priority Level</option>
             <option value="2">Issue Type</option>
-            <option value="3">Submitted by</option>
-            <option value="4">Subject</option>
-            <option value="5">Address</option>
-            <option value="6">Status</option>
+            <option value="3">Subject</option>
+            <option value="4">Address</option>
+            <option value="5">Status</option>
+            <option value="6">Submitted by</option>
             <option value="7">Created At</option>
           </select>
           <button class="box-shadow btn" id="sortOrderBtn" onclick="toggleSortOrder()">Asc</button>

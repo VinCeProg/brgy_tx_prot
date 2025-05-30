@@ -3,7 +3,7 @@
 ?>
 
 <section class="ticket-summary">
-  <div class="ticket-view box-shadow">
+  <div class="ticket-view">
     <button onclick="history.back()" class="back-btn" title="Go Back">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -43,7 +43,7 @@
         </tr>
         <tr>
           <th>Description:</th>
-          <td colspan="3" class="faded"><?= $ticket['description'] ?></td>
+          <td colspan="3" class="faded" style="white-space: wrap;"><?= $ticket['description'] ?></td>
         </tr>
       </tbody>
     </table>
@@ -80,25 +80,8 @@
       </form>
     </div>
   </div>
-
-
-
 </section>
 
-<script>
-  function toggleEdit() {
-    const form = document.getElementById('edit-form');
-    form.classList.toggle('hidden');
-  }
-
-  function applyChanges() {
-    const status = document.getElementById('status-select').value;
-    const priority = document.getElementById('priority-select').value;
-
-    document.getElementById('status-display').innerText = status.toUpperCase();
-    document.getElementById('status-display').className = status.toLowerCase();
-    document.getElementById('priority-display').innerText = priority;
-
-    toggleEdit();
-  }
-</script>
+<section class="ticket-log-view">
+  <div class="ticket-log-container"></div>
+</section>

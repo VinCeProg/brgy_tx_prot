@@ -1,16 +1,28 @@
-.ticket-summary {
-  height: 88vh;
-  padding: 24px;
+/* || Left Column Ticket View */
+
+.ticket-summary,
+.ticket-log-view {
+  width: 50%;
+  height: 90vh;
 }
 
-.ticket-view {
+.ticket-view,
+.ticket-log-container {
   border: 1px solid #ccc;
-  border-radius: 8px 0 0 8px;
   padding: 16px;
-  max-width: 50%;
   height: 100%;
   background: #fff;
   overflow: auto;
+  z-index: 1;
+}
+
+.ticket-view {
+  border-radius: 12px 0 0 12px;
+}
+
+.ticket-log-container {
+  border-left: 1px solid #ccc;
+  border-radius: 0 12px 12px 0;
 }
 
 .back-btn {
@@ -55,9 +67,9 @@
   width: 50%;
 }
 
-.right-column p{
+.right-column p {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   gap: 12px;
 }
 

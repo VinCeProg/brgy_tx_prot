@@ -130,22 +130,27 @@ class Ticket
     $query = "SELECT status FROM tickets";
     $result = $this->conn->query($query);
 
-    $status_counts = [];
+    // Initialize all statuses with 0 count
+    $status_counts = [
+      'pending' => 0,
+      'in progress' => 0,
+      'resolved' => 0
+    ];
 
-    if ($result->num_rows > 0) {
+    if ($result && $result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
-        $status = $row['status'];
-        if (isset($status_counts[$status])) {
+        $status = strtolower($row['status']); // Normalize casing
+        if (array_key_exists($status, $status_counts)) {
           $status_counts[$status]++;
-        } else {
-          $status_counts[$status] = 1;
         }
       }
     } else {
-      error_log("No Ticket Found: " . $this->conn->error);
+      error_log("No Ticket Found or Query Error: " . $this->conn->error);
     }
+
     return $status_counts;
   }
+
 
   function getTicketPriorityCount()
   {

@@ -14,7 +14,7 @@ $ticket = $ticketModel->getTicketByTicketID($_GET['id']);
 
   <?php require("partials/navbar.php"); ?>
 
-  <main>
+  <main style="display: flex">
     <?php require("partials/section.summary.php"); ?>
   </main>
 <script src="/brgy_tx_prot/public/js/status-colorcode.js"></script>
