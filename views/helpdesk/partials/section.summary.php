@@ -4,7 +4,7 @@
 
 <section class="ticket-summary">
   <div class="ticket-view">
-    <button onclick="history.back()" class="back-btn" title="Go Back">
+    <button onclick="window.location.href='/brgy_tx_prot/views/helpdesk/index.php';" class="back-btn" title="Go Back">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
         <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
@@ -83,5 +83,38 @@
 </section>
 
 <section class="ticket-log-view">
-  <div class="ticket-log-container"></div>
+  <div class="ticket-log-container">
+    <form action="/brgy_tx_prot/src/controllers/adminSendMessageController.php" method="POST">
+      <input type="hidden" name="ticket_id" value="<?= htmlspecialchars($ticket['ticket_id']) ?>">
+      <textarea name="message" required placeholder="Type your message..."></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="messages-container">
+      <?php foreach ($combined as $entry): ?>
+        <div class="message <?= htmlspecialchars($entry['type']) ?>">
+          <?php if ($entry['type'] !== 'log'): ?>
+            <strong><?= htmlspecialchars($entry['data']['fullname']) ?></strong>
+          <?php endif; ?>
+
+          <span><?= htmlspecialchars($entry['timestamp']) ?></span>
+
+          <p>
+            <?php if ($entry['type'] === 'log'): ?>
+              <?php if (strtolower($entry['data']['old_status']) !== strtolower($entry['data']['new_status'])): ?>
+                Stage Changed: <strong><?= htmlspecialchars($entry['data']['old_status']) ?></strong> →
+                <strong><?= htmlspecialchars($entry['data']['new_status']) ?></strong><br>
+              <?php endif; ?>
+              <?php if (strtolower($entry['data']['old_priority']) !== strtolower($entry['data']['new_priority'])): ?>
+                Priority: <strong><?= htmlspecialchars($entry['data']['old_priority']) ?></strong> →
+                <strong><?= htmlspecialchars($entry['data']['new_priority']) ?></strong>
+              <?php endif; ?>
+            <?php else: ?>
+              <?= htmlspecialchars($entry['data']['message']) ?>
+            <?php endif; ?>
+          </p>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </section>
