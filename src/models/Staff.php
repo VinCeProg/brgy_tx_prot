@@ -9,7 +9,7 @@ class Staff
   }
   
   // || READ FUNCTIONS
-  public function getByStaffID($id)
+  public function getStaffByID($id)
   {
     $stmt = $this->conn->prepare("SELECT * FROM staff_accounts WHERE staff_id = ?");
     $stmt->bind_param("i", $id);

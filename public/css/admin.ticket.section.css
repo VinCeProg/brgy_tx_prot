@@ -257,19 +257,20 @@
 }
 
 .message.staff {
-  background: var(--primary-color);
-  color: #fff;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 .message.is-admin {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .message strong,
 .message em,
 .message span {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   opacity: 0.9;
 }
 

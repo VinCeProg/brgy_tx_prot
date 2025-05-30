@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   $staff = new Staff($conn);
-  $staff_data = $staff->getStaffByStaffID($staff_id);
+  $staff_data = $staff->getStaffByID($staff_id);
   if ($staff_data && password_verify($password, $staff_data['password'])) {
     unset($staff_data['password']);
     $_SESSION['staff'] = $staff_data;
