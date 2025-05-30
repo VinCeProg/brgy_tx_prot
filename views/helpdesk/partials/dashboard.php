@@ -58,6 +58,31 @@ $txPerDay_count = $ticketModel->getTicketCountsPerDay();
       <canvas id="tx-per-day-chart"></canvas>
     </div>
   </div>
+
+  <div class="filter-wrapper">
+      <h2 style="color: white;">Ticket Management</h2>
+      <div class="input-filter-wrapper">
+        <div class="input-filter-container">
+          <label>Sort by:</label>
+          <select id="sortColumn">
+            <option value="0">Ticket ID</option>
+            <option value="1">Priority Level</option>
+            <option value="2">Issue Type</option>
+            <option value="3">Subject</option>
+            <option value="4">Address</option>
+            <option value="5">Status</option>
+            <option value="6">Submitted by</option>
+            <option value="7">Created At</option>
+          </select>
+          <button class="box-shadow btn" id="sortOrderBtn" onclick="toggleSortOrder()">Asc</button>
+          <button class="box-shadow btn" id="resetSortBtn">Reset</button>
+        </div>
+        <div class="input-filter-container">
+          <label>Search</label>
+          <input type="text" id="searchInput" placeholder="Search tickets..." onkeyup="filterTable()">
+        </div>
+      </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
