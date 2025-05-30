@@ -127,11 +127,14 @@
 .edit-form input[type="submit"] {
   padding: 8px 16px;
   border: none;
-  background-color: var(--primary-color);
+  background-color: #0056b3;
   color: white;
   font-weight: 500;
   cursor: pointer;
   border-radius: 4px;
+}
+.edit-form input[type="submit"]:hover {
+  background-color: var(--primary-color);
 }
 
 .hidden {
@@ -218,15 +221,15 @@
 .ticket-log-container button {
   align-self: flex-end;
   padding: 8px 15px;
-  background: #007bff;
+  background: #0056b3;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background: #0056b3;
+.ticket-log-container button:hover {
+  background: var(--primary-color);
 }
 
 .messages-container {
@@ -239,6 +242,7 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
   font-size: 14px;
+  border: 1px solid lightgray;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -252,17 +256,21 @@ button:hover {
   color: #fff;
 }
 
-.message.admin {
-  background: #28a745;
+.message.staff {
+  background: var(--primary-color);
   color: #fff;
+}
+
+.message.is-admin {
+  background-color: var(--secondary-color);
 }
 
 .message strong,
 .message em,
 .message span {
   display: block;
-  font-size: 12px;
-  opacity: 0.8;
+  font-size: 0.8rem;
+  opacity: 0.9;
 }
 
 .message p {

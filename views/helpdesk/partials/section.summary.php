@@ -92,7 +92,7 @@
 
     <div class="messages-container">
       <?php foreach ($combined as $entry): ?>
-        <div class="message <?= htmlspecialchars($entry['type']) ?>">
+        <div class="message <?= htmlspecialchars($entry['type']) ?> <?= (htmlspecialchars($entry['type']) == 'staff' && $entry['data']['is_admin']) ? 'is-admin' : ''?>">
           <?php if ($entry['type'] !== 'log'): ?>
             <strong><?= htmlspecialchars($entry['data']['fullname']) ?></strong>
           <?php endif; ?>
@@ -103,7 +103,7 @@
             <?php if ($entry['type'] === 'log'): ?>
               <?php if (strtolower($entry['data']['old_status']) !== strtolower($entry['data']['new_status'])): ?>
                 Stage Changed: <strong><?= htmlspecialchars($entry['data']['old_status']) ?></strong> →
-                <strong><?= htmlspecialchars($entry['data']['new_status']) ?></strong><br>
+                <strong><?= htmlspecialchars($entry['data']['new_status']) ?></strong>
               <?php endif; ?>
               <?php if (strtolower($entry['data']['old_priority']) !== strtolower($entry['data']['new_priority'])): ?>
                 Priority: <strong><?= htmlspecialchars($entry['data']['old_priority']) ?></strong> →

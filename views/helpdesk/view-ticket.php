@@ -1,4 +1,5 @@
  <?php
+  // dd($_SERVER);
   $pagetitle = 'Complaints';
   session_start();
   // require("../../config/staff-auth.php"); //for login auth
@@ -9,7 +10,7 @@
   require __DIR__ . "/../../src/models/TicketLog.php";
   $ticketModel = new Ticket($conn);
   $ticket = $ticketModel->getTicketByTicketID($_GET['id']);
-  $ticket_id = $_GET['id'];
+  $ticket_id = $ticket['ticket_id'];
 
   $staffModel = new StaffMessage($conn);
   $residentModel = new ResidentMessage($conn);
@@ -32,13 +33,10 @@
   }
 
   usort($combined, fn($b, $a) => strtotime($a['timestamp']) <=> strtotime($b['timestamp']));
-
-  // dd($_SERVER);
   ?>
 
  <body>
    <?php require("partials/navbar.php"); ?>
-
    <main style="display: flex">
      <?php require("partials/section.summary.php"); ?>
    </main>
