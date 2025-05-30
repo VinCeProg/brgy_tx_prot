@@ -1,6 +1,6 @@
 <?php
 $pagetitle = 'Overview';
-// require("../../config/staff-auth.php"); //for login auth
+require("../../config/staff-auth.php"); //for login auth
 require("../../functions.php");
 require("partials/html.head.php");
 require __DIR__ . "/../../config/database.php";
