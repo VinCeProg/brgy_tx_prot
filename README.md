@@ -38,7 +38,6 @@ Pull requests are welcome. For major changes, please open an issue first.
 This project is licensed under the MIT License.
 
 ## Project Structure
-## Project Structure
 
 ```
 brgy_tx_prot/
@@ -49,10 +48,15 @@ brgy_tx_prot/
 │
 ├── config/
 │   ├── auth.php
-│   └── database.php
+│   ├── database.php
+│   └── staff-auth.php
 │
 ├── public/
 │   ├── css/
+│   │   ├── admin.navbar.css
+│   │   ├── admin.shared-styles.css
+│   │   ├── admin.summary.css
+│   │   ├── admin.ticket.section.css
 │   │   ├── dashboard.ticket-form.css
 │   │   ├── index.content.css
 │   │   ├── index.footer.css
@@ -74,23 +78,30 @@ brgy_tx_prot/
 │   │   ├── clock.js
 │   │   ├── login-signupToggle.js
 │   │   ├── mobile-menu.js
-│   │   └── reg-confirm-pass.js
+│   │   ├── reg-confirm-pass.js
+│   │   ├── searchtable.js
+│   │   ├── sorttable.js
+│   │   ├── status-colorcode.js
+│   │   └── toggle-edit.js
 │
 ├── router/
 │   └── router.php
 │
 ├── src/
 │   ├── controllers/
+│   │   ├── adminLoginController.php
+│   │   ├── adminLogoutController.php
+│   │   ├── adminSendMessageController.php
 │   │   ├── residentLoginController.php
 │   │   ├── residentLogoutController.php
 │   │   ├── residentSignupController.php
-│   │   └── ticketController.php
+│   │   ├── ticketController.php
+│   │   └── ticketUpdateController.php
 │   ├── models/
 │   │   ├── Resident.php
-│   │   └── Ticket.php
-│
-├── uploads/
-│   └── default.png
+│   │   ├── Staff.php
+│   │   ├── Ticket.php
+│   │   └── TicketLog.php
 │
 ├── views/
 │   ├── index.view.php
@@ -100,17 +111,30 @@ brgy_tx_prot/
 │   │   ├── submission.php
 │   │   ├── tickets.php
 │   │   └── partials/
-│   │       └── ticket-submission-form.php
-│
-├── partials/
-│   ├── brgy-transparency.php
-│   ├── footer.php
-│   ├── head-ticket.php
-│   ├── head-title.php
-│   ├── headline.php
-│   ├── html.head.php
-│   ├── login-register.php
-│   ├── mission-vision.php
-│   ├── navbar.php
-│   └── newnav.php
+│   │       ├── ticket-card.php
+│   │       ├── ticket-submission-form.php
+│   │       └── ticket-table-resolved.php
+│   ├── helpdesk/
+│   │   ├── index.php
+│   │   ├── login.php
+│   │   ├── view-ticket.php
+│   │   └── partials/
+│   │       ├── dashboard.php
+│   │       ├── html.head.php
+│   │       ├── navbar.php
+│   │       ├── section.summary.php
+│   │       └── ticket-table.php
+│   └── partials/
+│       ├── brgy-transparency.php
+│       ├── footer.php
+│       ├── head-ticket.php
+│       ├── head-title.php
+│       ├── headline.php
+│       ├── html.head.php
+│       ├── login-register.php
+│       ├── mission-vision.php
+│       ├── navbar.php
+│       ├── newnav.php
+│       └── ticket-table-resolved.php
+
 ```
