@@ -72,7 +72,7 @@ class ResidentMessage
   }
 
   public function getMessageByTicket($ticket_id)
-  { $query = "SELECT rm.*, CONCAT(r.FirstName, ' ', r.LastName)
+  { $query = "SELECT rm.*, CONCAT(r.FirstName, ' ', r.LastName) as fullname
               FROM resident_ticket_messages rm
               JOIN residents r ON rm.resident_id = r.UserID
               WHERE ticket_id = ? ORDER BY created_at ASC";

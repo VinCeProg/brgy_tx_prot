@@ -257,7 +257,7 @@
 }
 
 .message.staff {
-  background: var(--background-color);
+  background: lightgreen;
   color: var(--text-color);
 }
 

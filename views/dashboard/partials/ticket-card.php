@@ -13,11 +13,22 @@
       <h2>Date Requested : <small><?= htmlspecialchars($ticket['created_at']) ?></small></h2>
       <p><?= htmlspecialchars($ticket['description']) ?></p>
       <p class="note"><strong>Updated Last: </strong><?= htmlspecialchars($ticket['updated_at']) ?></p>
-      <button popovertarget="msg-popover-<?= $tid ?>">View Updates</button>
+      <button popovertarget="msg-popover-<?= $tid ?>" class="popover-button">View Logs</button>
     </div>
 
     <div id="msg-popover-<?= $tid ?>" popover class="message-popover" style="margin: auto; padding: 24px">
-      <h4>Messages for Ticket #<?= $tid ?></h4>
+      <button popovertarget="msg-popover-<?= $tid ?>" class="popover-button">CLOSE</button> <br> <br>
+      <form id="messageForm" action="/brgy_tx_prot/src/controllers/residentSendMessageController.php" method="POST" class="message-form">
+        <input type="hidden" name="ticket_id" value="<?= $tid ?>">
+        <input type="hidden" name="resident_id" value="<?= htmlspecialchars($_SESSION['resident']['UserID']) ?>">
+
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" required class="message-box"></textarea>
+
+        <button type="submit" class="send-button">Send Message</button>
+      </form> <br>
+
+      <h4>Logs for Ticket #<?= $tid ?></h4>
       <div class="message-log" id="message-log-<?= $tid ?>">
         Loading messages...
       </div>
