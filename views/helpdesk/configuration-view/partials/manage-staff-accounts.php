@@ -7,9 +7,6 @@ $staffList = $staffModel->getAllStaff();
   <h1>Manage Staff Accounts</h1>
   <p>Here, you can view and update staff account details.</p>
 </div>
-<pre>
-  <?php print_r($_SESSION) ?>
-</pre>
 <div class="staff-form-wrapper">
   <form id="staffManagementForm" action="/brgy_tx_prot/src/controllers/adminUpdateStaffController.php" method="POST" class="staff-form">
     <!-- Select staff -->

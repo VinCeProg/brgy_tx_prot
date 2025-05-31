@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: flex-start;
   gap: 1.2rem;
+  border-right: 2px solid lightgray;
 }
 
 .config-container {
@@ -100,4 +101,72 @@
 
 .staff-form button:hover:not(:disabled) {
   background: #004099;
+}
+
+.resident-form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.resident-form-layout {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.resident-form-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.resident-fieldset {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.resident-fieldset legend {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+.resident-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.resident-form-group label {
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.resident-form-group input,
+.resident-form-group select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.resident-form-actions {
+  text-align: right;
+  padding: 10px 0;
+}
+
+.resident-form-actions button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.resident-form-actions button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
 }

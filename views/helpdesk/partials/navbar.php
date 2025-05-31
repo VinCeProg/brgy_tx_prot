@@ -4,7 +4,7 @@
     <a href="/brgy_tx_prot/views/helpdesk/index.php" class="<?= $pagetitle === 'Overview' ? 'active' : '' ?>">Overview</a>
     <!-- <a href="/brgy_tx_prot/views/helpdesk/index.php" class="<?= $pagetitle === 'Complaints' ? 'active' : '' ?>">Complaints</a> -->
     <!-- <a href="/brgy_tx_prot/views/helpdesk/index.php" class="<?= $pagetitle === 'Reporting' ? 'active' : '' ?>">Reporting</a> -->
-    <a href="/brgy_tx_prot/views/helpdesk/configuration-view/index.php" class="<?= $pagetitle === 'Configuration' ? 'active' : '' ?>">Configuration</a>
+    <a href="/brgy_tx_prot/views/helpdesk/configuration-view/index.php?page=manage-resident-accounts" class="<?= $pagetitle === 'Configuration' ? 'active' : '' ?>">Configuration</a>
   </nav>
   <div class="user-profile">
     <div class="profile-logo <?= $_SESSION['staff']['is_admin'] ? "profile-admin" : "profile-staff" ?>">
