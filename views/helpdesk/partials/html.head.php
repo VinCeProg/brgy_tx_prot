@@ -10,4 +10,5 @@
   <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.navbar.css"> <!-- navbar -->
   <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.summary.css"> <!-- overview -->
   <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.ticket.section.css"> <!-- ticket view -->
+  <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.config-view.css"> <!-- config view -->
 </head>

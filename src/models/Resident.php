@@ -36,4 +36,21 @@ class Resident
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
   }
+
+  public function getNonStaffResidents()
+  {
+    $query = "SELECT r.UserID, CONCAT(r.FirstName, ' ', r.LastName) as fullname
+              FROM residents r
+              LEFT JOIN staff_accounts s ON r.UserID = s.resident_id
+              WHERE s.resident_id IS NULL;";
+    $stmt = $this->conn->prepare($query);
+
+    if (!$stmt) {
+      die("SQL Error: " . $this->conn->error);
+    }
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+  }
 }
