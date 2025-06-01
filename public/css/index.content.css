@@ -591,3 +591,46 @@
     max-height: 90vh;
   }
 }
+.resolved-controls {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.resolved-control-input {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.resolved-control-input label {
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 4px;
+}
+
+.resolved-filter,
+.resolved-search {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  min-width: 200px;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .resolved-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .resolved-filter,
+  .resolved-search {
+    width: 100%;
+    min-width: unset;
+  }
+}
