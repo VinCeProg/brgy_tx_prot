@@ -4,11 +4,26 @@ A web-based application for managing barangay transactions, records, and residen
 
 ## Features
 
-- Resident registration and management
-- Barangay clearance and certificate requests
-- Transaction tracking and history
-- User authentication and roles (Admin, Staff, Resident)
-- Reports generation
+### Resident Side (Dashboard)
+- User registration and login
+- View and update personal profile
+- Submit complaints and requests (ticketing system)
+- View status and history of submitted tickets
+- Receive notifications and messages from barangay staff
+- Download barangay certificates and clearances (if approved)
+- View barangay announcements and transparency reports
+- Logout functionality
+
+### Barangay Staff Side (Helpdesk)
+- Staff login and authentication
+- View dashboard with ticket summary and statistics
+- View, filter, and manage all resident tickets (complaints/requests)
+- Update ticket status (e.g., pending, in progress, resolved)
+- Send messages/notifications to residents
+- Manage resident accounts (view, update, search)
+- Generate and download reports
+- Staff account management (create, update, deactivate)
+- Logout functionality
 
 ## Technologies Used
 
@@ -35,7 +50,7 @@ Pull requests are welcome. For major changes, please open an issue first.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the PUP License.
 
 ## Project Structure
 
@@ -89,11 +104,16 @@ brgy_tx_prot/
 │
 ├── src/
 │   ├── controllers/
+│   │   ├── adminCreateStaffController.php
 │   │   ├── adminLoginController.php
 │   │   ├── adminLogoutController.php
 │   │   ├── adminSendMessageController.php
+│   │   ├── adminUpdateResidentController.php
+│   │   ├── adminUpdateStaffController.php
+│   │   ├── getMessagesController.php
 │   │   ├── residentLoginController.php
 │   │   ├── residentLogoutController.php
+│   │   ├── residentSendMessageController.php
 │   │   ├── residentSignupController.php
 │   │   ├── ticketController.php
 │   │   └── ticketUpdateController.php
@@ -115,9 +135,18 @@ brgy_tx_prot/
 │   │       ├── ticket-submission-form.php
 │   │       └── ticket-table-resolved.php
 │   ├── helpdesk/
+│   │   ├── generate-report.php
 │   │   ├── index.php
 │   │   ├── login.php
 │   │   ├── view-ticket.php
+│   │   ├── configuration-view/
+│   │   │   ├── index.php
+│   │   │   └── partials/
+│   │   │       ├── 404.php
+│   │   │       ├── aside.php
+│   │   │       ├── create-staff-account.php
+│   │   │       ├── manage-resident-accounts.php
+│   │   │       └── manage-staff-accounts.php
 │   │   └── partials/
 │   │       ├── dashboard.php
 │   │       ├── html.head.php
@@ -136,5 +165,4 @@ brgy_tx_prot/
 │       ├── navbar.php
 │       ├── newnav.php
 │       └── ticket-table-resolved.php
-
 ```
