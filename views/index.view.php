@@ -14,6 +14,7 @@ $pagetitle = 'Home';
   <main>
 
     <?php require("partials/head-title.php") ?>
+    <?php require("partials/head-ticket.php") ?>
     <?php require("partials/headline.php") ?>
     <?php require("partials/brgy-transparency.php") ?>
     <?php require("partials/ticket-table-resolved.php") ?>
