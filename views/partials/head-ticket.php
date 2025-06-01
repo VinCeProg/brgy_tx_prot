@@ -4,6 +4,8 @@
       <?php 
         if (isset($_SESSION['resident'])) {
           echo "<h3>Welcome " . $_SESSION['resident']['FirstName'] ."!</h3>";
+        } else {
+          echo "<h4> Login or Sign-up to submit a ticket! </h4>";
         }
       ?>
       <h2>Got complaint or request?</h2>
