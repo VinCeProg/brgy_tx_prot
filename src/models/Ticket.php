@@ -38,7 +38,7 @@ class Ticket
     return $result->fetch_all(MYSQLI_ASSOC);
   }
 
-  function getAllTicketsWithFullName()
+  public function getAllTicketsWithFullName()
   {
     $query = "
         SELECT 
@@ -75,7 +75,7 @@ class Ticket
     return $tickets;
   }
 
-  function getTicketByTicketID($ticketID)
+  public function getTicketByTicketID($ticketID)
   {
     $query = "SELECT 
           t.ticket_id,
@@ -107,7 +107,7 @@ class Ticket
     }
   }
 
-  function getResolvedTickets()
+  public function getResolvedTickets()
   {
     $query = "SELECT * FROM tickets WHERE status = 'resolved'";
     $result = $this->conn->query($query);
@@ -125,7 +125,7 @@ class Ticket
     return $tickets;
   }
 
-  function getTicketStatusCount()
+  public function getTicketStatusCount()
   {
     $query = "SELECT status FROM tickets";
     $result = $this->conn->query($query);
@@ -152,7 +152,7 @@ class Ticket
   }
 
 
-  function getTicketPriorityCount()
+  public function getTicketPriorityCount()
   {
     $query = "SELECT priority_level FROM tickets";
     $result = $this->conn->query($query);
@@ -178,7 +178,7 @@ class Ticket
     return $priority_counts;
   }
 
-  function getTicketCountsPerDay()
+  public function getTicketCountsPerDay()
   {
     $query = "SELECT DATE(created_at) as date, COUNT(*) as count 
               FROM tickets 
@@ -204,6 +204,42 @@ class Ticket
     ];
   }
 
+  public function getFilteredTickets($startDate = null, $endDate = null, $status = null, $priority = null)
+  {
+    $query = "SELECT * FROM tickets WHERE 1=1";
+    $params = [];
+    $types = "";
+
+    if ($startDate && $endDate) {
+      $query .= " AND created_at BETWEEN ? AND ?";
+      $params[] = $startDate;
+      $params[] = $endDate;
+      $types .= "ss";
+    }
+
+    if ($status && $status !== 'all') {
+      $query .= " AND status = ?";
+      $params[] = $status;
+      $types .= "s";
+    }
+
+    if ($priority && $priority !== 'all') {
+      $query .= " AND priority_level = ?";
+      $params[] = $priority;
+      $types .= "s";
+    }
+
+    $query .= " ORDER BY created_at DESC";
+
+    $stmt = $this->conn->prepare($query);
+
+    if (!empty($params)) {
+      $stmt->bind_param($types, ...$params);
+    }
+
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
 
 
   // || UPDATE
