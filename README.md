@@ -4,7 +4,7 @@ A web-based application for managing barangay transactions, records, and residen
 
 ## Features
 
-### Resident Side (Dashboard)
+### Dashboard (Residents)
 - User registration and login
 - View and update personal profile
 - Submit complaints and requests (ticketing system)
@@ -12,9 +12,10 @@ A web-based application for managing barangay transactions, records, and residen
 - Receive notifications and messages from barangay staff
 - Download barangay certificates and clearances (if approved)
 - View barangay announcements and transparency reports
+- Showcase of resolved tickets display
 - Logout functionality
 
-### Barangay Staff Side (Helpdesk)
+### Helpdesk (Barangay Staff)
 - Staff login and authentication
 - View dashboard with ticket summary and statistics
 - View, filter, and manage all resident tickets (complaints/requests)
@@ -22,6 +23,8 @@ A web-based application for managing barangay transactions, records, and residen
 - Send messages/notifications to residents
 - Manage resident accounts (view, update, search)
 - Generate and download reports
+- Manage and showcase resolved tickets display
+- Upload and manage display images for resolved tickets
 - Staff account management (create, update, deactivate)
 - Logout functionality
 
@@ -68,6 +71,8 @@ brgy_tx_prot/
 │
 ├── public/
 │   ├── css/
+│   │   ├── admin.config-view.css
+│   │   ├── admin.gen-report.css
 │   │   ├── admin.navbar.css
 │   │   ├── admin.shared-styles.css
 │   │   ├── admin.summary.css
@@ -108,8 +113,10 @@ brgy_tx_prot/
 │   │   ├── adminLoginController.php
 │   │   ├── adminLogoutController.php
 │   │   ├── adminSendMessageController.php
+│   │   ├── adminUpdateDisplayController.php
 │   │   ├── adminUpdateResidentController.php
 │   │   ├── adminUpdateStaffController.php
+│   │   ├── adminUploadDisplayController.php
 │   │   ├── getMessagesController.php
 │   │   ├── residentLoginController.php
 │   │   ├── residentLogoutController.php
@@ -118,6 +125,7 @@ brgy_tx_prot/
 │   │   ├── ticketController.php
 │   │   └── ticketUpdateController.php
 │   ├── models/
+│   │   ├── DisplayTicket.php
 │   │   ├── Resident.php
 │   │   ├── Staff.php
 │   │   ├── Ticket.php
