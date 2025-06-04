@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "<script>
         alert('Invalid email or password.');
-        window.location.href='/brgy_tx_prot/views/login.php';</script>
-        </script>";
+        window.location.href='/brgy_tx_prot/views/login.php';</script>";
   }
 }

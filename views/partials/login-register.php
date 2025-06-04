@@ -12,7 +12,7 @@
 
       <div class="input-container">
         <label for="password" class="test">Password</label>
-        <input type="password" id="password-login" name="password-login" placeholder="••••••••••••" minlength="8">
+        <input type="password" id="password-login" name="password-login" placeholder="••••••••••••" minlength="8" maxlength="32" autocomplete="off" required>
       </div><br>
 
       <input type="submit" name="login" value="Login" class="form-btn">
@@ -56,11 +56,11 @@
         <legend>Create a Password</legend>
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" minlength="8" required><br>
+        <input type="password" id="password" name="password" minlength="8" maxlength="32" required><br>
 
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" id="confirm_password" name="confirm_password" required minlength="8"><br>
-        <div class="note"><strong>Note:</strong> <em>Password must be at least 8 characters</em></div>
+        <input type="password" id="confirm_password" name="confirm_password" required minlength="8" maxlength="32"><br>
+        <div class="note"><strong>Note:</strong> <em>Password must be at least 8 characters, max 32 characters</em></div>
       </fieldset>
       <br>
 
