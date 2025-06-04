@@ -1,3 +1,15 @@
+<?php
+if ($_SERVER['REQUEST_URI'] == "/brgy_tx_prot/views/index.view.php") {
+  require("../config/database.php");
+  require("../src/models/DisplayTicket.php");
+} else {
+  require("../../config/database.php");
+  require("../../src/models/DisplayTicket.php");
+}
+$displayTicketModel = new DisplayTicket($conn);
+$displayTickets = $displayTicketModel->getAllVisibleDisplayTickets();
+?>
+
 <div class="title-container" id="transparency-service">
   <p>INNOVATIVE PUBLIC SERVICE</p>
   <h3>TRANSPARENCY & GOOD GOVERNANCE</h3>
@@ -6,36 +18,18 @@
 <div class="carousel-wrapper">
   <div class="carousel-container" aria-label="Scrolling carousel of governance images">
     <div class="carousel">
-      <div class="card"><img src="/brgy_tx_prot/public/images/card1.png" alt="Card 1"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card2.png" alt="Card 2"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card3.png" alt="Card 3"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card4.png" alt="Card 4"></div>
-
-      <!-- Duplicates for seamless looping -->
-      <div class="card"><img src="/brgy_tx_prot/public/images/card1.png" alt="Card 1"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card2.png" alt="Card 2"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card3.png" alt="Card 3"></div>
-      <div class="card"><img src="/brgy_tx_prot/public/images/card4.png" alt="Card 4"></div>
+      <?php for ($i = 0; $i < 2; $i++): ?>
+        <?php foreach ($displayTickets as $displayTicket): ?>
+          <div class="card hidden-card">
+            <div class="image-wrapper">
+              <img src="<?= $displayTicket['file_path'] ?>" alt="image of fixed issue: <?= htmlspecialchars($displayTicket['subject']) ?>">
+              <div class="overlay"></div>
+            </div>
+            <h3><?= htmlspecialchars($displayTicket['subject']) ?></h3>
+            <p><?= htmlspecialchars($displayTicket['description']) ?></p>
+          </div>
+        <?php endforeach; ?>
+      <?php endfor; ?>
     </div>
   </div>
 </div>
-
-
-
-<script>
-  function nextCard() {
-    const carousel = document.querySelector(".carousel-container");
-    carousel.scrollBy({
-      left: 320,
-      behavior: "smooth"
-    });
-  }
-
-  function prevCard() {
-    const carousel = document.querySelector(".carousel-container");
-    carousel.scrollBy({
-      left: -320,
-      behavior: "smooth"
-    });
-  }
-</script>

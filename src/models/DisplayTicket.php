@@ -18,6 +18,21 @@ class DisplayTicket
   }
 
   // || READ FUNCTIONS
+
+  public function getAllDisplayTickets() {
+    $sql = "SELECT * FROM display_tickets";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
+
+  public function getAllVisibleDisplayTickets() {
+    $sql = "SELECT * FROM display_tickets WHERE is_visible = 1";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
+
   public function getResolvedTicketsWithNoDisplay()
   {
     $sql = "
