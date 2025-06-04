@@ -9,6 +9,7 @@
   require __DIR__ . "/../../../src/models/Staff.php";
   require __DIR__ . "/../../../src/models/Resident.php";
   require __DIR__ . "/../../../src/models/Ticket.php";
+  require __DIR__ . "/../../../src/models/DisplayTicket.php";
 
 
   $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';

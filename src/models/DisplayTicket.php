@@ -19,14 +19,16 @@ class DisplayTicket
 
   // || READ FUNCTIONS
 
-  public function getAllDisplayTickets() {
+  public function getAllDisplayTickets()
+  {
     $sql = "SELECT * FROM display_tickets";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 
-  public function getAllVisibleDisplayTickets() {
+  public function getAllVisibleDisplayTickets()
+  {
     $sql = "SELECT * FROM display_tickets WHERE is_visible = 1";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
@@ -48,4 +50,34 @@ class DisplayTicket
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 
+  // || UPDATE FUNCTIONS
+  public function updateDisplayTicket($displayId, $data)
+  {
+    $query = "UPDATE display_tickets 
+              SET subject = ?, description = ?, is_visible = ?";
+
+    $params = [
+      $data['subject'],
+      $data['description'],
+      $data['is_visible']
+    ];
+
+    // Optional file_path update if a new image is provided
+    if (!empty($data['file_path'])) {
+      $query .= ", file_path = ?";
+      $params[] = $data['file_path'];
+    }
+
+    $query .= " WHERE display_id = ?";
+    $params[] = $displayId;
+
+    $stmt = $this->conn->prepare($query);
+
+    // Dynamic types string (all strings except is_visible is int)
+    $types = str_repeat("s", count($params) - 1) . "i";
+
+    $stmt->bind_param($types, ...$params);
+
+    return $stmt->execute();
+  }
 }
