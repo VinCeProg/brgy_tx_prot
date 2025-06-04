@@ -241,6 +241,20 @@ class Ticket
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 
+  public function getNoDisplayResolvedTickets()
+  {
+    $query = "
+        SELECT t.ticket_id, t.subject
+        FROM tickets t
+        LEFT JOIN display_tickets d ON t.ticket_id = d.ticket_id
+        WHERE t.status = 'Resolved' AND d.ticket_id IS NULL
+    ";
+
+    $stmt = $this->conn->prepare($query);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
+
 
   // || UPDATE
   public function updateTicket($id, $status, $priority)

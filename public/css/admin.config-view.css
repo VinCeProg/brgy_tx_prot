@@ -4,6 +4,11 @@
   display: flex;
 }
 
+.note {
+  margin: 4px 8px;
+  font-size: 0.8rem;
+}
+
 /* ||ASIDE */
 
 .config-wrapper {
@@ -39,6 +44,16 @@
 
 .config-container ul li {
   margin: 4px 4px;
+}
+
+.config-container ul li a {
+  color: var(--primary-color);
+  transform: all 0.3s ease;
+  text-decoration: none;
+}
+
+.config-container ul li a:hover {
+  color: var(--secondary-color);
 }
 
 /* ||SECTION */
@@ -169,4 +184,55 @@
 .resident-form-actions button:disabled {
   background-color: #aaa;
   cursor: not-allowed;
+}
+
+/* ||ADD DISPLAY */
+
+.upload-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #f9f9f9;
+}
+
+.upload-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.upload-form input[type="text"],
+.upload-form textarea,
+.upload-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+.upload-form textarea {
+  resize: vertical;
+}
+
+
+.upload-form button {
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-form button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
 }
