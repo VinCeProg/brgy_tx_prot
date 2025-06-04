@@ -7,10 +7,10 @@
       back
     </button>
     <h2>Settings</h2>
-    <p>Fine-tune access and manage user accounts.</p>
+    <p>Manage user accounts, adjust access permissions, and configure the display showcase for resolved tickets.</p>
   </div>
   <div class="config-container">
-    <h3>Resolved Tickets Display</h3>
+    <h3>Transparency Display</h3>
     <ul>
       <li><a href="?page=manage-resolvedtx-display">Manage Resolved Tickets Display</a></li>
       <li><a href="?page=add-resolvedtx-display">Add New Display</a></li>
