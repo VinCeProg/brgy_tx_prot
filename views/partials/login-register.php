@@ -16,9 +16,16 @@
       </div><br>
 
       <input type="submit" name="login" value="Login" class="form-btn">
-      <a href="#">Forgot Password?</a>
+      <a href="#" id="forgot-link">Forgot Password?</a>
     </form>
     <p style="text-align: center;">Don't have an account yet? <button class="get-signup get-btn">Click Here!<button></p>
+  </div>
+
+  <div id="forgot-popover" class="popover">
+    <div class="popover-content">
+      <p>Please proceed to the Barangay office to have your password reset.</p>
+      <button id="close-popover">OK</button>
+    </div>
   </div>
 
 
@@ -82,6 +89,20 @@
       <button type="button" class="get-login get-btn">Login!</button>
     </p>
   </div>
+</div>
+<script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>
+<script src="/brgy_tx_prot/public/js/login-signupToggle.js" defer></script>
+<script>
+  const forgotLink = document.getElementById('forgot-link');
+  const popover = document.getElementById('forgot-popover');
+  const closeBtn = document.getElementById('close-popover');
 
-  <script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>
-  <script src="/brgy_tx_prot/public/js/login-signupToggle.js" defer></script>
+  forgotLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    popover.style.visibility = 'visible'; // Fix: Use visibility instead of display
+  });
+
+  closeBtn.addEventListener('click', function() {
+    popover.style.visibility = 'hidden'; // Fix: Hide popover properly
+  });
+</script>
