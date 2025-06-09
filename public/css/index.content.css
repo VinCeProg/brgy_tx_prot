@@ -397,9 +397,9 @@
 .ticket-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: start;
-  gap: 2%;
+  gap: 1%;
 }
 
 .ticket-container {
