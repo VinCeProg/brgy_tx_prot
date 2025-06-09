@@ -174,3 +174,38 @@ brgy_tx_prot/
 │       ├── newnav.php
 │       └── ticket-table-resolved.php
 ```
+
+## System Flow
+
+The Barangay Transaction Portal operates with two main user roles: Residents and Barangay Staff. Below is a high-level overview of the system flow:
+
+### 1. Resident Flow
+- **Registration/Login:** Residents create an account or log in.
+- **Ticket Submission:** Residents submit complaints or requests via a ticketing system.
+- **Ticket Tracking:** Residents monitor the status and history of their tickets.
+- **Notifications:** Residents receive updates and messages from staff.
+- **Logout:** Residents can securely log out.
+
+### 2. Barangay Staff Flow
+- **Staff Login:** Staff members authenticate to access the helpdesk.
+- **Dashboard Access:** Staff view ticket summaries and statistics.
+- **Ticket Management:** Staff review, filter, and update the status of all tickets.
+- **Resident Management:** Staff manage resident accounts and information.
+- **Communication:** Staff send notifications and messages to residents.
+- **Report Generation:** Staff generate and download various reports.
+- **Resolved Tickets Showcase:** Staff manage and display resolved tickets.
+- **Staff Account Management:** Admins create, update, or deactivate staff accounts.
+- **Logout:** Staff can securely log out.
+
+### 3. Data Flow Diagram
+
+```mermaid
+flowchart TD
+  Resident -- Registers/Login --> Portal
+  Resident -- Submits Ticket --> Portal
+  Portal -- Notifies --> Staff
+  Staff -- Updates Ticket Status --> Portal
+  Portal -- Notifies --> Resident
+  Resident -- Downloads Certificate --> Portal
+  Staff -- Generates Reports --> Portal
+```
