@@ -206,6 +206,5 @@ flowchart TD
   Portal -- Notifies --> Staff
   Staff -- Updates Ticket Status --> Portal
   Portal -- Notifies --> Resident
-  Resident -- Downloads Certificate --> Portal
   Staff -- Generates Reports --> Portal
 ```
