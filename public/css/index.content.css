@@ -15,6 +15,7 @@
   background-image: linear-gradient(rgba(127, 127, 255, .1), rgba(127, 127, 255, 0.4)), url('../images/brgy-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -543,8 +544,8 @@
 
   /* head-text */
   .img-container {
-    height: 50vh;
-    background-size: contain;
+    height: 40vh;
+    width: 100%;
   }
 
   .img-container h1 {
