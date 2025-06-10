@@ -33,7 +33,7 @@
         </caption>
         <thead>
           <tr>
-            <th>Ticket ID</th>
+            <!-- <th>Ticket ID</th> -->
             <th>Issue Type</th>
             <th>Subject</th>
             <th>Status</th>
@@ -43,7 +43,7 @@
         <tbody>
           <?php foreach ($tickets as $ticket): ?>
             <tr>
-              <td><?= htmlspecialchars($ticket['ticket_id']) ?></td>
+              <!-- <td><?= htmlspecialchars($ticket['ticket_id']) ?></td> -->
               <td><?= htmlspecialchars($ticket['issue_type']) ?></td>
               <td><?= htmlspecialchars($ticket['subject']) ?></td>
               <td><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
