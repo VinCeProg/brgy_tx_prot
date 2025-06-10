@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $success = $displayModel->updateDisplayTicket($display_id, $updateData);
 
     if ($success) {
-      echo "<script>alert('Resident updated successfully.'); window.location.href='/brgy_tx_prot/views/helpdesk/configuration-view/index.php?page=manage-resolvedtx-display';</script>";
+      echo "<script>alert('Display updated successfully.'); window.location.href='/brgy_tx_prot/views/helpdesk/configuration-view/index.php?page=manage-resolvedtx-display';</script>";
       exit();
     } else {
       $errors[] = "Failed to update display ticket.";
