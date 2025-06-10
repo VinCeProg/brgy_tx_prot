@@ -22,6 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $staff = new Staff($conn);
   $staff_data = $staff->getStaffByID($staff_id);
+
+  if (!$staff_data['is_active']) {
+    echo "<script>
+        alert('Staff Account Inactive.');
+        window.location.href='/brgy_tx_prot/views/helpdesk/login.php';</script>
+        </script>";
+    exit();
+  }
+
   if ($staff_data && password_verify($password, $staff_data['password'])) {
     unset($staff_data['password']);
     $_SESSION['staff'] = $staff_data;
