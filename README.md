@@ -34,27 +34,6 @@ A web-based application for managing barangay transactions, records, and residen
 - MySQL/MariaDB
 - HTML, CSS, JavaScript
 
-## Installation
-
-1. Clone or download the repository to your XAMPP/LAMPP `htdocs` directory.
-2. Import the provided SQL database into your MySQL server.
-3. Update database credentials in the configuration files if necessary.
-4. Start Apache and MySQL services.
-5. Access the application via `http://localhost/brgy_tx_prot/`.
-
-## Usage
-
-- Login as Admin, Staff, or Resident.
-- Manage residents, process requests, and generate reports as needed.
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first.
-
-## License
-
-This project is licensed under the PUP License.
-
 ## Project Structure
 
 ```
@@ -208,3 +187,24 @@ flowchart TD
   Portal -- Notifies --> Resident
   Staff -- Generates Reports --> Portal
 ```
+
+## Installation
+
+1. Clone or download the repository to your XAMPP/LAMPP `htdocs` directory.
+2. Import the provided SQL database into your MySQL server.
+3. Update database credentials in the configuration files if necessary.
+4. Start Apache and MySQL services.
+5. Access the application via `http://localhost/brgy_tx_prot/`.
+
+## Usage
+
+- Login as Admin, Staff, or Resident.
+- Manage residents, process requests, and generate reports as needed.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+## License
+
+This project is licensed under the PUP License.
