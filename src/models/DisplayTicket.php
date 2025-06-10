@@ -29,7 +29,7 @@ class DisplayTicket
 
   public function getAllVisibleDisplayTickets()
   {
-    $sql = "SELECT * FROM display_tickets WHERE is_visible = 1";
+    $sql = "SELECT * FROM display_tickets WHERE is_visible = 1 ORDER BY display_id DESC;";
     $stmt = $this->conn->prepare($sql);
     $stmt->execute();
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
