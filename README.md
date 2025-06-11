@@ -192,7 +192,7 @@ flowchart TD
 
 1. Clone or download the repository to your XAMPP/LAMPP `htdocs` directory.
 2. Import the provided SQL database into your MySQL server.
-3. Update database credentials in the configuration files if necessary.
+3. Update database credentials in the configuration files (config/database.php) if necessary.
 4. Start Apache and MySQL services.
 5. Access the application via `http://localhost/brgy_tx_prot/`.
 
