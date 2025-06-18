@@ -2,11 +2,13 @@
   <label for="issue-type">Select Issue Type</label> <br>
   <select name="issue-type" id="issue-type" required>
     <option value="" disabled selected>-- Choose the type of issue you're reporting --</option>
-    <option value="streetlight-repair">Streetlight Repair</option>
+    <option value="fire">Fire</option>
     <option value="flooding">Flooding</option>
     <option value="garbage-collection">Garbage Collection</option>
-    <option value="road-damage">Road Damage</option>
     <option value="noise-complaint">Noise Complaint</option>
+    <option value="road-damage">Road Damage</option>
+    <option value="safety threat">Safety Threat</option>
+    <option value="streetlight-repair">Streetlight Repair</option>
     <option value="other">Other</option>
   </select><br> <br>
 
@@ -20,7 +22,7 @@
   <textarea name="description" id="description" rows="4" maxlength="500" required placeholder="Provide more details about your request or complaint. Include time when the issue happened or links if relevant."></textarea><br> <br>
 
   <label for="file">Attach file (image/video only)</label> <br>
-  <input type="file" id="file" name="file" accept="image/*,video/*">
+  <input type="file" id="file" name="file" accept="image/*,video/*" data-max-size="5242880">
   <div id="file-preview" style="margin-top: 10px;"></div> <br>
   <div class="note"><strong>Note:</strong> <em>You can only upload <strong>one file</strong>. If you need to include more, please add a link in the description.</em></div>
   <input type="submit" value="SUBMIT TICKET">
