@@ -180,9 +180,12 @@
 .headline-one img,
 .headline-two img,
 .headline-three img {
-  width: 100%;
+  width: 80%;
   object-fit: cover;
   margin-bottom: 10px;
+  border-radius: 12px;
+  transform: scale(1);
+  transition: 0.3s ease;
 }
 
 .headline-title h2 {
@@ -191,6 +194,18 @@
 
 .headline-title p {
   margin-bottom: 10px;
+}
+
+.headline-two h3,
+.headline-two p {
+  display: inline-block;
+  width: 80%;
+}
+
+.headline-one img:hover,
+.headline-two img:hover,
+.headline-three img:hover {
+  transform: scale(1.05);
 }
 
 
