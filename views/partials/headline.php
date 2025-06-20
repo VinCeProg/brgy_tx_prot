@@ -1,17 +1,10 @@
 <?php
-echo $_SERVER['REQUEST_URI'];
-if ($_SERVER['REQUEST_URI'] === "/brgy_tx_prot/views/dashboard/index.php") {
-  $content_data = json_decode(file_get_contents("../../public/content/headline.json"), true);
-} else {
-  $content_data = json_decode(file_get_contents("../public/content/headline.json"), true);
-}
+$base_path = ($_SERVER['REQUEST_URI'] === "/brgy_tx_prot/views/dashboard/index.php")
+    ? "../../public/content/headline.json"
+    : "../public/content/headline.json";
+
+$content_data = json_decode(file_get_contents($base_path), true);
 ?>
-<pre>
-  <?
-  print_r($content_data);
-  exit
-  ?>
-</pre>
 
 <div class="headline" id="headline">
   <div class="headline-title">
