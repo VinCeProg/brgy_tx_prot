@@ -1,3 +1,18 @@
+<?php
+echo $_SERVER['REQUEST_URI'];
+if ($_SERVER['REQUEST_URI'] === "/brgy_tx_prot/views/dashboard/index.php") {
+  $content_data = json_decode(file_get_contents("../../public/content/headline.json"), true);
+} else {
+  $content_data = json_decode(file_get_contents("../public/content/headline.json"), true);
+}
+?>
+<pre>
+  <?
+  print_r($content_data);
+  exit
+  ?>
+</pre>
+
 <div class="headline" id="headline">
   <div class="headline-title">
     <h2 id="greet">
@@ -20,21 +35,14 @@
     </div>
 
     <div class="headline-two">
+      <img src="<?= $content_data['image'] ?>" alt="Job Hunt" />
       <h3>
-        PINALAWAK NA ANG AMBULANCE SERVICES SA BARANGAY PUP STA. MESA.
+        <?= $content_data['title'] ?>
       </h3>
-      <p>
-        Matagumpay ang naging turn-over ceremony ng mga madami ambulansya sa
-        ating barangay PUP na pinangunahan ng ating Mayor at Vice Mayo at ng
-        ating Sangguniang Bayan kasama ang bawat Barangay Recipients.<br />
-        Isang magandang hakbang ito upang mapalawak ang serbisyong
-        pangkalusugan sa ating bayan. Basta't sama-sama, kayang-kaya!
-      </p>
-      <img src="/brgy_tx_prot/public/images/headline-fourth.png" alt="Job Hunt" />
-      <p>
-        PUP Barangay is hosting a job hunt to connect residents with local
-        employment opportunities and support community livelihood.
-      </p>
+      <?php foreach ($content_data['paragraphs'] as $paragraph): ?>
+        <p><?= $paragraph ?></p>
+        <br>
+      <?php endforeach; ?>
     </div>
 
     <div class="headline-three">
