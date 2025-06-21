@@ -10,7 +10,7 @@ require("partials/html.head.php");
 require __DIR__ . "/../../config/database.php";
 require __DIR__ . "/../../src/models/Ticket.php";
 
-if (!$_SESSION['staff']['is_admin']) {
+if (!$_SESSION['staff_permissions']['generate_report']) {
   header("/brgy_tx_prot/views/helpdesk/index.php");
   exit();
 }
