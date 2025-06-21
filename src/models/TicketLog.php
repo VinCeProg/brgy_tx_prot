@@ -40,7 +40,7 @@ class StaffMessage
 
   public function getMessageByTicket($ticket_id)
   {
-    $query = "SELECT sm.*, s.fullname, s.is_admin
+    $query = "SELECT sm.*, s.fullname, s.role_id
               FROM staff_ticket_messages sm
               JOIN staff_accounts s ON sm.staff_id = s.staff_id 
               WHERE ticket_id = ? ORDER BY created_at ASC;";
