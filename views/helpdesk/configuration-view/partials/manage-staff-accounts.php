@@ -19,6 +19,16 @@ $staffList = $staffModel->getAllStaff();
         </option>
       <?php endforeach; ?>
     </select>
+    <!-- Dropdown: Role -->
+    <label for="role_id">Role:</label>
+    <select name="role_id" id="role_id">
+      <?php
+      $roles = $staffModel->getAllRoles(); // You’ll need to add this method
+      foreach ($roles as $role):
+      ?>
+        <option value="<?= $role['role_id'] ?>"><?= htmlspecialchars($role['role']) ?></option>
+      <?php endforeach; ?>
+    </select>
 
     <!-- Change Password -->
     <label for="password">New Password:</label>
@@ -33,30 +43,22 @@ $staffList = $staffModel->getAllStaff();
       <input type="checkbox" name="is_active" id="is_active" value="1">
       Active Status
     </label>
-
-    <!-- Checkbox: Is Admin -->
-    <label>
-      <input type="hidden" name="is_admin" value="0">
-      <input type="checkbox" name="is_admin" id="is_admin" value="1">
-      Admin Privileges
-    </label>
+    <br>
 
     <!-- Submit Button -->
     <button type="submit" id="updateStaff" disabled>Save Changes</button>
   </form>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-
     const staffSelect = document.getElementById("staff_id");
     const password = document.getElementById("password");
     const confirmPass = document.getElementById("confirm_password");
     const isActiveCheckbox = document.getElementById("is_active");
-    const isAdminCheckbox = document.getElementById("is_admin");
+    const roleSelect = document.getElementById("role_id");
     const submitBtn = document.getElementById("updateStaff");
 
-    const staffData = <?= json_encode($staffList, JSON_HEX_TAG) ?>; // Secure PHP data embedding
+    const staffData = <?= json_encode($staffList, JSON_HEX_TAG) ?>;
 
     let originalData = {};
 
@@ -67,29 +69,32 @@ $staffList = $staffModel->getAllStaff();
       if (selectedStaff) {
         originalData = {
           is_active: selectedStaff.is_active == 1,
-          is_admin: selectedStaff.is_admin == 1
+          role_id: selectedStaff.role_id
         };
 
         isActiveCheckbox.checked = originalData.is_active;
-        isAdminCheckbox.checked = originalData.is_admin;
+        roleSelect.value = originalData.role_id;
       }
 
-      validateForm(); // Revalidate after selection change
+      validateForm();
     });
 
     function validateForm() {
       const isPasswordChanged = password.value.trim() !== "";
-      const isConfirmFilled = confirmPass.value.trim() !== "";
       const passwordsMatch = password.value === confirmPass.value;
       const isActiveChanged = isActiveCheckbox.checked !== originalData.is_active;
-      const isAdminChanged = isAdminCheckbox.checked !== originalData.is_admin;
+      const roleChanged = roleSelect.value != originalData.role_id;
 
-      submitBtn.disabled = !((isPasswordChanged && passwordsMatch) || isActiveChanged || isAdminChanged);
+      submitBtn.disabled = !(
+        (isPasswordChanged && passwordsMatch) ||
+        isActiveChanged ||
+        roleChanged
+      );
     }
 
     password.addEventListener("input", validateForm);
     confirmPass.addEventListener("input", validateForm);
     isActiveCheckbox.addEventListener("change", validateForm);
-    isAdminCheckbox.addEventListener("change", validateForm);
+    roleSelect.addEventListener("change", validateForm);
   });
 </script>

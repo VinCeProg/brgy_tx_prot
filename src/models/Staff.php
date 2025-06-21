@@ -42,7 +42,7 @@ class Staff
   {
     $stmt = $this->conn->prepare(
       "
-    SELECT staff_id, resident_id, fullname, is_active, is_admin
+    SELECT staff_id, resident_id, fullname, is_active, role_id
     FROM staff_accounts"
     );
     $stmt->execute();
@@ -50,55 +50,54 @@ class Staff
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 
-  public function getRolePermission($role) {
+  public function getRolePermission($role)
+  {
     $stmt = $this->conn->prepare("SELECT * FROM staff_roles WHERE role_id = ?");
     $stmt->bind_param("i", $role);
     $stmt->execute();
     return $stmt->get_result()->fetch_assoc();
   }
 
+  public function getAllRoles()
+  {
+    $stmt = $this->conn->prepare("SELECT role_id, role FROM staff_roles");
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
+
   // || UPDATE FUNCTIONS
-  public function updateStaff($staff_id, $newPassword = null, $is_admin = null, $is_active = null)
+  public function updateStaff($staff_id, $newPassword = null, $is_active = null, $role_id = null)
   {
     $fields = [];
     $params = [];
     $paramTypes = "";
 
-    // If password is provided, hash it
     if ($newPassword !== null) {
       $fields[] = "password = ?";
       $params[] = password_hash($newPassword, PASSWORD_DEFAULT);
       $paramTypes .= "s";
     }
 
-    // If is_admin is provided
-    if ($is_admin !== null) {
-      $fields[] = "is_admin = ?";
-      $params[] = $is_admin;
-      $paramTypes .= "i";
-    }
-
-    // If is_active is provided
     if ($is_active !== null) {
       $fields[] = "is_active = ?";
       $params[] = $is_active;
       $paramTypes .= "i";
     }
 
-    // Ensure at least one field is being updated
-    if (empty($fields)) {
-      return false;
+    if ($role_id !== null) {
+      $fields[] = "role_id = ?";
+      $params[] = $role_id;
+      $paramTypes .= "i";
     }
 
-    // Build the dynamic SQL query
+    if (empty($fields)) return false;
+
     $query = "UPDATE staff_accounts SET " . implode(", ", $fields) . " WHERE staff_id = ?";
     $params[] = $staff_id;
     $paramTypes .= "i";
 
-    // Prepare and execute the query
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param($paramTypes, ...$params);
-
     return $stmt->execute();
   }
 }
