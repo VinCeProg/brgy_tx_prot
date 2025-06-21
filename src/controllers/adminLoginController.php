@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $staff = new Staff($conn);
   $staff_data = $staff->getStaffByID($staff_id);
 
+
   if (!$staff_data['is_active']) {
     echo "<script>
         alert('Staff Account Inactive.');
@@ -34,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($staff_data && password_verify($password, $staff_data['password'])) {
     unset($staff_data['password']);
     $_SESSION['staff'] = $staff_data;
+    $_SESSION['staff_permissions'] = $staff->getRolePermission($staff_data['role_id']);
     $_SESSION['is_staff_logged_in'] = true;
 
     header("Location: /brgy_tx_prot/views/helpdesk/index.php");

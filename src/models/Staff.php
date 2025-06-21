@@ -50,6 +50,13 @@ class Staff
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 
+  public function getRolePermission($role) {
+    $stmt = $this->conn->prepare("SELECT * FROM staff_roles WHERE role_id = ?");
+    $stmt->bind_param("i", $role);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+  }
+
   // || UPDATE FUNCTIONS
   public function updateStaff($staff_id, $newPassword = null, $is_admin = null, $is_active = null)
   {
