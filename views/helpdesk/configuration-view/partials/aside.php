@@ -14,6 +14,7 @@
     <ul>
       <li><a href="?page=manage-resolvedtx-display">Manage Resolved Tickets Display</a></li>
       <li><a href="?page=add-resolvedtx-display">Add New Display</a></li>
+      <li><a href="?page=manage-content">Manage Headlines</a></li>
     </ul>
   </div>
   <hr>

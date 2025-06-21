@@ -13,7 +13,7 @@
 
 
   $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-  $allowed_pages = ['manage-resident-accounts', 'manage-staff-accounts', 'create-staff-account', 'manage-resolvedtx-display', 'add-resolvedtx-display', 'config-page'];
+  $allowed_pages = ['manage-resident-accounts', 'manage-staff-accounts', 'create-staff-account', 'manage-resolvedtx-display', 'add-resolvedtx-display', 'config-page', 'manage-content'];
   if (in_array($page, $allowed_pages)) {
     $content = "partials/{$page}.php";
   } else {
