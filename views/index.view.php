@@ -19,6 +19,7 @@ $pagetitle = 'Home';
     <?php require("partials/head-ticket.php") ?>
     <?php require("partials/ticket-table-resolved.php") ?>
     <?php require("partials/mission-vision.php") ?>
+    <?php require("partials/safety-regulations.php") ?>
 
   </main>
   <?php require("partials/footer.php") ?>

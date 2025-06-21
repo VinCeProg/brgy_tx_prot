@@ -1,7 +1,7 @@
 <?php
 $base_path = ($_SERVER['REQUEST_URI'] === "/brgy_tx_prot/views/dashboard/index.php")
-    ? "../../public/content/test.json"
-    : "../public/content/test.json";
+    ? "../../public/content/headline.json"
+    : "../public/content/headline.json";
 
 $content_data = json_decode(file_get_contents($base_path), true);
 ?>

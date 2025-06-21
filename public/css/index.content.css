@@ -554,6 +554,134 @@
   background: #004099;
 }
 
+/* SAFETY REGULATIONS */
+
+.regulation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  line-height: 1.6;
+}
+
+.regulations {
+  flex: 3;
+  min-width: 0;
+  padding: 0 24px;
+  max-height: 220px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.6s ease;
+}
+
+.regulation-container h1 {
+  font-size: 2em;
+  color: #002486;
+  /* blue-700 */
+  margin-bottom: 0.5em;
+}
+
+.regulation-container h2 {
+  font-size: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #002486;
+  /* gray-900 */
+}
+
+.regulation-container h3 {
+  font-size: 1.2em;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+  color: #002486;
+  /* slightly lighter blue */
+}
+
+.regulation-container ul {
+  padding-left: 1.2em;
+  margin-bottom: 1em;
+}
+
+.regulation-container ul li {
+  margin-bottom: 0.4em;
+}
+
+.regulation-container p {
+  margin-bottom: 1em;
+}
+
+.contact {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.contact img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.fade-collapsed::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  pointer-events: none;
+}
+
+.regulations.expanded {
+  max-height: 9999px;
+  /* acts like auto, but animates */
+}
+
+.regulations.expanded::after {
+  content: none;
+}
+
+.regulation-toggle {
+  display: inline-flex;
+  align-items: center;
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  gap: 8px;
+}
+
+.regulation-toggle:hover {
+  background-color: #1a252f;
+}
+
+.regulation-toggle::before {
+  content: "☰";
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.regulation-toggle.expanded::before {
+  content: "✕";
+  transform: rotate(180deg);
+}
+
+
 
 @media (max-width: 768px) {
 

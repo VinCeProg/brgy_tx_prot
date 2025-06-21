@@ -1,5 +1,5 @@
 <?php
-$jsonPath = __DIR__ . '/../../../../public/content/test.json'; // Adjust path if needed
+$jsonPath = __DIR__ . '/../../../../public/content/headline.json'; // Adjust path if needed
 $data = json_decode(file_get_contents($jsonPath), true);
 $uploadDir = __DIR__ . '/../../../../public/images/';
 
@@ -27,21 +27,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 ?>
-
+<div class="edit-display-form">
 <form method="POST" enctype="multipart/form-data">
-  <label>Title:</label><br>
+  <label>Title:</label>
   <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required><br><br>
 
-  <label>Paragraphs:</label><br>
+  <label>Paragraphs:</label>
   <?php foreach ($data['paragraphs'] as $para): ?>
-    <textarea name="paragraphs[]" rows="3" cols="60"><?= htmlspecialchars($para) ?></textarea><br><br>
+    <textarea name="paragraphs[]" rows="3" cols="60"><?= htmlspecialchars($para) ?></textarea><br>
   <?php endforeach; ?>
   <!-- One extra for adding a new paragraph -->
-  <textarea name="paragraphs[]" rows="3" cols="60" placeholder="Add new paragraph..."></textarea><br><br>
+  <textarea name="paragraphs[]" rows="3" cols="60" placeholder="Add new paragraph..."></textarea><br>
 
-  <label>Upload Image:</label><br>
+  <label>Upload Image:</label>
   <input type="file" name="imageFile" accept="image/*"><br>
+  <br>
   <img src="<?= htmlspecialchars($data['image']) ?>" width="200px">
   <br>
   <button type="submit">Save Changes</button>
 </form>
+</div>
