@@ -17,7 +17,6 @@ $ticket = new Ticket($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-
   $web_path = "/brgy_tx_prot/uploads/default.png"; // Default image path
   $upload_dir = __DIR__ . '/../../uploads/';       // Physical folder path
 
@@ -46,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     "description" => cleanInput($_POST['description']),
     "file_path" => $web_path,
     "requested_by" => $_SESSION['resident']['UserID'],
-    "issue_address" => cleanInput($_POST['issue_address'])
+    "issue_address" => cleanInput($_POST['issue_address']),
+    "anon_flag" => isset($_POST['anon_flag']) && $_POST['anon_flag'] === "1" ? 1 : 0
   ];
 
   // Create ticket

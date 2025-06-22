@@ -12,16 +12,17 @@ class Ticket
   // || CREATE
   public function createTicket($data)
   {
-    $query = "INSERT INTO tickets (subject, description, issue_type, requested_by, file_path, issue_address) VALUES (?,?,?,?,?,?);";
+    $query = "INSERT INTO tickets (subject, description, issue_type, requested_by, file_path, issue_address, anon_flag) VALUES (?,?,?,?,?,?,?);";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param(
-      "sssiss",
+      "sssissi",
       $data['subject'],
       $data['description'],
       $data['issue_type'],
       $data['requested_by'],
       $data['file_path'],
-      $data['issue_address']
+      $data['issue_address'],
+      $data['anon_flag']
     );
     return $stmt->execute();
   }
