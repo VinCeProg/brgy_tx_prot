@@ -27,7 +27,7 @@
             <td><?= htmlspecialchars($ticket['subject']) ?></td>
             <td><?= htmlspecialchars($ticket['issue_address']) ?></td>
             <td class="status-text"><?= ucfirst(htmlspecialchars($ticket['status'])) ?></td>
-            <td><?= htmlspecialchars($ticket['FullName']) ?></td>
+            <td><?= htmlspecialchars($ticket['anon_flag'] ? "Anonymous User" : $ticket['FullName']) ?></td>
             <td><?= htmlspecialchars($ticket['created_at']) ?></td>
             <td>
               <a href="/brgy_tx_prot/views/helpdesk/view-ticket.php?id=<?= htmlspecialchars($ticket['ticket_id']) ?>" class="view-btn">View Ticket</a>

@@ -17,19 +17,19 @@
           <th>Priority:</th>
           <td class="priority-display"><?= $ticket['priority_level'] ?></td>
           <th>Resident’s Name:</th>
-          <td><?= $ticket['FullName'] ?></td>
+          <td><?= $ticket['anon_flag'] ? "Anonymous User" :  $ticket['FullName'] ?></td>
         </tr>
         <tr>
           <th>Ticket No.:</th>
           <td><?= $ticket['ticket_id'] ?></td>
           <th>Phone Number:</th>
-          <td><?= $ticket['PhoneNo'] ?></td>
+          <td><?= $_SESSION['staff']['role_id']===1 || !$ticket['anon_flag'] ? htmlspecialchars($ticket['PhoneNo']) : "Hidden" ?></td>
         </tr>
         <tr>
           <th>Address:</th>
           <td colspan="1" class="faded"><?= $ticket['issue_address'] ?></td>
           <th>Email:</th>
-          <td><?= $ticket['Email'] ?></td>
+          <td><?= $_SESSION['staff']['role_id']===1 || !$ticket['anon_flag'] ? htmlspecialchars($ticket['Email']) : "Hidden"?></td>
         </tr>
         <tr>
           <th>Created At:</th>

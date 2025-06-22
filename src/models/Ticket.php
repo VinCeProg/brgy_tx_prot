@@ -53,6 +53,7 @@ class Ticket
           t.status,
           t.priority_level,
           t.updated_at,
+          t.anon_flag,
           CONCAT(r.FirstName, ' ', r.LastName) AS FullName
         FROM tickets t
         JOIN residents r ON t.requested_by = r.UserID
@@ -89,6 +90,7 @@ class Ticket
           t.status,
           t.priority_level,
           t.updated_at,
+          t.anon_flag,
           CONCAT(r.FirstName, ' ', r.LastName) AS FullName,
           r.Email,
           r.PhoneNo

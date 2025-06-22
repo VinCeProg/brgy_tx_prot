@@ -72,10 +72,17 @@ class ResidentMessage
   }
 
   public function getMessageByTicket($ticket_id)
-  { $query = "SELECT rm.*, CONCAT(r.FirstName, ' ', r.LastName) as fullname
+  {
+    $query = "SELECT rm.*, 
+                CASE 
+                  WHEN t.anon_flag = 1 THEN 'Anonymous User'
+                  ELSE CONCAT(r.FirstName, ' ', r.LastName)
+                END AS fullname
               FROM resident_ticket_messages rm
               JOIN residents r ON rm.resident_id = r.UserID
-              WHERE ticket_id = ? ORDER BY created_at ASC";
+              JOIN tickets t ON rm.ticket_id = t.ticket_id
+              WHERE rm.ticket_id = ?
+              ORDER BY rm.created_at ASC;";
     $stmt = $this->conn->prepare($query);
     $stmt->bind_param("i", $ticket_id);
     $stmt->execute();
