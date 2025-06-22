@@ -4,7 +4,7 @@
 </div>
 <br>
 <div class="config-container <?= ($_SESSION['staff_permissions']['manage_content']) === 1 ? '' : 'hidden' ?>">
-  <h3>Transparency Display</h3>
+  <h3>Content</h3>
   <ul>
     <li><a href="?page=manage-resolvedtx-display">Manage Resolved Tickets Display</a></li>
     <li><a href="?page=add-resolvedtx-display">Add New Display</a></li>
