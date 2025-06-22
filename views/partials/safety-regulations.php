@@ -1,6 +1,8 @@
 <div class="regulation-container">
-  <button class="regulation-toggle" title="Expand"></button>
-
+  <div class="regulation-btn-wrapper">
+    <button class="regulation-toggle" title="Expand"></button>
+    <button class="print-regulations" title="Print" onclick="printRegulations()"></button>
+  </div>
   <div class="regulations collapsed">
     <h1>Barangay Safety Regulations</h1>
     <p style="text-indent: 50px; text-align: justify;">
@@ -236,4 +238,26 @@
       //   : '☰ Show Regulations';
     });
   });
+</script>
+<script>
+  function printRegulations() {
+    const content = document.querySelector('.regulations').innerHTML;
+    const printWindow = window.open('', '', 'width=800,height=600');
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print - Barangay Safety Regulations</title>
+          <style>
+            body { font-family: sans-serif; padding: 40px; color: #333; line-height: 1.6; }
+            h1, h2, h3 { color: #002486; }
+            ol, ul { margin-left: 20px; }
+          </style>
+        </head>
+        <body onload="window.print(); window.close();">
+          ${content}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  }
 </script>
