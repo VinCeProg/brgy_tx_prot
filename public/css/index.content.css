@@ -874,4 +874,62 @@
     width: 100%;
     min-width: unset;
   }
+
+  .regulation-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    gap: 1.5rem;
+  }
+
+  .regulations {
+    padding: 0 20px;
+  }
+
+  .regulations.collapsed {
+    max-height: 220px;
+    overflow: hidden;
+  }
+
+  .regulations.expanded {
+    max-height: 9999px;
+  }
+
+  .regulations p {
+    text-align: left;
+    text-indent: 0;
+    font-size: 15px;
+  }
+
+  .regulation-container h1,
+  .regulation-container h2,
+  .regulation-container h3 {
+    font-size: 1.25em;
+  }
+
+  .contact {
+    justify-content: center;
+  }
+
+  .contact img {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+
+  .regulation-btn-wrapper {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .regulation-toggle,
+  .print-regulations {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .fade-collapsed::after {
+    height: 40px;
+  }
 }
