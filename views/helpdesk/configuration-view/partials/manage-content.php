@@ -4,8 +4,9 @@ $data = json_decode(file_get_contents($jsonPath), true);
 $uploadDir = __DIR__ . '/../../../../public/images/';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $data['title'] = $_POST['title'];
-  $data['paragraphs'] = array_filter($_POST['paragraphs']); // Remove empty inputs
+  $data['title'] = htmlspecialchars($_POST['title']);
+  $rawParagraphs = array_filter($_POST['paragraphs']);
+  $data['paragraphs'] = array_map('htmlspecialchars', $rawParagraphs);
 
   // Handle image upload if a new file is provided
   if (isset($_FILES['imageFile']) && is_uploaded_file($_FILES['imageFile']['tmp_name'])) {
@@ -21,29 +22,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   if (file_put_contents($jsonPath, json_encode($data, JSON_PRETTY_PRINT))) {
-    echo "<p style='color:green;'>JSON updated successfully!</p>";
+    echo "<script>alert(`Announcement Updated Successfully`)</script>";
   } else {
     echo "<p style='color:red;'>Failed to write to JSON file.</p>";
   }
 }
 ?>
 <div class="edit-display-form">
-<form method="POST" enctype="multipart/form-data">
-  <label>Title:</label>
-  <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required><br><br>
+  <form method="POST" enctype="multipart/form-data">
+    <label>Title:</label>
+    <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required><br><br>
 
-  <label>Paragraphs:</label>
-  <?php foreach ($data['paragraphs'] as $para): ?>
-    <textarea name="paragraphs[]" rows="3" cols="60"><?= htmlspecialchars($para) ?></textarea><br>
-  <?php endforeach; ?>
-  <!-- One extra for adding a new paragraph -->
-  <textarea name="paragraphs[]" rows="3" cols="60" placeholder="Add new paragraph..."></textarea><br>
+    <label>Paragraphs:</label>
+    <?php foreach ($data['paragraphs'] as $para): ?>
+      <textarea name="paragraphs[]" rows="3" cols="60"><?= htmlspecialchars($para) ?></textarea><br>
+    <?php endforeach; ?>
+    <!-- One extra for adding a new paragraph -->
+    <textarea name="paragraphs[]" rows="3" cols="60" placeholder="Add new paragraph..."></textarea><br>
 
-  <label>Upload Image:</label>
-  <input type="file" name="imageFile" accept="image/*"><br>
-  <br>
-  <img src="<?= htmlspecialchars($data['image']) ?>" width="200px">
-  <br>
-  <button type="submit">Save Changes</button>
-</form>
+    <label>Upload Image:</label>
+    <input type="file" name="imageFile" accept="image/*"><br>
+    <br>
+    <img src="<?= htmlspecialchars($data['image']) ?>" width="200px">
+    <br>
+    <button type="submit">Save Changes</button>
+  </form>
 </div>
