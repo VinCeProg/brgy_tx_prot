@@ -21,16 +21,14 @@
   <label for="description">Description</label>
   <textarea name="description" id="description" rows="4" maxlength="500" required placeholder="Provide more details about your request or complaint. Include time when the issue happened or links if relevant."></textarea><br>
 
+  <label for="file">Attach file (image/video only)</label> <br>
+  <input type="file" id="file" name="file" accept="image/*,video/*" data-max-size="5242880">
+  <div id="file-preview" style="margin-top: 10px;"></div>
+  <div class="note"><strong>Note:</strong> <em>You can only upload <strong>one file</strong>. If you need to include more, please add a link in the description.</em></div>
   <label for="anon_flag">
     <input type="checkbox" name="anon_flag" value="1">
     Submit Anonymously
   </label> <br> <br>
-
-  <label for="file">Attach file (image/video only)</label> <br>
-  <input type="file" id="file" name="file" accept="image/*,video/*" data-max-size="5242880">
-  <div id="file-preview" style="margin-top: 10px;"></div> <br>
-  <div class="note"><strong>Note:</strong> <em>You can only upload <strong>one file</strong>. If you need to include more, please add a link in the description.</em></div>
-
   <input type="submit" value="SUBMIT TICKET">
 
 </form>
