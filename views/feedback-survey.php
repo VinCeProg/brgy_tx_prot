@@ -1,21 +1,29 @@
 <?php
-  $pagetitle = 'Feedback Form';
-  session_start();
-  require("../functions.php");
-  require("partials/html.head.php"); 
+$pagetitle = 'Feedback Form';
+session_start();
+require("../functions.php");
+require("partials/html.head.php");
+// print_r($_SESSION);
+// exit();
 ?>
 
 <body>
 
-  <?php require("partials/navbar.php"); ?>
+  <?php
+  $navbar = (isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in']) ? "partials/newnav.php" : "partials/navbar.php";
+  require($navbar);
+  ?>
 
   <main>
-    <?php
-    require("partials/feedback-form.php");
-    ?>
+    <div class="logreg-container">
+      <?php
+      require("partials/feedback-form.php");
+      ?>
+    </div>
   </main>
 
   <?php require("partials/footer.php"); ?>
-  
+
 </body>
+
 </html>

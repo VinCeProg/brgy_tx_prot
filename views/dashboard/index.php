@@ -19,6 +19,7 @@ require("../partials/html.head.php");
     ?>
 
   </main>
+  <a href="/brgy_tx_prot/views/feedback-survey.php" class="floating-feedback-btn"></a>
   <?php require("../partials/footer.php") ?>
 </body>
 
