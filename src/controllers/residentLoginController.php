@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $resident = new Resident($conn);
   $residentData = $resident->getByEmail($email);
   if ($residentData && password_verify($password, $residentData['Password'])) {
+    session_regenerate_id(true);
     unset($residentData['Password']);
     $_SESSION['resident'] = $residentData;
     $_SESSION['is_logged_in'] = true;

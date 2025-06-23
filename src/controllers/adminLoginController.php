@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($staff_data && password_verify($password, $staff_data['password'])) {
     unset($staff_data['password']);
+    session_regenerate_id(true);
     $_SESSION['staff'] = $staff_data;
     $_SESSION['staff_permissions'] = $staff->getRolePermission($staff_data['role_id']);
     $_SESSION['is_staff_logged_in'] = true;
