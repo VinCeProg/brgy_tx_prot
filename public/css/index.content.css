@@ -918,8 +918,8 @@
   }
 
   .regulation-btn-wrapper {
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
     gap: 10px;
   }
 
