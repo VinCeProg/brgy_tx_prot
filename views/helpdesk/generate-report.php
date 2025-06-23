@@ -23,7 +23,7 @@ $status    = $_GET['status'] ?? null;
 $priority  = $_GET['priority'] ?? null;
 
 $tickets = $ticketModel->getFilteredTickets($startDate, $endDate, $status, $priority);
-// dd($_SERVER);
+// dd($tickets);
 ?>
 
 <!-- SheetJS for Excel -->
@@ -99,7 +99,7 @@ $tickets = $ticketModel->getFilteredTickets($startDate, $endDate, $status, $prio
             <td><?= htmlspecialchars($ticket['subject']) ?></td>
             <td><?= htmlspecialchars($ticket['status']) ?></td>
             <td><?= htmlspecialchars($ticket['priority_level']) ?></td>
-            <td><?= htmlspecialchars($ticket['requested_by']) ?></td>
+            <td><?= htmlspecialchars($ticket['fullname']) ?></td>
             <td><?= htmlspecialchars($ticket['created_at']) ?></td>
           </tr>
         <?php endforeach; ?>
@@ -110,6 +110,7 @@ $tickets = $ticketModel->getFilteredTickets($startDate, $endDate, $status, $prio
       <?php endif; ?>
     </tbody>
   </table>
+
   <script>
     function getTimestampedFilename(baseName, extension) {
       const now = new Date();

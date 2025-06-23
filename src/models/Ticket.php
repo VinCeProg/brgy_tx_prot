@@ -209,7 +209,13 @@ class Ticket
 
   public function getFilteredTickets($startDate = null, $endDate = null, $status = null, $priority = null)
   {
-    $query = "SELECT * FROM tickets WHERE 1=1";
+    $query = "SELECT t.*,
+              CASE 
+                WHEN t.anon_flag = 1 THEN 'Anonymous User'
+                ELSE CONCAT(r.FirstName, ' ', r.LastName)
+              END AS fullname
+              FROM tickets t
+              JOIN residents r ON t.requested_by = r.UserID";
     $params = [];
     $types = "";
 
