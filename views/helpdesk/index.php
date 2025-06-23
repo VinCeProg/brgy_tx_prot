@@ -7,7 +7,7 @@ require __DIR__ . "/../../config/database.php";
 require __DIR__ . "/../../src/models/Ticket.php";
 $ticketModel = new Ticket($conn);
 $tickets = $ticketModel->getAllTicketsWithFullName();
-// dd($_SERVER);
+// dd($_SESSION);
 ?>
 
 <body>

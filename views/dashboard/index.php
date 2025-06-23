@@ -3,7 +3,7 @@ $pagetitle = 'Dashboard';
 require("../../config/auth.php");
 require("../../functions.php");
 require("../partials/html.head.php");
-// dd($_SERVER);
+// dd($_SESSION);
 ?>
 
 <body>
