@@ -16,6 +16,7 @@ require("../partials/html.head.php");
       require("../partials/headline.php");
       require("../partials/brgy-transparency.php");
       require("../partials/mission-vision.php");
+      require("../partials/safety-regulations.php")
     ?>
 
   </main>
