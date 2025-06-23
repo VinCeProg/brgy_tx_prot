@@ -71,6 +71,9 @@ $tickets = $ticketModel->getFilteredTickets($startDate, $endDate, $status, $prio
           <option value="Urgent" <?= ($priority ?? '') === 'Urgent' ? 'selected' : '' ?>>Urgent</option>
         </select>
       </label>
+      <input type="text" id="live-search" placeholder="Search tickets..." style="margin-left:12px;">
+
+      <button type="button" id="reset-filters" class="reset-btn">Reset</button>
 
       <button type="submit">Filter</button>
       <div>
@@ -150,6 +153,29 @@ $tickets = $ticketModel->getFilteredTickets($startDate, $endDate, $status, $prio
       };
 
       html2pdf().set(opt).from(table).save();
+    });
+  </script>
+  <script>
+    // Live search functionality
+    document.getElementById('live-search').addEventListener('input', function() {
+      const search = this.value.toLowerCase();
+      const rows = document.querySelectorAll('.ticket-table tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(search) ? '' : 'none';
+      });
+    });
+
+    // Reset filters functionality
+    document.getElementById('reset-filters').addEventListener('click', function() {
+      // Clear all filter fields
+      document.querySelector('input[name="start_date"]').value = '';
+      document.querySelector('input[name="end_date"]').value = '';
+      document.querySelector('select[name="status"]').selectedIndex = 0;
+      document.querySelector('select[name="priority"]').selectedIndex = 0;
+      document.getElementById('live-search').value = '';
+      // Submit the form to reload all tickets
+      document.querySelector('.styled-report-filter').submit();
     });
   </script>
 </body>

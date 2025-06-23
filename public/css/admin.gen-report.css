@@ -57,3 +57,12 @@
 .styled-report-filter button:hover {
   background-color: var(--primary-color);
 }
+
+.styled-report-filter button.reset-btn {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.styled-report-filter button.reset-btn:hover {
+  background-color: #b71c1c; /* darker shade for hover, adjust as needed */
+}
