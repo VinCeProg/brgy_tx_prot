@@ -27,6 +27,15 @@ class Feedback
     return $result->fetch_all(MYSQLI_ASSOC);
   }
 
+  public function getFeedbackByRating(int $rating)
+  {
+    $stmt = $this->conn->prepare("SELECT * FROM feedback WHERE rating = ? ORDER BY created_at DESC");
+    $stmt->bind_param("i", $rating);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+  }
+
+
   public function getAverageRating()
   {
     $query = "SELECT AVG(rating) as avg_rating FROM feedback";
@@ -38,11 +47,11 @@ class Feedback
   public function getRatingCount()
   {
     $rating_counts = [
-        5 => 0,
-        4 => 0,
-        3 => 0,
-        2 => 0,
-        1 => 0
+      5 => 0,
+      4 => 0,
+      3 => 0,
+      2 => 0,
+      1 => 0
     ];
 
     $query = "SELECT rating, COUNT(*) AS total
@@ -65,5 +74,13 @@ class Feedback
       $output[] = ['rating' => $rating, 'total' => $total];
     }
     return $output;
+  }
+
+  public function getRecentFeedbacks($limit = 5)
+  {
+    $stmt = $this->conn->prepare("SELECT * FROM feedback ORDER BY created_at DESC LIMIT ?");
+    $stmt->bind_param("i", $limit);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
 }
