@@ -226,6 +226,7 @@ tbody tr:nth-child(even) {
   padding: 24px;
   background: #fff;
   border-radius: 8px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .feedback-form h2 {
