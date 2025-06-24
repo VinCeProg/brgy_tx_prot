@@ -58,7 +58,9 @@
         </a>
       </div>
 
-      <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php" class="edit-form" id="edit-form">
+      <form method="POST" action="/brgy_tx_prot/src/controllers/ticketUpdateController.php"
+            class="edit-form <?= $_SESSION['staff_permissions']['manage_tickets'] ? "" : "hidden" ?>" 
+            id="edit-form">
         <input type="hidden" name="ticket_id" value="<?= $ticket['ticket_id'] ?>">
         <p><strong>Update Ticket</strong></p>
         <label>Status: <br>
@@ -86,8 +88,8 @@
   <div class="ticket-log-container">
     <form action="/brgy_tx_prot/src/controllers/adminSendMessageController.php" method="POST">
       <input type="hidden" name="ticket_id" value="<?= htmlspecialchars($ticket['ticket_id']) ?>">
-      <textarea name="message" required placeholder="Type your message..."></textarea>
-      <button type="submit">Send Message</button>
+      <textarea name="message" required placeholder="Type your message..." class="<?= $_SESSION['staff_permissions']['manage_tickets'] ? "" : "hidden" ?>"></textarea>
+      <button type="submit" class="<?= $_SESSION['staff_permissions']['manage_tickets'] ? "" : "hidden" ?>">Send Message</button>
     </form>
 
     <div class="messages-container">
