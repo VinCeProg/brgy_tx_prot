@@ -209,6 +209,16 @@ select:focus {
   border-color: #007bff;
 }
 
+.btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-container>.btn {
+  width: 48%;
+}
+
 .btn {
   padding: 10px 16px;
   font-size: 14px;
@@ -236,6 +246,15 @@ select:focus {
 
 .btn-secondary:hover {
   background-color: #1e7e34;
+}
+
+.btn-reset {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn-reset:hover {
+  background-color: #b22222; /* darker shade of red */
 }
 
 .export-form {

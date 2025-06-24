@@ -39,7 +39,7 @@ foreach ($ratingCount as &$entry) {
 
 ?>
 <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.feedback.css">
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script> -->
 
 <body style="padding: 4px;">
   <?php require("partials/navbar.php"); ?>
@@ -125,11 +125,6 @@ foreach ($ratingCount as &$entry) {
           </div>
 
           <div class="form-group">
-            <label for="search">Search</label>
-            <input type="text" name="search" id="search" placeholder="Name or comment..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
-          </div>
-
-          <div class="form-group">
             <label for="from">From</label>
             <input type="date" name="from" id="from" value="<?= $_GET['from'] ?? '' ?>">
           </div>
@@ -137,6 +132,11 @@ foreach ($ratingCount as &$entry) {
           <div class="form-group">
             <label for="to">To</label>
             <input type="date" name="to" id="to" value="<?= $_GET['to'] ?? '' ?>">
+          </div>
+
+          <div class="form-group">
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search" placeholder="Name or comment..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
           </div>
 
           <div class="form-group">
@@ -148,8 +148,8 @@ foreach ($ratingCount as &$entry) {
               <option value="rating_asc" <?= ($_GET['sort'] ?? '') === 'rating_asc' ? 'selected' : '' ?>>Lowest Rating</option>
             </select>
           </div>
-
-          <div class="form-group full-width">
+          <div class="btn-container full-width">
+            <button type="button" class="btn btn-reset" id="reset-filters">Reset</button>
             <button type="submit" class="btn btn-primary">Apply Filters</button>
           </div>
         </div>
@@ -184,7 +184,7 @@ foreach ($ratingCount as &$entry) {
       </tbody>
     </table>
   </div>
-  
+
   <script>
     function getTimestampedFilename(baseName, extension) {
       const now = new Date();
@@ -200,6 +200,14 @@ foreach ($ratingCount as &$entry) {
       });
       const filename = getTimestampedFilename("feedback_report", "xlsx");
       XLSX.writeFile(wb, filename);
+    });
+
+    document.getElementById('reset-filters').addEventListener('click', function() {
+      const form = document.querySelector('.filters-group');
+      form.reset();
+
+      // Clear query string by reloading the page without parameters
+      window.location.href = window.location.pathname;
     });
   </script>
 </body>
