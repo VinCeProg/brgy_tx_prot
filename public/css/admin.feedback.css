@@ -111,9 +111,17 @@
 /* Recent Feedbacks */
 .recent-feedbacks {
   max-width: 600px;
+  max-height: 350px;
+  overflow-y: auto;
   margin: 30px auto;
   padding: 0 20px;
   font-family: sans-serif;
+}
+
+.recent-feedbacks h3 {
+  background-color: #fff;
+  position: sticky;
+  top: 0;
 }
 
 h3 {

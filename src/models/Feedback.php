@@ -83,4 +83,64 @@ class Feedback
     $stmt->execute();
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
   }
+
+  public function getFilteredFeedback($filters = [])
+  {
+    $sql = "SELECT * FROM feedback WHERE 1";
+    $params = [];
+    $types = "";
+
+    // Filter by rating
+    if (!empty($filters['rating']) && $filters['rating'] > 0) {
+      $sql .= " AND rating = ?";
+      $params[] = $filters['rating'];
+      $types .= "i";
+    }
+
+    // Search by name or comment
+    if (!empty($filters['search'])) {
+      $sql .= " AND (name LIKE ? OR comment LIKE ?)";
+      $searchTerm = '%' . $filters['search'] . '%';
+      $params[] = $searchTerm;
+      $params[] = $searchTerm;
+      $types .= "ss";
+    }
+
+    // Filter by date range
+    if (!empty($filters['from'])) {
+      $sql .= " AND DATE(created_at) >= ?";
+      $params[] = $filters['from'];
+      $types .= "s";
+    }
+    if (!empty($filters['to'])) {
+      $sql .= " AND DATE(created_at) <= ?";
+      $params[] = $filters['to'];
+      $types .= "s";
+    }
+
+    // Sorting
+    switch ($filters['sort'] ?? '') {
+      case 'date_asc':
+        $sql .= " ORDER BY created_at ASC";
+        break;
+      case 'rating_desc':
+        $sql .= " ORDER BY rating DESC, created_at DESC";
+        break;
+      case 'rating_asc':
+        $sql .= " ORDER BY rating ASC, created_at DESC";
+        break;
+      case 'date_desc':
+      default:
+        $sql .= " ORDER BY created_at DESC";
+        break;
+    }
+
+    $stmt = $this->conn->prepare($sql);
+    if (!empty($params)) {
+      $stmt->bind_param($types, ...$params);
+    }
+    $stmt->execute();
+    $result = $stmt->get_result();
+    return $result->fetch_all(MYSQLI_ASSOC);
+  }
 }

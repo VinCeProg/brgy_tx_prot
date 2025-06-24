@@ -16,9 +16,18 @@ require __DIR__ . "/../../src/models/Feedback.php";
 
 $feedbackModel = new Feedback($conn);
 $selectedRating = isset($_GET['filter_rating']) ? (int)$_GET['filter_rating'] : 0;
-$feedbacks = $selectedRating > 0
-  ? $feedbackModel->getFeedbackByRating($selectedRating)
-  : $feedbackModel->getAllFeedback();
+$search = trim($_GET['search'] ?? '');
+$from = $_GET['from'] ?? '';
+$to = $_GET['to'] ?? '';
+$sort = $_GET['sort'] ?? 'date_desc';
+
+$feedbacks = $feedbackModel->getFilteredFeedback([
+  'rating' => $selectedRating,
+  'search' => $search,
+  'from' => $from,
+  'to' => $to,
+  'sort' => $sort
+]);
 $recentFeedbacks = $feedbackModel->getRecentFeedbacks(5);
 $aveRating = $feedbackModel->getAverageRating();
 $ratingCount = $feedbackModel->getRatingCount();
@@ -30,6 +39,7 @@ foreach ($ratingCount as &$entry) {
 
 ?>
 <link rel="stylesheet" href="/brgy_tx_prot/public/css/admin.feedback.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
 <body style="padding: 4px;">
   <?php require("partials/navbar.php"); ?>
@@ -98,81 +108,100 @@ foreach ($ratingCount as &$entry) {
       </div>
     </div>
 
-<div class="feedback-controls">
-  <h3>Filter/Search</h3>
-    <form method="GET" class="filters-group">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="filter_rating">Filter by Rating</label>
-          <select name="filter_rating" id="filter_rating" onchange="this.form.submit()">
-            <option value="0">Show All</option>
-            <?php for ($r = 5; $r >= 1; $r--): ?>
-              <option value="<?= $r ?>" <?= ($selectedRating === $r) ? 'selected' : '' ?>>
-                <?= $r ?> Star<?= $r > 1 ? 's' : '' ?>
-              </option>
-            <?php endfor; ?>
-          </select>
-        </div>
+    <div class="feedback-controls">
+      <h3>Filter/Search</h3>
+      <form method="GET" class="filters-group">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="filter_rating">Filter by Rating</label>
+            <select name="filter_rating" id="filter_rating">
+              <option value="0">Show All</option>
+              <?php for ($r = 5; $r >= 1; $r--): ?>
+                <option value="<?= $r ?>" <?= ($selectedRating === $r) ? 'selected' : '' ?>>
+                  <?= $r ?> Star<?= $r > 1 ? 's' : '' ?>
+                </option>
+              <?php endfor; ?>
+            </select>
+          </div>
 
-        <div class="form-group">
-          <label for="search">Search</label>
-          <input type="text" name="search" id="search" placeholder="Name or comment..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
-        </div>
+          <div class="form-group">
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search" placeholder="Name or comment..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+          </div>
 
-        <div class="form-group">
-          <label for="from">From</label>
-          <input type="date" name="from" id="from" value="<?= $_GET['from'] ?? '' ?>">
-        </div>
+          <div class="form-group">
+            <label for="from">From</label>
+            <input type="date" name="from" id="from" value="<?= $_GET['from'] ?? '' ?>">
+          </div>
 
-        <div class="form-group">
-          <label for="to">To</label>
-          <input type="date" name="to" id="to" value="<?= $_GET['to'] ?? '' ?>">
-        </div>
+          <div class="form-group">
+            <label for="to">To</label>
+            <input type="date" name="to" id="to" value="<?= $_GET['to'] ?? '' ?>">
+          </div>
 
-        <div class="form-group">
-          <label for="sort">Sort By</label>
-          <select name="sort" id="sort">
-            <option value="date_desc" <?= ($_GET['sort'] ?? '') === 'date_desc' ? 'selected' : '' ?>>Newest First</option>
-            <option value="date_asc" <?= ($_GET['sort'] ?? '') === 'date_asc' ? 'selected' : '' ?>>Oldest First</option>
-            <option value="rating_desc" <?= ($_GET['sort'] ?? '') === 'rating_desc' ? 'selected' : '' ?>>Highest Rating</option>
-            <option value="rating_asc" <?= ($_GET['sort'] ?? '') === 'rating_asc' ? 'selected' : '' ?>>Lowest Rating</option>
-          </select>
-        </div>
+          <div class="form-group">
+            <label for="sort">Sort By</label>
+            <select name="sort" id="sort">
+              <option value="date_desc" <?= ($_GET['sort'] ?? '') === 'date_desc' ? 'selected' : '' ?>>Newest First</option>
+              <option value="date_asc" <?= ($_GET['sort'] ?? '') === 'date_asc' ? 'selected' : '' ?>>Oldest First</option>
+              <option value="rating_desc" <?= ($_GET['sort'] ?? '') === 'rating_desc' ? 'selected' : '' ?>>Highest Rating</option>
+              <option value="rating_asc" <?= ($_GET['sort'] ?? '') === 'rating_asc' ? 'selected' : '' ?>>Lowest Rating</option>
+            </select>
+          </div>
 
-        <div class="form-group full-width">
-          <button type="submit" class="btn btn-primary">Apply Filters</button>
+          <div class="form-group full-width">
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
 
-    <form method="POST" action="export_feedback.php" class="export-form">
-      <button type="submit" class="btn btn-secondary">Export to Excel</button>
-    </form>
+      <form method="POST" action="export_feedback.php" class="export-form">
+        <button type="submit" class="btn btn-secondary">Export to Excel</button>
+      </form>
+    </div>
+
   </div>
 
+  <div class="feedback-results">
+    <table id="feedback-table">
+      <thead>
+        <th>Feedback ID</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Created At</th>
+      </thead>
+      <tbody>
+        <?php foreach ($feedbacks as $feedback): ?>
+          <tr>
+            <td><?= htmlspecialchars($feedback['id']) ?></td>
+            <td><?= htmlspecialchars($feedback['name']) ?></td>
+            <td><?= htmlspecialchars($feedback['rating']) ?></td>
+            <td><?= htmlspecialchars($feedback['comment']) ?></td>
+            <td><?= htmlspecialchars($feedback['created_at']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
   </div>
   
+  <script>
+    function getTimestampedFilename(baseName, extension) {
+      const now = new Date();
+      const dateStr = now.toISOString().replace(/T/, '_').replace(/:/g, '-').replace(/\..+/, '');
+      return `${baseName}_${dateStr}.${extension}`;
+    }
 
-  <table>
-    <thead>
-      <th>Feedback ID</th>
-      <th>Name</th>
-      <th>Rating</th>
-      <th>Comment</th>
-      <th>Created At</th>
-    </thead>
-    <tbody>
-      <?php foreach ($feedbacks as $feedback): ?>
-        <tr>
-          <td><?= htmlspecialchars($feedback['id']) ?></td>
-          <td><?= htmlspecialchars($feedback['name']) ?></td>
-          <td><?= htmlspecialchars($feedback['rating']) ?></td>
-          <td><?= htmlspecialchars($feedback['comment']) ?></td>
-          <td><?= htmlspecialchars($feedback['created_at']) ?></td>
-        </tr>
-      <?php endforeach; ?>
-    </tbody>
-  </table>
+    document.querySelector('.export-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const table = document.getElementById("feedback-table");
+      const wb = XLSX.utils.table_to_book(table, {
+        sheet: "Feedback"
+      });
+      const filename = getTimestampedFilename("feedback_report", "xlsx");
+      XLSX.writeFile(wb, filename);
+    });
+  </script>
 </body>
 
 </html>
