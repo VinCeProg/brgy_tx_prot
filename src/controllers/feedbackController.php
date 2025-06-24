@@ -2,14 +2,13 @@
 session_start();
 require_once("../../config/database.php");
 require_once("../../src/models/Feedback.php");
-
 $feedback = new Feedback($conn);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $name = htmlspecialchars(trim($_POST['name'] ?? 'Anonymous'));
+  $name = trim($_POST['name'] ?? '');
+  $name = $name !== '' ? htmlspecialchars($name) : 'Anonymous User';
   $rating = intval($_POST['rating']);
   $comment = htmlspecialchars(trim($_POST['comment'] ?? ''));
-
   if ($rating >= 1 && $rating <= 5 && !empty($comment)) {
     if ($feedback->submitFeedback($name, $rating, $comment)) {
       echo "<script>alert('Thank you for your feedback!'); window.location.href = '/brgy_tx_prot/views/feedback-survey.php';</script>";
