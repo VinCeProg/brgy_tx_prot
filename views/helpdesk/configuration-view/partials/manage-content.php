@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $data['title'] = htmlspecialchars($_POST['title']);
   $rawParagraphs = array_filter($_POST['paragraphs']);
   $data['paragraphs'] = array_map('htmlspecialchars', $rawParagraphs);
+  $data['date'] = $_POST['date'];
 
   // Handle image upload if a new file is provided
   if (isset($_FILES['imageFile']) && is_uploaded_file($_FILES['imageFile']['tmp_name'])) {
@@ -30,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <div class="edit-display-form">
   <form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="date" value="<?= date("Y-m-d") ?>">
     <label>Title:</label>
     <input type="text" name="title" value="<?= htmlspecialchars($data['title']) ?>" required><br><br>
 
@@ -37,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php foreach ($data['paragraphs'] as $para): ?>
       <textarea name="paragraphs[]" rows="3" cols="60"><?= htmlspecialchars($para) ?></textarea><br>
     <?php endforeach; ?>
-    <!-- One extra for adding a new paragraph -->
+    
     <textarea name="paragraphs[]" rows="3" cols="60" placeholder="Add new paragraph..."></textarea><br>
 
     <label>Upload Image:</label>
