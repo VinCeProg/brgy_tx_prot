@@ -11,7 +11,7 @@ $content_data = json_decode(file_get_contents($base_path), true);
     <h2 id="greet">
       Maligayang pagdating sa Barangay PUP! Ngayon ay
     </h2>
-    <p>WHAT'S NEW</p>
+    <p>WHAT'S NEW?</p>
     <hr
       style="
             padding-bottom: 30px;
@@ -29,9 +29,11 @@ $content_data = json_decode(file_get_contents($base_path), true);
 
     <div class="headline-two">
       <img src="<?= $content_data['image'] ?>" alt="Job Hunt" />
+      
       <h3>
         <?= $content_data['title'] ?>
       </h3>
+      <h4>by <?= $content_data['author'] . ", " . $content_data['date'] ?></h4>
       <?php foreach ($content_data['paragraphs'] as $paragraph): ?>
         <p><?= $paragraph ?></p>
         <br>

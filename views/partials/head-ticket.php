@@ -15,6 +15,8 @@
         <a href="<?= isset($_SESSION['resident']) ? 'submission.php' : '/brgy_tx_prot/views/login.php' ?>" class="btn btn-primary">Submit a Request</a>
         <a href="<?= isset($_SESSION['resident']) ? 'tickets.php' : '/brgy_tx_prot/views/login.php' ?>" class="btn btn-secondary">🔍 Track Status</a>
       </div>
+      <br>
+      <p>Struggling to submit a request? <a href="/brgy_tx_prot/views/frequently-asked-questions.php" class="btn btn-secondary">Click Here</a></p>
     </div>
   </div>
 </div>
