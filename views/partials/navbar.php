@@ -1,10 +1,17 @@
+<?php
+$current_uri = $_SERVER['REQUEST_URI']; 
+$isDashboard = strpos($current_uri, "/brgy_tx_prot/views/dashboard/") !== false;
+
+// Define correct home URL
+$home_url = $isDashboard ? "/brgy_tx_prot/views/dashboard/index.php" : "/brgy_tx_prot/index.php";
+?>
 <header>
   <div class="title">
     <a href="#"><img src="/brgy_tx_prot/public/images/barangay.svg" alt="Baranggay Logo" /></a>
   </div>
   <nav class="navbar">
     <ul>
-      <li><a href="/brgy_tx_prot/index.php">HOME</a></li>
+      <li><a href="<?php echo $home_url; ?>">HOME</a></li>
       <li><a href="#transparency-service">GALLERY</a></li>
       <li><a href="#headline">CONTACTS</a></li>
       <li><a href="#about-us">ABOUT</a></li>
