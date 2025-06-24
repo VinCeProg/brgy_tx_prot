@@ -2,6 +2,7 @@
   <img src="/brgy_tx_prot/public/images/barangay.svg" alt="Logo" style="width: 56px" />
   <nav>
     <a href="/brgy_tx_prot/views/helpdesk/index.php" class="<?= $pagetitle === 'Overview' ? 'active' : '' ?>">Overview</a>
+    <a href="#" class="<?= $pagetitle === 'Feedback' ? 'active' : '' ?> <?= $_SESSION['staff_permissions']['manage_content'] === 1 ? '' : 'hidden' ?>">Feedback</a>
     <a href="/brgy_tx_prot/views/helpdesk/generate-report.php" class="<?= $pagetitle === 'Reporting' ? 'active' : '' ?> <?= $_SESSION['staff_permissions']['generate_report'] === 1 ? '' : 'hidden' ?>">Reporting</a>
     <a href="/brgy_tx_prot/views/helpdesk/configuration-view/index.php?page=config-page" class="<?= $pagetitle === 'Configuration' ? 'active' : '' ?>">Configuration</a>
   </nav>
