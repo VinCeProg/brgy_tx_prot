@@ -2,6 +2,25 @@
 
 A web-based application for managing barangay transactions, records, and resident information.
 
+---
+
+## 📢 New Update
+
+### Barangay Request and Complaint Management System Update
+
+**Resident Care Portal Enhancements:**
+- Introduced a comprehensive Frequently Asked Questions section to assist residents with common inquiries.
+- Published the Barangay Safety Regulations to promote community awareness and compliance.
+- Rolled out a Feedback Survey to gather insights and improve resident engagement.
+- Added a clear and concise Terms and Conditions page outlining platform usage policies.
+
+**Staff Portal Improvements:**
+- Refactored role management: The system now supports scalable role-based access control, allowing easy addition of new roles and permissions to support future growth.
+- Implemented a Manage Announcements Headline feature for streamlined communication.
+- Launched a dedicated Feedback Dashboard to monitor and evaluate resident input efficiently.
+
+---
+
 ## Features
 
 ### Dashboard (Residents)
