@@ -14,7 +14,7 @@ A web-based application for managing barangay transactions, records, and residen
 - Rolled out a Feedback Survey to gather insights and improve resident engagement.
 - Added a clear and concise Terms and Conditions page outlining platform usage policies.
 
-**Staff Portal Improvements:**
+**Helpdesk Improvements:**
 - Refactored role management: The system now supports scalable role-based access control, allowing easy addition of new roles and permissions to support future growth.
 - Implemented a Manage Announcements Headline feature for streamlined communication.
 - Launched a dedicated Feedback Dashboard to monitor and evaluate resident input efficiently.
