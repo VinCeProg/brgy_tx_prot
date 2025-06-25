@@ -10,14 +10,17 @@ require BASE_PATH . '/src/models/Resident.php';
 function cleanInput($value) {
   return htmlspecialchars(trim($value), ENT_QUOTES, 'UTF-8');
 }
-
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+// exit();
 $resident = new Resident($conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $data = [
     'first_name' => cleanInput($_POST['firstname']),
     'last_name' => cleanInput($_POST['lastname']),
-    'address' => cleanInput($_POST['address']),
+    'address' => cleanInput($_POST['house-number'] . " " . $_POST['street'] . " " . $_POST['zone']),
     'email' => cleanInput($_POST['email']),
     'phone_no' => cleanInput($_POST['phone']),
     'password' => $_POST['password']

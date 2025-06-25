@@ -73,6 +73,17 @@ body {
   font-size: 1em;
 }
 
+.address-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.address-field {
+  width: 32%;
+  flex-grow: 1;
+}
+
 /* signup form */
 .signup-form {
   height: auto;
@@ -345,9 +356,6 @@ tbody tr:nth-child(even) {
 }
 
 /* terms and conditions */
-
-/* ...existing code... */
-
 #terms-popover.popover {
   background-color: rgba(0, 0, 0, 0.55);
   display: flex;
@@ -368,7 +376,7 @@ tbody tr:nth-child(even) {
   width: 95vw;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
   font-family: 'Outfit', Arial, sans-serif;
   color: #222;
   position: relative;
@@ -376,8 +384,15 @@ tbody tr:nth-child(even) {
 }
 
 @keyframes popover-fade-in {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #terms-popover .popover-content h2,
@@ -477,8 +492,19 @@ tbody tr:nth-child(even) {
     max-width: 98vw;
     font-size: 0.97em;
   }
+
   #terms-popover .terms-and-conditions {
     padding: 1rem 0.2rem;
+  }
+
+  .address-container {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .address-field {
+    width: 100%;
+    flex-grow: 1;
   }
 }
 

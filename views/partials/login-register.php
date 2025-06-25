@@ -44,7 +44,11 @@
         <input type="text" id="lastname" name="lastname" placeholder="Dela Cruz" required><br>
 
         <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder="1904 Pureza St. Sta. Mesa, Manila City, NCR" required><br>
+        <div class="address-container">
+          <div class="address-field"><input type="text" id="house_number" name="house-number" placeholder="House/Bldg No" required></div>
+          <div class="address-field"><input type="text" id="street" name="street" placeholder="Street" required></div>
+          <div class="address-field"><input type="text" id="zone" name="zone" placeholder="Zone (Purok)" required></div>
+        </div>
       </fieldset>
       <br>
 
@@ -129,7 +133,7 @@
   closeTermsBtn.addEventListener('click', function() {
     termsPopover.style.visibility = 'hidden';
   });
-  
+
   checkTncBtn.addEventListener('click', function() {
     eulaCheckbox.checked = true;
     termsPopover.style.visibility = 'hidden';
