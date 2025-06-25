@@ -74,7 +74,7 @@
       <label>
         <input type="checkbox" id="eula" required>
         I have read the
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+        <a href="#" id="terms-link">
           Terms and Conditions
         </a>
       </label>
@@ -83,11 +83,18 @@
       <input type="submit" name="register" value="Create Account" class="form-btn" id="signup" disabled>
       <br>
     </form>
-
     <p style="text-align: center;">
       Already have an account?
       <button type="button" class="get-login get-btn">Login!</button>
     </p>
+    <!-- Terms and Conditions Popover -->
+    <div id="terms-popover" class="popover terms-and-conditions" style="visibility: hidden;">
+      <div class="popover-content" style="max-height: 70vh; overflow-y: auto;">
+        <?php require "terms-and-conditions.php" ?>
+        <button id="check-tnc">I agree to these Terms and Conditions</button>
+        <button id="close-terms-popover" style="margin-top: 10px;">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 <script src="/brgy_tx_prot/public/js/reg-confirm-pass.js" defer></script>
@@ -104,5 +111,27 @@
 
   closeBtn.addEventListener('click', function() {
     popover.style.visibility = 'hidden'; // Fix: Hide popover properly
+  });
+</script>
+<script>
+  // Terms and Conditions Popover Logic
+  const termsLink = document.getElementById('terms-link');
+  const termsPopover = document.getElementById('terms-popover');
+  const closeTermsBtn = document.getElementById('close-terms-popover');
+  const checkTncBtn = document.getElementById('check-tnc');
+  const eulaCheckbox = document.getElementById('eula');
+
+  termsLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    termsPopover.style.visibility = 'visible';
+  });
+
+  closeTermsBtn.addEventListener('click', function() {
+    termsPopover.style.visibility = 'hidden';
+  });
+  
+  checkTncBtn.addEventListener('click', function() {
+    eulaCheckbox.checked = true;
+    termsPopover.style.visibility = 'hidden';
   });
 </script>

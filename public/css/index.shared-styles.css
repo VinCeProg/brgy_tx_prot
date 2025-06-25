@@ -289,12 +289,12 @@ tbody tr:nth-child(even) {
 
 /* Hover effect */
 .rating-stars label:hover,
-.rating-stars label:hover ~ label {
+.rating-stars label:hover~label {
   color: #ffcc33;
 }
 
 /* Selected state */
-.rating-stars input:checked ~ label {
+.rating-stars input:checked~label {
   color: #ffcc33;
 }
 
@@ -344,6 +344,88 @@ tbody tr:nth-child(even) {
   opacity: 1;
 }
 
+/* terms and conditions */
+
+/* ...existing code... */
+
+#terms-popover.popover {
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+#terms-popover.popover[style*="visible"] {
+  visibility: visible;
+}
+
+#terms-popover .popover-content {
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 95vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  font-family: 'Outfit', Arial, sans-serif;
+  color: #222;
+  position: relative;
+  animation: popover-fade-in 0.3s;
+}
+
+@keyframes popover-fade-in {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+#terms-popover .popover-content h2,
+#terms-popover .popover-content h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+#terms-popover .popover-content ol {
+  margin-left: 1.2em;
+  margin-bottom: 1.2em;
+}
+
+#terms-popover .popover-content li {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+#terms-popover .popover-content strong {
+  color: var(--secondary-color);
+}
+
+#terms-popover .popover-content button {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.6em 2em;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: 'Outfit', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#terms-popover .popover-content button:hover {
+  background: var(--secondary-color);
+}
+
+#terms-popover .popover-content,
+#terms-popover .terms-and-conditions,
+#terms-popover .terms-and-conditions p,
+#terms-popover .terms-and-conditions ol,
+#terms-popover .terms-and-conditions li {
+  text-align: left;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -388,6 +470,15 @@ tbody tr:nth-child(even) {
 
   .form-cont {
     width: 90%;
+  }
+
+  #terms-popover .popover-content {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+    font-size: 0.97em;
+  }
+  #terms-popover .terms-and-conditions {
+    padding: 1rem 0.2rem;
   }
 }
 
