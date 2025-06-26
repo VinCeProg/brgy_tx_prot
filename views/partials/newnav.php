@@ -18,7 +18,7 @@ $home_url = $isDashboard ? "/brgy_tx_prot/views/dashboard/index.php" : "/brgy_tx
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#transparency-service">GALLERY</a></li>
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#headline">CONTACTS</a></li>
       <li><a href="/brgy_tx_prot/views/dashboard/index.php#about-us">ABOUT</a></li>
-      <li><a href="/brgy_tx_prot/views/dashboard/index.php#about-us">FAQ</a></li>
+      <li><a href="frequently-asked-questions.php">FAQ</a></li>
     </ul>
 
     <div class="login-wrapper" title="Logout">

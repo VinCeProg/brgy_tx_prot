@@ -1,7 +1,6 @@
  <?php
   // dd($_SERVER);
   $pagetitle = 'Configuration';
-  session_start();
   require("../../../config/staff-auth.php"); //for login auth
   require("../../../functions.php");
   require("../partials/html.head.php");
