@@ -15,7 +15,7 @@
             <a href="https://www.officialgazette.gov.ph/privacy-policy/">Privacy Policy</a>
           </li>
           <li>
-            <a href="frequently-asked-questions.php">Frequently Asked Questions</a>
+            <a href="<?= isset($_SESSION['is_logged_in']) ? "../frequently-asked-questions.php" : "frequently-asked-questions.php" ?>">Frequently Asked Questions</a>
           </li>
         </ul>
         <p>
