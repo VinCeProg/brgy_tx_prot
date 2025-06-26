@@ -47,6 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
     <img src="<?= htmlspecialchars($data['image']) ?>" width="200px">
     <br>
-    <button type="submit">Save Changes</button>
+    <button type="submit">Publish</button>
   </form>
 </div>

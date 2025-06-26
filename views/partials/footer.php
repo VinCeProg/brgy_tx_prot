@@ -10,12 +10,12 @@
         <h4>Republic of the Philippines</h4>
         <p>All content is in the public domain unless otherwise stated.</p>
         <ul>
-          <li><a href="https://pco.gov.ph/ICTD-CSM">Feedback Form</a></li>
+          <li><a href="feedback-survey.php">Feedback Form</a></li>
           <li>
             <a href="https://www.officialgazette.gov.ph/privacy-policy/">Privacy Policy</a>
           </li>
           <li>
-            <a href="https://www.officialgazette.gov.ph/faq/">Frequently Asked Questions</a>
+            <a href="frequently-asked-questions.php">Frequently Asked Questions</a>
           </li>
         </ul>
         <p>
