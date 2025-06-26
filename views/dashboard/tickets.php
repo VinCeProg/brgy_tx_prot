@@ -1,6 +1,6 @@
 <?php
 $pagetitle = 'Issue Tracker';
-session_start();
+// session_start();
 require_once("../../config/auth.php");
 require("../../functions.php");
 require("../partials/html.head.php");
